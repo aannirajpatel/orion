@@ -9,12 +9,7 @@ require('../includes/courseownershipauth.php');
 require('../includes/resconfig.php');
 $email = $_SESSION['email'];
 $uid = $_SESSION['uid'];
-if(isset($_SESSION['back'])){
-    $back = $_SESSION['back'];
-} else{
-    $back = "";
-}
-$_SESSION['back'] = "coursepreview.php";
+$back = end($_SESSION['back']);
 $profileImageFileName = "";
 $profileImageFileNameQuery = "SELECT profileImageFileName FROM user WHERE email='$email'";
 $profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or die(mysqli_error($con));

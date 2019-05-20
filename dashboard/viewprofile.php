@@ -9,64 +9,22 @@ require('../includes/courseownershipauth.php');
 require('../includes/resconfig.php');
 $email = $_SESSION['email'];
 $uid = $_SESSION['uid'];
-if(count($_SESSION['back'])>0){
+if (count($_SESSION['back']) > 0) {
     $back = array_pop($_SESSION['back']);
 }
+
 $profileImageFileName = "";
 $profileImageFileNameQuery = "SELECT profileImageFileName FROM user WHERE email='$email'";
 $profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or die(mysqli_error($con));
 $profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
 $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
-if (!isset($_GET['cid'])) {
-    die("Error loading course preview - no course ID provided to viewer. Please contact an admin.");
-} elseif (!isThisUsersCourse($con, $_GET['cid'])) {
-    die("Error loading course preview - authorization problem. Please contact admin");
-}
-$cid = $_GET['cid'];
-function printType($rtype)
-{
-    switch ($rtype) {
-        case RES_NOTE:
-            return "Note";
-        case RES_VIDEO:
-            return "Video";
-        case RES_FILE:
-            return "File";
-        case RES_YOUTUBE:
-            return "YouTube Video";
-        case RES_LINK:
-            return "Link";
-    }
+
+if (!isset($_GET['uid'])) {
+    die("Error loading profile - no profile ID provided to viewer. Please contact an admin.");
 }
 
-function printGlyph($rtype)
-{
-    switch ($rtype) {
-        case RES_NOTE:
-            return "fa-file-alt";
-        case RES_VIDEO:
-            return "fa-play-circle";
-        case RES_FILE:
-            return "fa-file-download";
-        case RES_YOUTUBE:
-            return "fa-play";
-        case RES_LINK:
-            return "fa-link";
-    }
-}
-
-function printSectionDescription($con, $sectionNumber, $cid)
-{
-    $sectionDescriptionQuery = "SELECT sdesc FROM csections WHERE section=$sectionNumber AND cid=$cid";
-    $sectionDescriptionResult = mysqli_query($con, $sectionDescriptionQuery) or die(mysqli_error($con));
-    if (mysqli_num_rows($sectionDescriptionResult) > 0) {
-        $sectionDescriptionData = mysqli_fetch_array($sectionDescriptionResult);
-        return $sectionDescriptionData['sdesc'];
-    } else {
-        return "Nothing to show";
-    }
-}
+$profileUid = $_GET['uid'];
 
 function loadRecentCoursesTable($con, $uid)
 {
@@ -79,32 +37,22 @@ function loadRecentCoursesTable($con, $uid)
     </thead>
     <tbody>
     ";
-    $resourceQuery = "SELECT * FROM course INNER JOIN ctrainers ON (course.cid = ctrainers.cid AND ctrainers.uid=$uid)";
+    $resourceQuery = "SELECT * FROM course INNER JOIN ctrainers ON (course.cid = ctrainers.cid AND ctrainers.uid=$uid AND course.published=1) ORDER BY dateofpublish";
     $resourceResult = mysqli_query($con, $resourceQuery) or die(mysqli_error($con));
     $resourceNumber = 0;
     $totalResources = mysqli_num_rows($resourceResult);
     if ($totalResources == 0) {
-        echo "<tr><td colspan='5'>No courses published by this trainer yet.</td></tr>";
+        echo "<tr><td colspan='2'>No courses published by this trainer yet.</td></tr>";
     } else {
         while ($totalResources > 0) {
             $resourceData = mysqli_fetch_array($resourceResult);
             $resourceNumber++;
             $totalResources--;
-            $rid = $resourceData['rid'];
-            $rtype = $resourceData['rtype'];
+            $cid = $resourceData['cid']
             ?>
             <tr>
-                <td><?php echo $resourceNumber; ?></td>
-                <td><?php echo $resourceData['rtext']; ?></td>
-                <td><?php echo printType($rtype); ?></td>
-                <!--<td><?php /*echo $resourceData['rdate']; */?></td>-->
-                <td>
-                    <a class="btn btn-primary"
-                       href="<?php echo resViewFile($rtype); ?>?rid=<?php echo $rid; ?>">
-                        <span class="fa <?php echo printGlyph($rtype); ?>"></span>
-                        View
-                    </a>
-                </td>
+                <td><a href="viewcourse.php?cid=<?php echo $cid; ?>"><?php echo $resourceData['cname']; ?></a></td>
+                <td><?php echo $resourceData['dateofpublish']; ?></td>
             </tr>
             <?php
         }
@@ -113,42 +61,10 @@ function loadRecentCoursesTable($con, $uid)
     }
 }
 
-function loadSectionName($con, $sectionNumber, $cid)
-{
-    $sectionQuery = "SELECT sname FROM csections WHERE cid=$cid AND section=$sectionNumber";
-    $sectionResult = mysqli_query($con, $sectionQuery) or die(mysqli_error($con));
-    if (mysqli_num_rows($sectionResult) == 0) {
-        return "Error loading Section Name";
-    }
-    $sectionData = mysqli_fetch_array($sectionResult);
-    return $sectionData['sname'];
-}
-
-$courseQuery = "SELECT * FROM course INNER JOIN csyllabus ON (course.cid = csyllabus.cid AND course.cid=$cid)";
-$courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
-$courseData = mysqli_fetch_array($courseResult);
-$courseName = $courseData['cname'];
-$courseDescription = $courseData['cdesc'];
-$courseSyllabus = $courseData['csyllabus'];
-
-
-$authorQuery = "SELECT user.uid, fname, lname FROM user INNER JOIN ctrainers ON (ctrainers.cid=$cid AND user.uid=ctrainers.uid) INNER JOIN course ON (course.cid=ctrainers.cid)";
-$authorResult = mysqli_query($con, $authorQuery) or die(mysqli_error($con));
-if (mysqli_num_rows($authorResult) > 1) {
-    $authorPlurality = "s";
-} else {
-    $authorPlurality = "";
-}
-$authors = "";
-$numAuthors = mysqli_num_rows($authorResult);
-$authorNumber = 1;
-while ($authorData = mysqli_fetch_array($authorResult)) {
-    $authors = $authors ."<a href='viewprofile.php?uid=$uid'>".$authorData['fname'] . " " . $authorData['lname']."</a>";
-    $authorNumber++;
-    if($authorNumber<$numAuthors){
-        $authors = $authors.", ";
-    }
-}
+$bioQuery = "SELECT bio FROM user WHERE uid=$profileUid";
+$bioResult = mysqli_query($con, $bioQuery) or die(mysqli_error($con));
+$bioData = mysqli_fetch_array($bioResult);
+$bio = $bioData['bio'];
 
 $fname = $_SESSION['fname'];
 $lname = $_SESSION['lname'];
@@ -165,7 +81,7 @@ $lname = $_SESSION['lname'];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Course Preview</title>
+    <title>Viewing Profile</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -438,8 +354,8 @@ $lname = $_SESSION['lname'];
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">
-                        Viewing Profile: <?php echo $fname." ".$lname; ?>
-                        <a href="<?php echo $back;?>" class="btn btn-info">Back</a>
+                        Viewing Profile: <?php echo $fname . " " . $lname; ?>
+                        <a href="<?php echo $back; ?>" class="btn btn-info">Back</a>
                     </h1>
                     <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
@@ -447,104 +363,47 @@ $lname = $_SESSION['lname'];
 
                 <!-- Content Row -->
 
-
                 <div class="row">
                     <div class="container">
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">About The Course</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">About <?php echo $fname." ".$lname;?></h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
-                                <?php echo $courseDescription; ?>
+                                <?php echo $bio; ?>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                <?php
+                if(getUserType($con, $profileUid)==1){
+                ?>
                 <div class="row">
                     <div class="container">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Syllabus</h6>
-                            </div>
-                            <div class="card-body">
-                                <?php echo $courseSyllabus; ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="container">
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Contents</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Courses by <?php echo $fname." ".$lname;?></h6>
                             </div>
                             <div class="card-body">
                                 <div class="container">
-                                    <?php
-                                    $numSectionsResult = mysqli_query($con, "SELECT max(`section`) AS numsections FROM csections WHERE cid=$cid") or die(mysqli_error($con));
-                                    $numSectionsData = mysqli_fetch_array($numSectionsResult);
-                                    $numSections = $numSectionsData['numsections'];
-                                    for ($sectionNumber = 1;
-                                         $sectionNumber <= $numSections;
-                                         $sectionNumber++) {
-                                        $sectionName = loadSectionName($con, $sectionNumber, $cid);
-                                        ?>
-                                        <!-- Section Header - Accordion -->
-                                        <div class="row">
-                                            <a href="#collapse<?php echo $sectionNumber; ?>" data-toggle="collapse"
-                                               data-target="#collapse<?php echo $sectionNumber; ?>">
-                                                <h4 class="h4">Section <?php echo $sectionNumber; ?>
-                                                    : <?php echo $sectionName; ?></h4>
-                                            </a>
-                                        </div>
-                                        <br>
-                                        <!-- Section Content - Collapsible -->
-                                        <div class="collapse" id="collapse<?php echo $sectionNumber; ?>">
-                                            <div class="container">
-                                                <div class="card">
-                                                    <div class="card-header">Description</div>
-                                                    <div class="card-body"><?php echo printSectionDescription($con, $sectionNumber, $cid); ?></div>
-                                                </div>
-                                                <br>
-                                                <div class="table-responsive">
-                                                    <table class="table" style="display:table;">
-                                                        <?php loadSectionTable($con, $sectionNumber, $cid); ?>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php
-                                    }
-                                    ?>
+                                    <div class="table-responsive">
+                                        <table class="table" style="display:table;">
+                                            <?php loadRecentCoursesTable($con, $profileUid); ?>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                            <br>
                         </div>
+                        <br>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="container">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Author<?php echo $authorPlurality; ?></h6>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <?php echo $authors; ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+                <?php
+                }
+                ?>
             <!-- /.container-fluid -->
-
+            </div>
         </div>
         <!-- End of Main Content -->
 
