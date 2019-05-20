@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/../../php" />
+      <path value="$PROJECT_DIR$/login/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/login/vendor/fontawesome-free/css" />
+      <path value="$PROJECT_DIR$/login/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/login/vendor/fontawesome-free/scss" />
+      <path value="$PROJECT_DIR$/login/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/login/vendor/fontawesome-free/js" />
+      <path value="$PROJECT_DIR$/login/vendor/fontawesome-free/svgs" />
+      <path value="$PROJECT_DIR$/login/vendor/fontawesome-free/less" />
+      <path value="$PROJECT_DIR$/login/vendor/fontawesome-free/sprites" />
+      <path value="$PROJECT_DIR$/login/vendor/fontawesome-free/webfonts" />
+      <path value="$PROJECT_DIR$/login/vendor/google/apiclient-services" />
+      <path value="$PROJECT_DIR$/login/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/login/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/login/vendor/google/apiclient" />
+      <path value="$PROJECT_DIR$/login/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/login/vendor/composer" />
+      <path value="$PROJECT_DIR$/login/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/login/vendor/bootstrap/scss" />
+      <path value="$PROJECT_DIR$/login/vendor/bootstrap/js" />
+      <path value="$PROJECT_DIR$/login/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/login/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/login/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/login/vendor/phpseclib/phpseclib" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
+</project>

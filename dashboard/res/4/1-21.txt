@@ -1,0 +1,18 @@
+Buttons - delete view edit
+Create note
+View note
+View video
+Syllabus and Description editor
+Delete section
+Delete resource
+Create link
+View resource
+View course
+Edit resource (only certain resources)
+Resource reviews
+Teaming up
+Payment
+Student side
+Admin side
+
+DB Maintainance - raddr and rdata can be merged
