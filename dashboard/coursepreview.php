@@ -9,7 +9,6 @@ require('../includes/courseownershipauth.php');
 require('../includes/resconfig.php');
 $email = $_SESSION['email'];
 $uid = $_SESSION['uid'];
-$back = end($_SESSION['back']);
 $profileImageFileName = "";
 $profileImageFileNameQuery = "SELECT profileImageFileName FROM user WHERE email='$email'";
 $profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or die(mysqli_error($con));
@@ -436,7 +435,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">
                         Preview Course: <?php echo $courseName; ?>
-                        <a href="<?php echo $back;?>" class="btn btn-info">Back</a>
+                        <a href="trainer.php" class="btn btn-info">Back</a>
                     </h1>
                     <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->

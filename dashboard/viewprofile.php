@@ -9,10 +9,6 @@ require('../includes/courseownershipauth.php');
 require('../includes/resconfig.php');
 $email = $_SESSION['email'];
 $uid = $_SESSION['uid'];
-if (count($_SESSION['back']) > 0) {
-    $back = array_pop($_SESSION['back']);
-}
-
 $profileImageFileName = "";
 $profileImageFileNameQuery = "SELECT profileImageFileName FROM user WHERE email='$email'";
 $profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or die(mysqli_error($con));
@@ -48,7 +44,7 @@ function loadRecentCoursesTable($con, $uid)
             $resourceData = mysqli_fetch_array($resourceResult);
             $resourceNumber++;
             $totalResources--;
-            $cid = $resourceData['cid']
+            $cid = $resourceData['cid'];
             ?>
             <tr>
                 <td><a href="viewcourse.php?cid=<?php echo $cid; ?>"><?php echo $resourceData['cname']; ?></a></td>
@@ -355,7 +351,6 @@ $lname = $_SESSION['lname'];
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">
                         Viewing Profile: <?php echo $fname . " " . $lname; ?>
-                        <a href="<?php echo $back; ?>" class="btn btn-info">Back</a>
                     </h1>
                     <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
@@ -368,7 +363,8 @@ $lname = $_SESSION['lname'];
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">About <?php echo $fname." ".$lname;?></h6>
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    About <?php echo $fname . " " . $lname; ?></h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
@@ -378,31 +374,31 @@ $lname = $_SESSION['lname'];
                     </div>
                 </div>
                 <?php
-                if(getUserType($con, $profileUid)==1){
-                ?>
-                <div class="row">
-                    <div class="container">
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Courses by <?php echo $fname." ".$lname;?></h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="container">
-                                    <div class="table-responsive">
-                                        <table class="table" style="display:table;">
-                                            <?php loadRecentCoursesTable($con, $profileUid); ?>
-                                        </table>
+                if (getUserType($con, $profileUid) == 1) {
+                    ?>
+                    <div class="row">
+                        <div class="container">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Courses
+                                        by <?php echo $fname . " " . $lname; ?></h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="container">
+                                        <div class="table-responsive">
+                                            <table class="table" style="display:table;">
+                                                <?php loadRecentCoursesTable($con, $profileUid); ?>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <br>
                     </div>
-                </div>
-                <?php
+                    <?php
                 }
                 ?>
-            <!-- /.container-fluid -->
+                <!-- /.container-fluid -->
             </div>
         </div>
         <!-- End of Main Content -->
