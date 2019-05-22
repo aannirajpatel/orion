@@ -27,12 +27,14 @@ if(isThisStudentsCourse($con, $cid)){
     $dashPerformanceText = "Acheivements";
     $dashHelp = "student-help.php";
     $dashCommunication = "student-communication.php";
+    $back = "student.php";
 } else{
     $dashHome = "trainer.php";
     $dashPerformance = "performance.php";
-    $dashPerformanceText = "Performance";
+    $dashPerformanceText = "Your Performance";
     $dashHelp = "help.php";
     $dashCommunication = "communication.php";
+    $back = "trainer.php";
 }
 function printType($rtype)
 {
@@ -54,15 +56,15 @@ function printGlyph($rtype)
 {
     switch ($rtype) {
         case RES_NOTE:
-            return "fa-file-alt";
+            return "fas fa-file-alt";
         case RES_VIDEO:
-            return "fa-play-circle";
+            return "fas fa-play";
         case RES_FILE:
-            return "fa-file-download";
+            return "fas fa-file-download";
         case RES_YOUTUBE:
-            return "fa-play";
+            return "fab fa-youtube";
         case RES_LINK:
-            return "fa-link";
+            return "fas fa-link";
     }
 }
 
@@ -113,7 +115,7 @@ function loadSectionTable($con, $sectionNumber, $cid)
                 <td>
                     <a class="btn btn-primary"
                        href="<?php echo resViewFile($rtype); ?>?rid=<?php echo $rid; ?>">
-                        <span class="fa <?php echo printGlyph($rtype); ?>"></span>
+                        <span class="<?php echo printGlyph($rtype); ?>"></span>
                         View
                     </a>
                 </td>
@@ -220,9 +222,16 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
         <li class="nav-item">
             <a class="nav-link" href="<?php echo $dashPerformance;?>">
                 <i class="fas fa-fw fa-chart-line"></i>
-                <span><?php echo $dashPerformanceText;?>/span></a>
+                <span><?php echo $dashPerformanceText;?></span></a>
         </li>
-
+<?php if(isThisStudentsCourse($con, $cid)){ ?>
+        <li class="nav-item">
+            <a class="nav-link" href="student-purchases.php">
+                <i class="fas fa-money-check-alt"></i>
+                <span>Purchases</span>
+            </a>
+        </li>
+<?php } ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo $dashHelp;?>">
                 <i class="fas fa-fw fa-question"></i>
@@ -447,7 +456,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">
                         <?php echo $courseName; ?>
-                        <a href="student.php" class="btn btn-info">Back</a>
+                        <a href="<?php echo $back;?>" class="btn btn-info">Back</a>
                     </h1>
                     <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->

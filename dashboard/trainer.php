@@ -368,11 +368,13 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
                                     if ($coursePublished == 0) {
                                         $publishLink = "<a class='btn btn-danger text-white' href='publishcourse.php?cid=$cid'>Publish</a>";
                                         $publishData = "Unpublished";
+                                        $previewLink = "<a href='coursepreview.php?cid=$cid' class='btn btn-primary'>Preview</a>";
                                     } else {
                                         $publishLink = "<a class='btn btn-danger text-white' href='withdrawcourse.php?cid=$cid'>Withdraw</a>";
                                         $publishData = "Published";
+                                        $previewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary'>View</a>";
                                     }
-                                    $previewLink = "<a href='coursepreview.php?cid=$cid' class='btn btn-primary'>Preview</a>";
+
                                     $editLink = "<a href='coursedit.php?cid=$cid' class='btn btn-success'>Edit</a>";
                                     ?>
                                     <tr>
