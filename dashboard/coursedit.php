@@ -435,11 +435,11 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                     <!--Course Editor-->
                     <br>
                     <div class="row">
-
                         <div class="container">
+
+                            <h4>Course Description</h4>
                             <form method="POST" action="updateDescription.php">
                                 <div class="form-group">
-                                    <label class="control-label" for="cdesc"><h4>Course Description</h4></label>
                                     <textarea class="form-control" id="cdesc"
                                               name="cdesc"><?php echo $cdesc; ?></textarea>
                                 </div>
@@ -451,10 +451,12 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                                 </div>
                             </form>
                             <br>
+                        </div>
+                        <div class="container">
+                            <h4>Course Syllabus</h4>
                             <form method="POST" action="updateSyllabus.php">
                                 <!-- Textarea to input new course syllabus text-->
                                 <div class="form-group">
-                                    <label class="control-label" for="csyllabus"><h4>Course Syllabus</h4></label>
                                     <textarea class="form-control" id="csyllabus"
                                               name="csyllabus"><?php echo $csyllabus; ?></textarea>
                                     <!-- Button to update course syllabus-->

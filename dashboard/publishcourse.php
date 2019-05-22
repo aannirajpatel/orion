@@ -16,5 +16,5 @@ if(!isset($_GET['cid'])){
 $cid = $_GET['cid'];
 $publishQuery = "UPDATE course SET published=1, dateofpublish=CURRENT_TIMESTAMP WHERE cid=$cid AND published=0";
 $publishResult = mysqli_query($con, $publishQuery) or die(mysqli_error($con));
-header("location:".array_pop($_SESSION['back']));
+header("location:trainer.php");
 ?>
