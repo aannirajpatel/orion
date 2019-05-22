@@ -57,11 +57,11 @@ function loadRecentCoursesTable($con, $uid)
     }
 }
 
-$bioQuery = "SELECT bio FROM user WHERE uid=$profileUid";
+$bioQuery = "SELECT profileImageFileName,bio FROM user WHERE uid=$profileUid";
 $bioResult = mysqli_query($con, $bioQuery) or die(mysqli_error($con));
 $bioData = mysqli_fetch_array($bioResult);
 $bio = $bioData['bio'];
-
+$userImageAddress = "./res/userimages/".$bioData['profileImageFileName'];
 $fname = $_SESSION['fname'];
 $lname = $_SESSION['lname'];
 ?>
@@ -350,7 +350,7 @@ $lname = $_SESSION['lname'];
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">
-                        Viewing Profile: <?php echo $fname . " " . $lname; ?>
+                        Viewing Profile
                     </h1>
                     <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
@@ -358,26 +358,24 @@ $lname = $_SESSION['lname'];
 
                 <!-- Content Row -->
 
-                <div class="row">
-                    <div class="container">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">
-                                    About <?php echo $fname . " " . $lname; ?></h6>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <?php echo $bio; ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <?php
                 if (getUserType($con, $profileUid) == 1) {
                     ?>
                     <div class="row">
-                        <div class="container">
+                        <div class="container col-4">
+                            <div class="container">
+                                <div class="card" style="width:20vw">
+                                    <img class="card-img-top" src="<?php echo $userImageAddress;?>" alt="Card image" style="width:100%;padding:10px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title"><?php echo $fname." ".$lname;?></h4>
+                                        <p class="card-text">
+                                            <?php echo $bio;?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container col-8">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Courses

@@ -130,7 +130,6 @@ $courseName = $courseData['cname'];
 $courseDescription = $courseData['cdesc'];
 $courseSyllabus = $courseData['csyllabus'];
 
-
 $authorQuery = "SELECT user.uid, fname, lname FROM user INNER JOIN ctrainers ON (ctrainers.cid=$cid AND user.uid=ctrainers.uid) INNER JOIN course ON (course.cid=ctrainers.cid)";
 $authorResult = mysqli_query($con, $authorQuery) or die(mysqli_error($con));
 if (mysqli_num_rows($authorResult) > 1) {

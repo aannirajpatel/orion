@@ -13,8 +13,6 @@ $profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or 
 $profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
 $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
-
-$_SESSION['back']="trainer.php";
 ?>
 
     <!DOCTYPE html>

@@ -146,11 +146,13 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
         <title>Edit your course</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+              rel="stylesheet">
 
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin-2.min.css" rel="stylesheet">
         <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
         <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 
@@ -160,8 +162,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
     <div class="container">
         <div class="row">
             <h3>Course Editor
-                <a class="btn btn-primary" href="viewcourse.php?cid=<?php echo $cid; ?>">Preview
-                    Course</a>
+                <a class="btn btn-info" href="trainer.php">Back</a>
             </h3>
 
         </div>
@@ -212,58 +213,52 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
             $numSectionsResult = mysqli_query($con, "SELECT max(`section`) AS numsections FROM csections WHERE cid=$cid") or die(mysqli_error($con));
             $numSectionsData = mysqli_fetch_array($numSectionsResult);
             $numSections = $numSectionsData['numsections'];
-            for ($sectionNumber = 1;
-                 $sectionNumber <= $numSections;
-                 $sectionNumber++) {
+            for ($sectionNumber = 1; $sectionNumber <= $numSections; $sectionNumber++) {
                 $sectionName = loadSectionName($con, $sectionNumber, $cid);
                 ?>
                 <!-- Section Header - Accordion -->
                 <div class="row">
                     <a href="#collapse<?php echo $sectionNumber; ?>" data-toggle="collapse"
                        data-target="#collapse<?php echo $sectionNumber; ?>">
-                        <div class="col-md-6">
-                            <h4 style="display: inline">Section <?php echo $sectionNumber; ?>
-                                : <?php echo $sectionName; ?></h4>
-                        </div>
-
-                        <div class="col-md-6">
-                            <a href="createresource.php?cid=<?php echo $cid; ?>&section=<?php echo $sectionNumber; ?>"
-                               class="btn btn-info btn-icon-split">
+                        <h4 style="display: inline">Section <?php echo $sectionNumber; ?>
+                            <?php echo ": " . $sectionName; ?>
+                        </h4>
+                        <a href="createresource.php?cid=<?php echo $cid; ?>&section=<?php echo $sectionNumber; ?>"
+                           class="btn btn-info btn-icon-split">
                             <span class="icon text-white-25">
                                 <i class="fas fa-plus"></i>
                                 Add Resources
                             </span>
-                            </a>
-                            <a href="editSection.php?cid=<?php echo $cid; ?>&section=<?php echo $sectionNumber; ?>"
-                               class="btn btn-warning btn-icon-split">
+                        </a>
+                        <a href="editSection.php?cid=<?php echo $cid; ?>&section=<?php echo $sectionNumber; ?>"
+                           class="btn btn-warning btn-icon-split">
                             <span class="icon text-white-25">
                                 <i class="fas fa-pencil"></i>
                                 Edit Section
                             </span>
-                            </a>
-                            <a href="deletesection.php?cid=<?php echo $cid; ?>&section=<?php echo $sectionNumber; ?>&numsections=<?php echo $numSections; ?>"
-                               class="btn btn-danger btn-icon-split">
+                        </a>
+                        <a href="deletesection.php?cid=<?php echo $cid; ?>&section=<?php echo $sectionNumber; ?>&numsections=<?php echo $numSections; ?>"
+                           class="btn btn-danger btn-icon-split">
                             <span class="icon text-white-25">
                                 <i class="fas fa-trash"></i>
                                 Delete Section
                             </span>
-                            </a>
-                        </div>
+                        </a>
                     </a>
                 </div>
-                <br>
                 <div class="row">
                     <!-- Section Content - Collapsible -->
                     <div class="collapse" id="collapse<?php echo $sectionNumber; ?>" style="">
                         <div class="container">
-                            <div class="container">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">Description</div>
-                                    <div class="panel-body"><?php echo printSectionDescription($con, $sectionNumber, $cid); ?></div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Description</h6>
                                 </div>
+                                <div class="card-body"><?php echo printSectionDescription($con, $sectionNumber, $cid); ?></div>
                             </div>
-                            <div class="container">
-                                <table class="table table-responsive table-bordered">
+                            <br>
+                            <div class="table-responsive">
+                                <table class="table">
                                     <?php loadSectionTable($con, $sectionNumber, $cid); ?>
                                 </table>
                             </div>
