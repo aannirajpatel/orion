@@ -17,18 +17,18 @@ $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 if (!isset($_GET['cid'])) {
     die("Error loading course preview - no course ID provided to viewer. Please contact an admin.");
-} elseif (!isThisStudentsCourse($con, $_GET['cid']) && !isThisUsersCourse($con,$_GET['cid'])) {
+} elseif (!isThisStudentsCourse($con, $_GET['cid']) && !isThisUsersCourse($con, $_GET['cid'])) {
     die("Error loading course - authorization problem. Please contact admin");
 }
 $cid = $_GET['cid'];
-if(isThisStudentsCourse($con, $cid)){
+if (isThisStudentsCourse($con, $cid)) {
     $dashHome = "student.php";
     $dashPerformance = "student-acheivements.php";
     $dashPerformanceText = "Acheivements";
     $dashHelp = "student-help.php";
     $dashCommunication = "student-communication.php";
     $back = "student.php";
-} else{
+} else {
     $dashHome = "trainer.php";
     $dashPerformance = "performance.php";
     $dashPerformanceText = "Your Performance";
@@ -111,7 +111,7 @@ function loadSectionTable($con, $sectionNumber, $cid)
                 <td><?php echo $resourceNumber; ?></td>
                 <td><?php echo $resourceData['rtext']; ?></td>
                 <td><?php echo printType($rtype); ?></td>
-                <!--<td><?php /*echo $resourceData['rdate']; */?></td>-->
+                <!--<td><?php /*echo $resourceData['rdate']; */ ?></td>-->
                 <td>
                     <a class="btn btn-primary"
                        href="<?php echo resViewFile($rtype); ?>?rid=<?php echo $rid; ?>">
@@ -156,10 +156,10 @@ $authors = "";
 $numAuthors = mysqli_num_rows($authorResult);
 $authorNumber = 1;
 while ($authorData = mysqli_fetch_array($authorResult)) {
-    $authors = $authors ."<a href='viewprofile.php?uid=$uid'>".$authorData['fname'] . " " . $authorData['lname']."</a>";
+    $authors = $authors . "<a href='viewprofile.php?uid=$uid'>" . $authorData['fname'] . " " . $authorData['lname'] . "</a>";
     $authorNumber++;
-    if($authorNumber<$numAuthors){
-        $authors = $authors.", ";
+    if ($authorNumber < $numAuthors) {
+        $authors = $authors . ", ";
     }
 }
 ?>
@@ -175,7 +175,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Course Preview</title>
+    <title>Course Viewer</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -184,6 +184,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
 
 </head>
 
@@ -208,36 +209,38 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="<?php echo $dashHome;?>">
+            <a class="nav-link" href="<?php echo $dashHome; ?>">
                 <i class="fas fa-fw fa-chalkboard-teacher"></i>
                 <span>Courses</span></a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="<?php echo $dashCommunication;?>">
+            <a class="nav-link" href="<?php echo $dashCommunication; ?>">
                 <i class="fas fa-fw fa-comment-alt"></i>
                 <span>Communication</span></a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="<?php echo $dashPerformance;?>">
+            <a class="nav-link" href="<?php echo $dashPerformance; ?>">
                 <i class="fas fa-fw fa-chart-line"></i>
-                <span><?php echo $dashPerformanceText;?></span></a>
+                <span><?php echo $dashPerformanceText; ?></span></a>
         </li>
-<?php if(isThisStudentsCourse($con, $cid)){ ?>
+        <?php if (isThisStudentsCourse($con, $cid)) { ?>
+            <li class="nav-item">
+                <a class="nav-link" href="student-purchases.php">
+                    <i class="fas fa-money-check-alt"></i>
+                    <span>Purchases</span>
+                </a>
+            </li>
+        <?php } ?>
         <li class="nav-item">
-            <a class="nav-link" href="student-purchases.php">
-                <i class="fas fa-money-check-alt"></i>
-                <span>Purchases</span>
-            </a>
-        </li>
-<?php } ?>
-        <li class="nav-item">
-            <a class="nav-link" href="<?php echo $dashHelp;?>">
+            <a class="nav-link" href="<?php echo $dashHelp; ?>">
                 <i class="fas fa-fw fa-question"></i>
                 <span>Help</span></a>
         </li>
-
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
     </ul>
     <!-- End of Sidebar -->
 
@@ -456,7 +459,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">
                         <?php echo $courseName; ?>
-                        <a href="<?php echo $back;?>" class="btn btn-info">Back</a>
+                        <a href="<?php echo $back; ?>" class="btn btn-info">Back</a>
                     </h1>
                     <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
@@ -549,6 +552,107 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Ratings</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-1">
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                        <h4>Average Rating</h4>
+                                        <h2>4.3
+                                            <small>/5</small>
+                                        </h2>
+                                        <div>
+                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span class="fas fa-star"></span></a>
+                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span class="fas fa-star"></span></a>
+                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span class="fas fa-star"></span></a>
+                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span class="fas fa-star"></span></a>
+                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span class="far fa-star"></span></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 d-none d-sm-block">
+                                        <h4>Rating Distribution</h4>
+                                        <div class="progress mb-1 text-center">
+                                            <div class="progress-bar bg-success" style="width:40%">
+                                                <span class="text-white">40%</span>
+                                            </div>
+                                        </div>
+                                        <div class="progress mb-1 text-center">
+                                            <div class="progress-bar bg-success" style="width:20%">
+                                                <span class="text-white">20%</span>
+                                            </div>
+                                        </div>
+                                        <div class="progress mb-1 text-center">
+                                            <div class="progress-bar bg-warning" style="width:15%">
+                                                <span class="text-white">15%</span>
+                                            </div>
+                                        </div>
+                                        <div class="progress mb-1 text-center">
+                                            <div class="progress-bar bg-warning" style="width:15%">
+                                                <span class="text-white">15%</span>
+                                            </div>
+                                        </div>
+                                        <div class="progress mb-1 text-center">
+                                            <div class="progress-bar bg-danger" style="width: 2%;">
+                                                <span class="text-white">2%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="container">
+                                    < method="post" action="creview.php">
+                                        <input type="text" placeholder="Provide a title for your review">
+                                        <textarea class="form-control" placeholder="Add some details to your review. This helps the trainers a lot!"></textarea>
+                                    </form>
+                                </div>
+                                <div class="container p-1">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-1 border-right">
+                                            <img class="img-profile rounded" src="https://dummyimage.com/60x60/000/fff">
+                                            <a href="viewprofile.php">Aan Patel</a>
+
+                                        </div>
+                                        <div class="col-md-10 col-sm-8">
+                                            <div class="row">
+                                                <div class="col-6"><h5 class="d-inline">Review Title</h5></div>
+                                                <div class="col-3 text-right text-primary"><h6>5 Stars</h6></div>
+                                                <div class="col-3 d-none d-lg-inline text-right text-primary"><h6>12/11/2019 19:00:00 PM</h6></div>
+                                            </div>
+                                            <div class="d-none d-lg-block">Review text. Review text. Review text. Review text. Review text. Review
+                                            text. Review text. Review text. Review text. Review text.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-1 border-right">
+                                            <img class="img-profile rounded" src="https://dummyimage.com/60x60/000/fff">
+                                            <a href="viewprofile.php">Aan Patel</a>
+
+                                        </div>
+                                        <div class="col-md-10 col-sm-8">
+                                            <div class="row">
+                                                <div class="col-6"><h5 class="d-inline">Review Title</h5></div>
+                                                <div class="col-3 text-right text-primary"><h6>5 Stars</h6></div>
+                                                <div class="col-3 d-none d-lg-inline text-right text-primary"><h6>12/11/2019 19:00:00 PM</h6></div>
+                                            </div>
+                                            <div class="d-none d-lg-block">Review text. Review text. Review text. Review text. Review text. Review
+                                                text. Review text. Review text. Review text. Review text.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">Author<?php echo $authorPlurality; ?></h6>
                             </div>
                             <!-- Card Body -->
@@ -558,6 +662,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                         </div>
                     </div>
                 </div>
+
 
             </div>
             <!-- /.container-fluid -->
