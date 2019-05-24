@@ -1,84 +1,21 @@
 <?php
 /**
- * Written by Aan (aancodes@gmail.com) at Global BizConnect on 20/5/19 3:22 PM.
+ * Written by Aan (aancodes@gmail.com) at Global BizConnect on 24/5/19 10:51 AM.
  */
 require('../includes/auth.php');
 require('../includes/db.php');
-require('../includes/files.php');
 require('../includes/courseownershipauth.php');
-require('../includes/resconfig.php');
-$email = $_SESSION['email'];
-$uid = $_SESSION['uid'];
-$profileImageFileName = "";
-$profileImageFileNameQuery = "SELECT profileImageFileName FROM user WHERE email='$email'";
-$profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or die(mysqli_error($con));
-$profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
-$profileImageFileName = $profileImageFileNameData['profileImageFileName'];
-$profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 
-if (!isset($_GET['uid'])) {
-    die("Error loading profile - no profile ID provided to viewer. Please contact an admin.");
+if(!isset($_GET['cid'])){
+    $cid = $_GET['cid'];
+    $getCostQuery = "SELECT cname,cost,cdesc FROM course WHERE cid=$cid";
+    $getCostResult = mysqli_query($con, $getCostQuery) or die(mysqli_error($con));
+    $getCostData = mysqli_fetch_array($getCostResult);
+    $cost = $getCostData['cost'];
+    $courseName = $getCostData['cname'];
+    $couseDesc = $getCostData['cdesc'];
 }
 
-$profileUid = $_GET['uid'];
-
-$dashHome = "student.php";
-$dashPerformance = "student-achievements.php";
-$dashPerformanceText = "Achievements";
-$dashHelp = "student-help.php";
-$dashCommunication = "student-communication.php";
-$back = "student.php";
-if(getUserType($con, $_SESSION['uid'])==1){
-    $dashHome = "trainer.php";
-    $dashPerformance = "performance.php";
-    $dashPerformanceText = "Your Performance";
-    $dashHelp = "help.php";
-    $dashCommunication = "communication.php";
-    $back = "trainer.php";
-}
-
-function loadRecentCoursesTable($con, $uid)
-{
-    echo "
-<thead>
-    <tr>
-    <th>Name</th>
-    <th>Date Published</th>
-    </tr>
-    </thead>
-    <tbody>
-    ";
-    $resourceQuery = "SELECT * FROM course INNER JOIN ctrainers ON (course.cid = ctrainers.cid AND ctrainers.uid=$uid AND course.published=1) ORDER BY dateofpublish";
-    $resourceResult = mysqli_query($con, $resourceQuery) or die(mysqli_error($con));
-    $resourceNumber = 0;
-    $totalResources = mysqli_num_rows($resourceResult);
-    if ($totalResources == 0) {
-        echo "<tr><td colspan='2'>No courses published by this user yet.</td></tr>";
-    } else {
-        while ($totalResources > 0) {
-            $resourceData = mysqli_fetch_array($resourceResult);
-            $resourceNumber++;
-            $totalResources--;
-            $cid = $resourceData['cid'];
-            ?>
-            <tr>
-                <td><a href="viewcourse.php?cid=<?php echo $cid; ?>"><?php echo $resourceData['cname']; ?></a></td>
-                <td><?php echo $resourceData['dateofpublish']; ?></td>
-            </tr>
-            <?php
-        }
-        echo "</tbody>";
-
-    }
-}
-
-$bioQuery = "SELECT * FROM user WHERE uid=$profileUid";
-$bioResult = mysqli_query($con, $bioQuery) or die(mysqli_error($con));
-$bioData = mysqli_fetch_array($bioResult);
-$bio = $bioData['bio'];
-$userImageAddress = "./res/userimages/".$bioData['profileImageFileName'];
-$fname = $bioData['fname'];
-$lname = $bioData['lname'];
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +29,7 @@ $lname = $bioData['lname'];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Viewing Profile</title>
+    <title>Enroll</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -113,7 +50,7 @@ $lname = $bioData['lname'];
     <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
             <div class="sidebar-brand-icon">
                 <i class="fas fa-atom"></i>
             </div>
@@ -125,38 +62,39 @@ $lname = $bioData['lname'];
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="<?php echo $dashHome; ?>">
+            <a class="nav-link" href="#">
                 <i class="fas fa-fw fa-chalkboard-teacher"></i>
                 <span>Courses</span></a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="<?php echo $dashCommunication; ?>">
+            <a class="nav-link" href="student-communication.php">
                 <i class="fas fa-fw fa-comment-alt"></i>
                 <span>Communication</span></a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="<?php echo $dashPerformance; ?>">
+            <a class="nav-link" href="student-achievements.php">
                 <i class="fas fa-fw fa-chart-line"></i>
-                <span><?php echo $dashPerformanceText; ?></span></a>
+                <span>Achievements</span></a>
         </li>
-        <?php if (getUserType($con, $_SESSION['uid'])==0) { ?>
-            <li class="nav-item">
-                <a class="nav-link" href="student-purchases.php">
-                    <i class="fas fa-money-check-alt"></i>
-                    <span>Purchases</span>
-                </a>
-            </li>
-        <?php } ?>
+
         <li class="nav-item">
-            <a class="nav-link" href="<?php echo $dashHelp; ?>">
+            <a class="nav-link" href="student-purchases.php">
+                <i class="fas fa-money-check-alt"></i>
+                <span>Purchases</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="student-help.php">
                 <i class="fas fa-fw fa-question"></i>
                 <span>Help</span></a>
         </li>
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
+
     </ul>
     <!-- End of Sidebar -->
 
@@ -175,9 +113,10 @@ $lname = $bioData['lname'];
                 </button>
 
                 <!-- Topbar Search -->
-                <!--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="get" action="searchcourse.php">
                     <div class="input-group">
                         <input type="text" class="form-control bg-light border-0 small"
+                               name="q"
                                placeholder="Search for a course..."
                                aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
@@ -186,7 +125,7 @@ $lname = $bioData['lname'];
                             </button>
                         </div>
                     </div>
-                </form>-->
+                </form>
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -282,8 +221,7 @@ $lname = $bioData['lname'];
                             </h6>
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle"
-                                         src="./res/userimages/<?php echo $profileImageFileName; ?>"
+                                    <img class="rounded-circle" src="<?php echo $profileImageFileAddress; ?>"
                                          alt="">
                                     <div class="status-indicator bg-success"></div>
                                 </div>
@@ -301,7 +239,8 @@ $lname = $bioData['lname'];
                                     <div class="status-indicator"></div>
                                 </div>
                                 <div>
-                                    <div class="text-truncate">I have the photos that you ordered last month, how would
+                                    <div class="text-truncate">I have the photos that you ordered last month, how
+                                        would
                                         you like them sent to you?
                                     </div>
                                     <div class="small text-gray-500">Jae Chun · 1d</div>
@@ -314,7 +253,8 @@ $lname = $bioData['lname'];
                                     <div class="status-indicator bg-warning"></div>
                                 </div>
                                 <div>
-                                    <div class="text-truncate">Last month's report looks great, I am very happy with the
+                                    <div class="text-truncate">Last month's report looks great, I am very happy with
+                                        the
                                         progress so far, keep up the good work!
                                     </div>
                                     <div class="small text-gray-500">Morgan Alvarez · 2d</div>
@@ -327,7 +267,8 @@ $lname = $bioData['lname'];
                                     <div class="status-indicator bg-success"></div>
                                 </div>
                                 <div>
-                                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told
+                                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                        told
                                         me that people say this to all dogs, even if they aren't good...
                                     </div>
                                     <div class="small text-gray-500">Chicken the Dog · 2w</div>
@@ -347,7 +288,7 @@ $lname = $bioData['lname'];
                                 <?php echo $_SESSION['fname'] . " " . $_SESSION['lname']; ?>
                             </span>
                             <img class="img-profile rounded-circle"
-                                 src="./res/userimages/<?php echo $profileImageFileName; ?>">
+                                 src="<?php echo $profileImageFileAddress; ?>">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -374,7 +315,7 @@ $lname = $bioData['lname'];
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">
-                        Viewing Profile
+                        Enroll in <?php echo $courseName;?>
                     </h1>
                     <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
@@ -382,84 +323,16 @@ $lname = $bioData['lname'];
 
                 <!-- Content Row -->
 
-                <?php
-                if (getUserType($con, $profileUid) == 1) {
-                    ?>
-                    <div class="row">
-                        <div class="container col-4">
-                            <div class="container">
-                                <div class="card" style="width:20vw">
-                                    <img class="card-img-top" src="<?php echo $userImageAddress;?>" alt="Card image" style="width:100%;padding:10px;">
-                                    <div class="card-body">
-                                        <h4 class="card-title"><?php echo $fname." ".$lname;?></h4>
-                                        <p class="card-text">
-                                            <?php echo $bio;?>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container col-8">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Courses
-                                        by <?php echo $fname . " " . $lname; ?></h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="container">
-                                        <div class="table-responsive">
-                                            <table class="table" style="display:table;">
-                                                <?php loadRecentCoursesTable($con, $profileUid); ?>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                }
-                ?>
-                <?php
-                if (getUserType($con, $profileUid) == 0) {
-                    ?>
-                    <div class="row">
-                        <div class="container col-4">
-                            <div class="container">
-                                <div class="card shadow" style="width:20vw">
-                                    <img class="card-img-top" src="<?php echo $userImageAddress;?>" alt="Card image" style="width:100%;padding:10px;">
-                                    <div class="card-body">
-                                        <h4 class="card-title"><?php echo $fname." ".$lname;?></h4>
-                                        <p class="card-text">
-                                            <?php echo $bio;?>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container col-8">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Courses
-                                        by <?php echo $fname . " " . $lname; ?></h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="container">
-                                        <div class="table-responsive">
-                                            <table class="table" style="display:table;">
-                                                <?php loadRecentCoursesTable($con, $profileUid); ?>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                }
-                ?>
-                <!-- /.container-fluid -->
+                <!-- Content Row -->
+                <div class="row">
+
+                </div>
+
+                <br>
+
             </div>
+            <!-- /.container-fluid -->
+
         </div>
         <!-- End of Main Content -->
 
@@ -483,7 +356,6 @@ $lname = $bioData['lname'];
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
-
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
@@ -516,12 +388,5 @@ $lname = $bioData['lname'];
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="js/demo/chart-area-demo.js"></script>
-<script src="js/demo/chart-pie-demo.js"></script>
-
 </body>
-
 </html>
-

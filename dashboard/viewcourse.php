@@ -17,18 +17,17 @@ $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 if (!isset($_GET['cid'])) {
     die("Error loading course preview - no course ID provided to viewer. Please contact an admin.");
-} elseif (!isThisStudentsCourse($con, $_GET['cid']) && !isThisUsersCourse($con, $_GET['cid'])) {
+} /*elseif (!isThisStudentsCourse($con, $_GET['cid']) && !isThisUsersCourse($con, $_GET['cid'])) {
     die("Error loading course - authorization problem. Please contact admin");
-}
+}*/
 $cid = $_GET['cid'];
-if (isThisStudentsCourse($con, $cid)) {
-    $dashHome = "student.php";
-    $dashPerformance = "student-acheivements.php";
-    $dashPerformanceText = "Acheivements";
-    $dashHelp = "student-help.php";
-    $dashCommunication = "student-communication.php";
-    $back = "student.php";
-} else {
+$dashHome = "student.php";
+$dashPerformance = "student-achievements.php";
+$dashPerformanceText = "Achievements";
+$dashHelp = "student-help.php";
+$dashCommunication = "student-communication.php";
+$back = "student.php";
+if (isThisUsersCourse($con, $cid)) {
     $dashHome = "trainer.php";
     $dashPerformance = "performance.php";
     $dashPerformanceText = "Your Performance";
@@ -36,6 +35,25 @@ if (isThisStudentsCourse($con, $cid)) {
     $dashCommunication = "communication.php";
     $back = "trainer.php";
 }
+
+$courseCostQuery = "SELECT cost FROM course WHERE cid=$cid";
+$courseCostResult = mysqli_query($con, $courseCostQuery) or die($con);
+$courseCostData = mysqli_fetch_array($courseCostResult);
+$courseCost = $courseCostData['cost'];
+
+$courseRatingQuery = "SELECT avg(rating) AS avgrating,count(*) as reviews FROM creviews WHERE cid=$cid";
+$courseRatingResult = mysqli_query($con, $courseRatingQuery) or die(mysqli_error($con));
+$courseRatingData = mysqli_fetch_array($courseRatingResult);
+$courseRating = $courseRatingData['avgrating'];
+$courseReviews = $courseRatingData['reviews'];
+$courseRatingDistroQuery = "SELECT count(*) AS individuals, rating FROM creviews WHERE cid=$cid GROUP BY rating ORDER BY rating";
+$courseRatingDistroResult = mysqli_query($con, $courseRatingDistroQuery);
+$courseRatingDistro = array();
+while ($courseRatingDistroData = mysqli_fetch_array($courseRatingDistroResult)) {
+    $courseRatingDistro[$courseRatingDistroData['rating']] = $courseRatingDistroData['individuals'];
+    $courseRatingDistroPercentages[$courseRatingDistroData['rating']] = $courseRatingDistroData['individuals'] / $courseReviews;
+}
+
 function printType($rtype)
 {
     switch ($rtype) {
@@ -156,7 +174,7 @@ $authors = "";
 $numAuthors = mysqli_num_rows($authorResult);
 $authorNumber = 1;
 while ($authorData = mysqli_fetch_array($authorResult)) {
-    $authors = $authors . "<a href='viewprofile.php?uid=$uid'>" . $authorData['fname'] . " " . $authorData['lname'] . "</a>";
+    $authors = $authors . "<a href='viewprofile.php?uid=" . $authorData['uid'] . "'>" . $authorData['fname'] . " " . $authorData['lname'] . "</a>";
     $authorNumber++;
     if ($authorNumber < $numAuthors) {
         $authors = $authors . ", ";
@@ -185,6 +203,48 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+    <style>
+        #enrollButton {
+            z-index: 1090;
+            position: fixed;
+            right: 2vw;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 25px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            border-radius: 5px;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            border-radius: 5px;
+            width: 30px;
+            height: 30px;
+            background: #0000FF;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+    </style>
 
 </head>
 
@@ -197,7 +257,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
     <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
             <div class="sidebar-brand-icon">
                 <i class="fas fa-atom"></i>
             </div>
@@ -225,7 +285,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                 <i class="fas fa-fw fa-chart-line"></i>
                 <span><?php echo $dashPerformanceText; ?></span></a>
         </li>
-        <?php if (isThisStudentsCourse($con, $cid)) { ?>
+        <?php if (getUserType($con, $cid) == 0) { ?>
             <li class="nav-item">
                 <a class="nav-link" href="student-purchases.php">
                     <i class="fas fa-money-check-alt"></i>
@@ -259,9 +319,11 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                 </button>
 
                 <!-- Topbar Search -->
-                <!--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                      method="get" action="searchcourse.php">
                     <div class="input-group">
                         <input type="text" class="form-control bg-light border-0 small"
+                               name="q"
                                placeholder="Search for a course..."
                                aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
@@ -270,7 +332,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                             </button>
                         </div>
                     </div>
-                </form>-->
+                </form>
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -451,7 +513,13 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
 
             </nav>
             <!-- End of Topbar -->
+            <?php if (getUserType($con, $_SESSION['uid']) == 0 && !isThisStudentsCourse($con, $cid)) { ?>
+                <div class="card shadow-sm" id="enrollButton">
 
+                    <div class="card-body"><a class="btn btn-primary" href="enroll.php?cid=<?php echo $cid; ?>">Enroll
+                            for ₹ <?php echo $courseCost; ?></a></div>
+                </div>
+            <?php } ?>
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
@@ -560,18 +628,24 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                                     </div>
                                     <div class="col-md-4 col-sm-12">
                                         <h4>Average Rating</h4>
-                                        <h2>4.3
+
+                                        <h2><?php echo round($courseRating, 2); ?>
                                             <small>/5</small>
                                         </h2>
                                         <div>
-                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span class="fas fa-star"></span></a>
-                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span class="fas fa-star"></span></a>
-                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span class="fas fa-star"></span></a>
-                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span class="fas fa-star"></span></a>
-                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span class="far fa-star"></span></a>
+                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span
+                                                        class="fas fa-star"></span></a>
+                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span
+                                                        class="fas fa-star"></span></a>
+                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span
+                                                        class="fas fa-star"></span></a>
+                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span
+                                                        class="fas fa-star"></span></a>
+                                            <a class="btn btn-sm btn-warning d-none d-md-inline"><span
+                                                        class="far fa-star"></span></a>
                                         </div>
                                     </div>
-                                    <div class="col-6 d-none d-sm-block">
+                                    <div class="col-4 d-none d-sm-block">
                                         <h4>Rating Distribution</h4>
                                         <div class="progress mb-1 text-center">
                                             <div class="progress-bar bg-success" style="width:40%">
@@ -601,48 +675,83 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                                     </div>
                                 </div>
                                 <br>
-                                <div class="container">
-                                    < method="post" action="creview.php">
-                                        <input type="text" placeholder="Provide a title for your review">
-                                        <textarea class="form-control" placeholder="Add some details to your review. This helps the trainers a lot!"></textarea>
-                                    </form>
-                                </div>
+                                <?php if (isThisStudentsCourse($con, $cid)) { ?>
+                                    <div class="container">
+                                        <form method="post" action="creview.php">
+                                            <legend>Leave a review!</legend>
+                                            <div class="form-group">
+                                                <label class="col-form-label">Review Title</label>
+                                                <input name="title" type="text" class="form-control form-control-lg"
+                                                       placeholder="Provide a title for your review">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-form-label">Description</label>
+                                                <textarea name="desc" class="form-control"
+                                                          placeholder="Add some details to your review. This helps the trainers a lot!"></textarea>
+                                                <input type="hidden" name="uid" value="<?php echo $_SESSION['uid']; ?>">
+                                                <input type="hidden" name="cid" value="<?php echo $cid; ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-form-label">Rating</label>
+                                                <input type="range" class="form-control-range slider" min="1" max="5"
+                                                       name="rating" required="true"
+                                                       onchange="updateTextInput(this.value)">
+                                                <span id="textInput"></span><span>/5&nbsp;<span
+                                                            class="far fa-star"></span> </span>
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control btn btn-primary" type="submit"
+                                                       value="Submit Review">
+                                            </div>
+                                        </form>
+                                    </div>
+                                <?php } ?>
+                                <br>
                                 <div class="container p-1">
-                                    <div class="row">
-                                        <div class="col-md-2 col-sm-1 border-right">
-                                            <img class="img-profile rounded" src="https://dummyimage.com/60x60/000/fff">
-                                            <a href="viewprofile.php">Aan Patel</a>
-
-                                        </div>
-                                        <div class="col-md-10 col-sm-8">
-                                            <div class="row">
-                                                <div class="col-6"><h5 class="d-inline">Review Title</h5></div>
-                                                <div class="col-3 text-right text-primary"><h6>5 Stars</h6></div>
-                                                <div class="col-3 d-none d-lg-inline text-right text-primary"><h6>12/11/2019 19:00:00 PM</h6></div>
+                                    <?php
+                                    $reviewQuery = "SELECT * FROM creviews WHERE cid=$cid ORDER BY dateofreview";
+                                    $reviewResult = mysqli_query($con, $reviewQuery) or die(mysqli_error($con));
+                                    while ($reviewData = mysqli_fetch_array($reviewResult)) {
+                                        $reviewTitle = $reviewData['rtitle'];
+                                        $reviewDesc = $reviewData['rdesc'];
+                                        $reviewRating = $reviewData['rating'];
+                                        $reviewDate = $reviewData['dateofreview'];
+                                        $reviewerNameQuery = "SELECT fname, lname FROM user WHERE uid=" . $reviewData['uid'];
+                                        $reviewerNameResult = mysqli_query($con, $reviewerNameQuery) or die(mysqli_error($con));
+                                        $reviewerNameData = mysqli_fetch_array($reviewerNameResult);
+                                        $reviewerName = $reviewerNameData['fname'] . " " . $reviewerNameData['lname'];
+                                        $deleteReviewButton = "";
+                                        if ($reviewData['uid'] == $_SESSION['uid']) {
+                                            $deleteReviewButton = "<a class='btn btn-danger' href='deleteReview.php?crid=" . $reviewData['crid'] . "'>Delete</a>";
+                                        }
+                                        ?>
+                                        <div class="row shadow-sm">
+                                            <div class="col-md-2 col-sm-1">
+                                                <img class="img-profile rounded"
+                                                     src="https://dummyimage.com/60x60/000/fff">
+                                                <a href="viewprofile.php?uid=<?php echo $reviewData['uid']; ?>"><?php echo $reviewerName ?></a>
                                             </div>
-                                            <div class="d-none d-lg-block">Review text. Review text. Review text. Review text. Review text. Review
-                                            text. Review text. Review text. Review text. Review text.
+                                            <div class="col-md-10 col-sm-8">
+                                                <div class="row">
+                                                    <div class="col-6"><h5
+                                                                class="d-inline"><?php echo $reviewTitle; ?></h5></div>
+                                                    <div class="col-2 text-right text-primary">
+                                                        <h6><?php echo $reviewRating; ?>/5&nbsp;<span
+                                                                    class="far fa-star"></span></h6></div>
+                                                    <div class="col-3 d-none d-lg-inline text-right text-primary">
+                                                        <h6>
+                                                            <?php echo $reviewDate; ?>
+                                                        </h6>
+                                                    </div>
+                                                    <div class="col-1 p-1 text-right text-primary"><?php echo $deleteReviewButton; ?></div>
+                                                </div>
+                                                <div class="d-none d-lg-block">
+                                                    <?php echo $reviewDesc; ?>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-2 col-sm-1 border-right">
-                                            <img class="img-profile rounded" src="https://dummyimage.com/60x60/000/fff">
-                                            <a href="viewprofile.php">Aan Patel</a>
-
-                                        </div>
-                                        <div class="col-md-10 col-sm-8">
-                                            <div class="row">
-                                                <div class="col-6"><h5 class="d-inline">Review Title</h5></div>
-                                                <div class="col-3 text-right text-primary"><h6>5 Stars</h6></div>
-                                                <div class="col-3 d-none d-lg-inline text-right text-primary"><h6>12/11/2019 19:00:00 PM</h6></div>
-                                            </div>
-                                            <div class="d-none d-lg-block">Review text. Review text. Review text. Review text. Review text. Review
-                                                text. Review text. Review text. Review text. Review text.
-                                            </div>
-                                        </div>
-                                    </div>
+                                        <br>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -725,9 +834,17 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
 <script src="vendor/chart.js/Chart.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="js/demo/chart-area-demo.js"></script>
-<script src="js/demo/chart-pie-demo.js"></script>
+<script>
+    $(document).ready(function () {
+        updateTextInput(3);
+    });
 
+    function updateTextInput(val) {
+        if (document.getElementById('textInput')) {
+            document.getElementById('textInput').innerHTML = val;
+        }
+    }
+</script>
 </body>
 
 </html>
