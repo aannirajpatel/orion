@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/dashboard/creview.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/enroll.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/searchcourse.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/student.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/student.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/viewcourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewcourse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/viewprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewprofile.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,17 +44,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/trainer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="374" column="118" selection-start-line="374" selection-start-column="118" selection-end-line="374" selection-end-column="118" />
+            <state relative-caret-position="221">
+              <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/publishcourse.php">
+        <entry file="file://$PROJECT_DIR$/dashboard/viewprofile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+            <state relative-caret-position="340">
+              <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+              <folding>
+                <element signature="e#17647#19699#0#PHP" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,11 +65,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/coursepreview.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="17" selection-end-line="605" selection-end-column="7" />
+            <state relative-caret-position="34">
+              <caret line="2" column="57" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
               <folding>
                 <element signature="n#printSectionDescription#0;n#!!top" />
-                <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -78,23 +84,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/viewcourse.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="608" column="41" selection-start-line="608" selection-start-column="41" selection-end-line="608" selection-end-column="41" />
+            <state relative-caret-position="10540">
+              <caret line="836" column="8" lean-forward="true" selection-start-line="836" selection-start-column="8" selection-end-line="836" selection-end-column="8" />
               <folding>
-                <element signature="n#printSectionDescription#0;n#!!top" />
                 <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#32044#32050#0#HTML" expanded="true" />
-                <element signature="n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="e#33324#33330#0#HTML" expanded="true" />
-                <element signature="n#div#1;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#4;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#35091#35097#0#HTML" expanded="true" />
+                <element signature="e#38380#38386#0#HTML" expanded="true" />
                 <element signature="n#a#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
               </folding>
@@ -102,29 +103,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dashboard/creview.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="13" column="123" selection-start-line="13" selection-start-column="123" selection-end-line="13" selection-end-column="123" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/courseownershipauth.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/student.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="141" column="6" selection-start-line="141" selection-start-column="6" selection-end-line="143" selection-end-column="12" />
+            <state relative-caret-position="444">
+              <caret line="436" column="7" lean-forward="true" selection-start-line="17" selection-end-line="436" selection-end-column="7" />
+              <folding>
+                <element signature="e#18884#18890#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dashboard/enroll.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="526">
+              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashboard/searchcourse.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="387" column="30" selection-start-line="387" selection-start-column="30" selection-end-line="387" selection-end-column="30" />
+              <folding>
+                <element signature="e#19698#19704#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,40 +154,49 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashboard/performance.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1">
+              <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fa-</find>
-      <find>printGl</find>
-      <find>back</find>
-      <find>preview</find>
-      <find>performance</find>
-      <find>performanceText</find>
-      <find>breakdoen</find>
-      <find>col-sm-9</find>
-      <find>glyphicon glyphicon-star</find>
-      <find>img-profile</find>
-      <find>user full</find>
-      <find>xs</find>
-      <find>star</find>
-      <find>btn-xs</find>
-      <find>btn</find>
-      <find>sidebarTogg</find>
-      <find>ul</find>
-      <find>&lt;ul</find>
-      <find>&lt;/ul</find>
-      <find>img</find>
-      <find>sr.</find>
-      <find>textare</find>
-      <find>form</find>
-      <find>&lt;form</find>
-      <find>title</find>
-      <find>)&quot;</find>
-      <find>onchange</find>
-      <find>pars</find>
-      <find>onchang</find>
-      <find>updateTex</find>
+      <find>viewprofile.php</find>
+      <find>viewprofile.php?</find>
+      <find>$uid</find>
+      <find>getUserType</find>
+      <find>by this</find>
+      <find>$cid</find>
+      <find>toggle</find>
+      <find>id=&quot;sidebarT</find>
+      <find>stars</find>
+      <find>viewprodil</find>
+      <find>orion</find>
+      <find>coursep</find>
+      <find>courseCost</find>
+      <find>card</find>
+      <find>textInput</find>
+      <find>sticky</find>
+      <find>z-in</find>
+      <find>enroll for</find>
+      <find>position:</find>
+      <find>position</find>
+      <find>$reviewRating</find>
+      <find>4.3</find>
+      <find>enroll</find>
+      <find>$review</find>
+      <find>&lt;small</find>
+      <find>&lt;style</find>
+      <find>input type=&quot;range</find>
+      <find>&lt;style&gt;</find>
+      <find>&lt;small&gt;</find>
+      <find>&lt;head&gt;</find>
     </findStrings>
     <replaceStrings>
       <replace>?rtype</replace>
@@ -204,6 +220,7 @@
       <replace>fas fa-star</replace>
       <replace>btn-sm</replace>
       <replace>desc</replace>
+      <replace>$searchText</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -212,9 +229,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/f4e09bed-b560-4169-b8d1-b5b3b22e15a7/console.sql" />
-        <option value="$PROJECT_DIR$/dashboard/addResourceNote.php" />
-        <option value="$PROJECT_DIR$/dashboard/deleteResource..php" />
         <option value="$PROJECT_DIR$/dashboard/deleteResource.php" />
         <option value="$PROJECT_DIR$/dashboard/viewNote.php" />
         <option value="$PROJECT_DIR$/dashboard/updateDescription.php" />
@@ -253,7 +267,6 @@
         <option value="$PROJECT_DIR$/dashboard/createcourse.php" />
         <option value="$PROJECT_DIR$/dashboard/performance.php" />
         <option value="$PROJECT_DIR$/includes/auth.php" />
-        <option value="$PROJECT_DIR$/dashboard/viewprofile.php" />
         <option value="$PROJECT_DIR$/dashboard/coursepreview.php" />
         <option value="$PROJECT_DIR$/dashboard/coursedit.php" />
         <option value="$PROJECT_DIR$/dashboard/publishcourse.php" />
@@ -261,8 +274,12 @@
         <option value="$PROJECT_DIR$/trial/average_user_rating_rating_breakdown.html" />
         <option value="$PROJECT_DIR$/dashboard/withdrawcourse.php" />
         <option value="$PROJECT_DIR$/includes/courseownershipauth.php" />
-        <option value="$PROJECT_DIR$/dashboard/viewcourse.php" />
         <option value="$PROJECT_DIR$/dashboard/creview.php" />
+        <option value="$PROJECT_DIR$/dashboard/searchcourse.php" />
+        <option value="$PROJECT_DIR$/dashboard/viewprofile.php" />
+        <option value="$PROJECT_DIR$/dashboard/student.php" />
+        <option value="$PROJECT_DIR$/dashboard/viewcourse.php" />
+        <option value="$PROJECT_DIR$/dashboard/enroll.php" />
       </list>
     </option>
   </component>
@@ -419,11 +436,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558520246720</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Course viewer review custom cards made.&#10;DONE: Backend integration for course reviews.&#10;TODO: Course QnA For Enrolled Students&#10;TODO: Student dashboard">
+      <created>1558591668129</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1558591668129</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188155000" />
+    <option name="totallyTimeSpent" value="212080000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -438,7 +462,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25113463" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25113463" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
@@ -450,7 +474,7 @@
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.3633388" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
@@ -460,22 +484,22 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2473525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25113463" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" order="0" weight="0.3289689" />
-      <window_info anchor="bottom" id="Database Changes" order="1" />
-      <window_info anchor="bottom" id="Docker" order="2" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" />
-      <window_info anchor="bottom" id="Run" order="5" />
-      <window_info anchor="bottom" id="Debug" order="6" sideWeight="0.49924356" weight="0.3633388" />
-      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="9" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50075644" side_tool="true" weight="0.3633388" />
+      <window_info anchor="bottom" id="Database Changes" order="0" />
+      <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" />
+      <window_info anchor="bottom" id="Run" order="4" />
+      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.49924356" weight="0.3633388" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" weight="0.3289689" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289689" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.3633388" />
+      <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
       <window_info anchor="right" id="Database" order="0" weight="0.32980332" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -491,34 +515,10 @@
     <MESSAGE value="Course viewer in progress." />
     <MESSAGE value="Course viewer in progress.&#10;Course viewing done.&#10;To add: Disquis Commenting for each resource type." />
     <MESSAGE value="Course viewer review custom cards made.&#10;TODO: Backend integration for course reviews.&#10;TODO: Course QnA For Enrolled Students&#10;TODO: Student dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="Course viewer review custom cards made.&#10;TODO: Backend integration for course reviews.&#10;TODO: Course QnA For Enrolled Students&#10;TODO: Student dashboard" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/dashboard/viewcourse.php</url>
-          <line>506</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Course viewer review custom cards made.&#10;DONE: Backend integration for course reviews.&#10;TODO: Course QnA For Enrolled Students&#10;TODO: Student dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Course viewer review custom cards made.&#10;DONE: Backend integration for course reviews.&#10;TODO: Course QnA For Enrolled Students&#10;TODO: Student dashboard" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dashboard/updateDescription.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="14" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/updateSyllabus.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="46" lean-forward="true" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/createLink.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -783,28 +783,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/performance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/createcourse.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/viewprofile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="120" column="14" selection-start-line="120" selection-start-column="14" selection-end-line="120" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -822,31 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/coursepreview.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" selection-end-line="605" selection-end-column="7" />
-          <folding>
-            <element signature="n#printSectionDescription#0;n#!!top" />
-            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#a#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/trainer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="374" column="118" selection-start-line="374" selection-start-column="118" selection-end-line="374" selection-end-column="118" />
         </state>
       </provider>
     </entry>
@@ -875,49 +832,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/performance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/includes/courseownershipauth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        <state relative-caret-position="91">
+          <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/student.php">
+    <entry file="file://$PROJECT_DIR$/dashboard/creview.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="141" column="6" selection-start-line="141" selection-start-column="6" selection-end-line="143" selection-end-column="12" />
+        <state relative-caret-position="306">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/viewcourse.php">
+    <entry file="file://$PROJECT_DIR$/dashboard/searchcourse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="608" column="41" selection-start-line="608" selection-start-column="41" selection-end-line="608" selection-end-column="41" />
+        <state relative-caret-position="153">
+          <caret line="387" column="30" selection-start-line="387" selection-start-column="30" selection-end-line="387" selection-end-column="30" />
+          <folding>
+            <element signature="e#19698#19704#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/coursepreview.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="57" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
           <folding>
             <element signature="n#printSectionDescription#0;n#!!top" />
+            <element signature="n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#32044#32050#0#HTML" expanded="true" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#33324#33330#0#HTML" expanded="true" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#a#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/creview.php">
+    <entry file="file://$PROJECT_DIR$/dashboard/trainer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="13" column="123" selection-start-line="13" selection-start-column="123" selection-end-line="13" selection-end-column="123" />
+        <state relative-caret-position="221">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/viewprofile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+          <folding>
+            <element signature="e#17647#19699#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/viewcourse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10540">
+          <caret line="836" column="8" lean-forward="true" selection-start-line="836" selection-start-column="8" selection-end-line="836" selection-end-column="8" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#35091#35097#0#HTML" expanded="true" />
+            <element signature="e#38380#38386#0#HTML" expanded="true" />
+            <element signature="n#a#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/student.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="436" column="7" lean-forward="true" selection-start-line="17" selection-end-line="436" selection-end-column="7" />
+          <folding>
+            <element signature="e#18884#18890#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/enroll.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
         </state>
       </provider>
     </entry>
