@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/dashboard/enroll.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/enroll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paytm/PaytmKit/pgRedirect.php" beforeDir="false" afterPath="$PROJECT_DIR$/paytm/PaytmKit/pgRedirect.php" afterDir="false" />
-    </list>
+    <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -49,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/paytm/PaytmKit/pgRedirect.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -210,7 +207,7 @@
       <path value="$PROJECT_DIR$/login/vendor/phpseclib/phpseclib" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -334,7 +331,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214220000" />
+    <option name="totallyTimeSpent" value="214523000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -347,9 +344,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25113463" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25113463" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
@@ -362,7 +358,7 @@
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289689" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.3633388" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
       <window_info anchor="right" id="Database" order="0" weight="0.32980332" />
@@ -811,7 +807,7 @@
     <entry file="file://$PROJECT_DIR$/paytm/PaytmKit/pgRedirect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
