@@ -5,16 +5,30 @@
 require('../includes/auth.php');
 require('../includes/db.php');
 require('../includes/courseownershipauth.php');
+require('../includes/files.php');
+require('../includes/purchases.php');
+$email = $_SESSION['email'];
+$uid = $_SESSION['uid'];
+$profileImageFileName = "";
+$profileImageFileNameQuery = "SELECT profileImageFileName FROM user WHERE email='$email'";
+$profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or die(mysqli_error($con));
+$profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
+$profileImageFileName = $profileImageFileNameData['profileImageFileName'];
+$profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 
 if(!isset($_GET['cid'])){
-    $cid = $_GET['cid'];
-    $getCostQuery = "SELECT cname,cost,cdesc FROM course WHERE cid=$cid";
-    $getCostResult = mysqli_query($con, $getCostQuery) or die(mysqli_error($con));
-    $getCostData = mysqli_fetch_array($getCostResult);
-    $cost = $getCostData['cost'];
-    $courseName = $getCostData['cname'];
-    $couseDesc = $getCostData['cdesc'];
+    header("location:404.html");
 }
+
+$cid = $_GET['cid'];
+$getCostQuery = "SELECT cname,cost FROM course WHERE cid=$cid";
+$getCostResult = mysqli_query($con, $getCostQuery) or die(mysqli_error($con));
+$getCostData = mysqli_fetch_array($getCostResult);
+$cost = $getCostData['cost'];
+if($cost = 0){
+    freeCourseEnroll($cid, $_SESSION['uid']);
+}
+$courseName = $getCostData['cname'];
 
 ?>
 
@@ -62,7 +76,7 @@ if(!isset($_GET['cid'])){
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="student.php">
                 <i class="fas fa-fw fa-chalkboard-teacher"></i>
                 <span>Courses</span></a>
         </li>
@@ -321,6 +335,25 @@ if(!isset($_GET['cid'])){
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
                 </div>
 
+
+                <div class="table">
+                    <table class="table-responsive">
+                        <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Cost</th>
+                            <th>Payment</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><?php echo $courseName;?></td>
+                            <td><?php echo $cost;?></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <!-- Content Row -->
 
                 <!-- Content Row -->
