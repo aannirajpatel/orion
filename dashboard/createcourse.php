@@ -25,6 +25,9 @@ if (isset($_POST['cname'])) {
     $courseTrainerDesignateQuery = "INSERT INTO ctrainers(cid,uid) VALUES ($cid,$uid)";
     $courseTrainerDesignateResult = mysqli_query($con, $courseTrainerDesignateQuery) or die(mysqli_error($con));
 
+    $emptySyllabusCreateQuery = "INSERT INTO csyllabus(cid, syllabus) VALUES($cid,'')";
+    $emptySyllabusCreateResult = mysqli_query($con, $emptySyllabusCreateQuery) or  die(mysqli_error($con));
+
     header("location:coursedit.php?cid=$cid");
 }
 ?>
@@ -44,7 +47,7 @@ if (isset($_POST['cname'])) {
 </head>
 <body>
 <div class="container">
-    <form class="form-horizontal" method="get" action="">
+    <form class="form-horizontal" method="post" action="">
         <fieldset>
             <!-- Form Name -->
             <legend>Create Your Course</legend>

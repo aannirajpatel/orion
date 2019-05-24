@@ -37,6 +37,8 @@ else {
         }
     }
     $searchQueryResult = mysqli_query($con, $searchQuery) or die($con);
+    //Uncomment the line below for DEBUG Purposes
+    //echo $searchQuery;
 }
 ?>
 

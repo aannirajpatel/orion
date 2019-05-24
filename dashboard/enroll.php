@@ -6,9 +6,67 @@ require('../includes/auth.php');
 require('../includes/db.php');
 require('../includes/courseownershipauth.php');
 require('../includes/files.php');
+
+//Custom Lib for easy payments
 require('../includes/purchases.php');
+
+//Paytm Libs
+require_once('../includes/config_paytm.php');
+require_once('../includes/encdec_paytm.php');
+
+if(!isset($_GET['cid'])){
+    header("location:404.html");
+}
+
 $email = $_SESSION['email'];
 $uid = $_SESSION['uid'];
+$cid = $_GET['cid'];
+
+//Initialize Paytm vars
+$checkSum = "";
+$paramList = array();
+$ORDER_ID = getOrderId($uid, $cid);
+$CUST_ID = getCustId($uid);
+$TXN_AMT = getTxnAmount(getCourseCost($cid, $con));
+
+if(isThisStudentsCourse($con, $cid)){
+    echo "<script>alert('You already own this course');</script>";
+    header("location:student.php");
+}
+//Directly enroll and redirect in free courses...
+
+if(getCourseCost($cid, $con)== 0){
+    enrollInFreeCourse($cid, $uid, $CUST_ID, $ORDER_ID, $con);
+    header("location:viewcourse.php?cid=$cid");
+}
+
+header("Pragma: no-cache");
+header("Cache-Control: no-cache");
+header("Expires: 0");
+
+// Create an array having all required parameters for creating checksum.
+$paramList["MID"] = PAYTM_MERCHANT_MID;
+$paramList["ORDER_ID"] = $ORDER_ID;
+$paramList["CUST_ID"] = $CUST_ID;
+$paramList["INDUSTRY_TYPE_ID"] = INDUSTRY_TYPE_ID;
+$paramList["CHANNEL_ID"] = PAYTM_CHANNEL_ID;
+$paramList["TXN_AMOUNT"] = $TXN_AMT;
+$paramList["WEBSITE"] = PAYTM_MERCHANT_WEBSITE;
+$paramList["CALLBACK_URL"] = PAYTM_COURSE_ENROLL_CALLBACK_URL;
+$paramList["EMAIL"] = $email; //Email ID of customer
+
+/*
+$paramList["CALLBACK_URL"] = "http://localhost/PaytmKit/pgResponse.php";
+$paramList["MSISDN"] = $MSISDN; //Mobile number of customer
+$paramList["EMAIL"] = $EMAIL; //Email ID of customer
+$paramList["VERIFIED_BY"] = "EMAIL"; //
+$paramList["IS_USER_VERIFIED"] = "YES"; //
+*/
+
+//Here checksum string will return by getChecksumFromArray() function.
+$checkSum = getChecksumFromArray($paramList,PAYTM_MERCHANT_KEY);
+
+//Profile Image File Fetching
 $profileImageFileName = "";
 $profileImageFileNameQuery = "SELECT profileImageFileName FROM user WHERE email='$email'";
 $profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or die(mysqli_error($con));
@@ -16,19 +74,10 @@ $profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
 $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 
-if(!isset($_GET['cid'])){
-    header("location:404.html");
-}
+//
+$cost = $TXN_AMT;
+$courseName = getCourseName($cid, $con);
 
-$cid = $_GET['cid'];
-$getCostQuery = "SELECT cname,cost FROM course WHERE cid=$cid";
-$getCostResult = mysqli_query($con, $getCostQuery) or die(mysqli_error($con));
-$getCostData = mysqli_fetch_array($getCostResult);
-$cost = $getCostData['cost'];
-if($cost = 0){
-    freeCourseEnroll($cid, $_SESSION['uid']);
-}
-$courseName = $getCostData['cname'];
 
 ?>
 
@@ -342,16 +391,31 @@ $courseName = $getCostData['cname'];
                         <tr>
                             <th>Course Name</th>
                             <th>Cost</th>
-                            <th>Payment</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
                             <td><?php echo $courseName;?></td>
                             <td>₹ <?php echo $cost;?></td>
-                            <td><form>
-                                    <button type="submit" class="btn btn-primary">Proceed With Payment</button>
-                                    <input type="hidden" value="PRICE" name="">
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <h1>PLEASE DO NOT CLOSE OR REFRESH THIS PAGE</h1>
+                                <form method="post" action="<?php echo PAYTM_TXN_URL;?>" name="paytmRequesterForm">
+                                    <table border="1">
+                                        <tbody>
+                                        <?php
+                                        foreach($paramList as $name => $value) {
+                                            echo '<input type="hidden" name="' . $name .'" value="' . $value . '">';
+                                        }
+                                        ?>
+                                        <input type="hidden" name="CHECKSUMHASH" value="<?php echo $checkSum ?>">
+                                        <button type="submit">Submit</button>
+                                        </tbody>
+                                    </table>
+                                    <!--<script type="text/javascript">
+                                        document.paytmRequesterForm.submit();
+                                    </script>-->
                                 </form>
                             </td>
                         </tr>

@@ -324,7 +324,7 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
                 <div class="row">
                     <div class="card-columns">
                         <?php
-                        $courseListQuery = "SELECT cid FROM cstudents WHERE uid=$uid";
+                        $courseListQuery = "SELECT cid FROM cstudents WHERE uid=$uid ORDER BY CID desc";
                         $courseListResult = mysqli_query($con, $courseListQuery) or die(mysqli_error($con));
                         while ($courseListQueryData = mysqli_fetch_array($courseListResult)) {
                             $cid = $courseListQueryData['cid'];
