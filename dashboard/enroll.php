@@ -348,8 +348,12 @@ $courseName = $getCostData['cname'];
                         <tbody>
                         <tr>
                             <td><?php echo $courseName;?></td>
-                            <td><?php echo $cost;?></td>
-                            <td></td>
+                            <td>₹ <?php echo $cost;?></td>
+                            <td><form>
+                                    <button type="submit" class="btn btn-primary">Proceed With Payment</button>
+                                    <input type="hidden" value="PRICE" name="">
+                                </form>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
