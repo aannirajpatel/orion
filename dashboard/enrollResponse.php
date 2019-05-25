@@ -8,7 +8,7 @@ require('../includes/purchases.php');
 header("Pragma: no-cache");
 header("Cache-Control: no-cache");
 header("Expires: 0");
-// following files need to be included
+
 require_once("../includes/config_paytm.php");
 require_once("../includes/encdec_paytm.php");
 $uid = $_SESSION['uid'];

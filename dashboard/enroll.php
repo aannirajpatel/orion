@@ -22,7 +22,7 @@ $email = $_SESSION['email'];
 $uid = $_SESSION['uid'];
 $cid = $_GET['cid'];
 
-//Initialize Paytm vars
+//Initialize Paytm payment detail vars
 $checkSum = "";
 $paramList = array();
 $ORDER_ID = getOrderId($uid, $cid);
@@ -33,6 +33,7 @@ if(isThisStudentsCourse($con, $cid)){
     echo "<script>alert('You already own this course');</script>";
     header("location:student.php");
 }
+
 //Directly enroll and redirect in free courses...
 
 if(getCourseCost($cid, $con)== 0){
@@ -410,7 +411,7 @@ $courseName = getCourseName($cid, $con);
                                         }
                                         ?>
                                         <input type="hidden" name="CHECKSUMHASH" value="<?php echo $checkSum ?>">
-                                        <button type="submit">Submit</button>
+                                        <button type="submit">Proceed</button>
                                         </tbody>
                                     </table>
                                     <!--<script type="text/javascript">

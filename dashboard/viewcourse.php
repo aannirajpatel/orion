@@ -17,7 +17,8 @@ $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 if (!isset($_GET['cid'])) {
     die("Error loading course preview - no course ID provided to viewer. Please contact an admin.");
-} /*elseif (!isThisStudentsCourse($con, $_GET['cid']) && !isThisUsersCourse($con, $_GET['cid'])) {
+}
+/*elseif (!isThisStudentsCourse($con, $_GET['cid']) && !isThisUsersCourse($con, $_GET['cid'])) {
     die("Error loading course - authorization problem. Please contact admin");
 }*/
 $cid = $_GET['cid'];
@@ -285,7 +286,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                 <i class="fas fa-fw fa-chart-line"></i>
                 <span><?php echo $dashPerformanceText; ?></span></a>
         </li>
-        <?php if (getUserType($con, $cid) == 0) { ?>
+        <?php if (getUserType($con, $uid) == 0) { ?>
             <li class="nav-item">
                 <a class="nav-link" href="student-purchases.php">
                     <i class="fas fa-money-check-alt"></i>
@@ -634,42 +635,58 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                                         </h2>
                                         <div>
                                             <a class="btn btn-sm btn-warning d-none d-md-inline"><span
-                                                        class="fas fa-star"></span></a>
+                                                        class="<?php if($courseRating>=1){echo "fas";}else{echo "far";}?> fa-star"></span></a>
                                             <a class="btn btn-sm btn-warning d-none d-md-inline"><span
-                                                        class="fas fa-star"></span></a>
+                                                        class="<?php if($courseRating>=2){echo "fas";}else{echo "far";}?> fa-star"></span></a>
                                             <a class="btn btn-sm btn-warning d-none d-md-inline"><span
-                                                        class="fas fa-star"></span></a>
+                                                        class="<?php if($courseRating>=3){echo "fas";}else{echo "far";}?> fa-star"></span></a>
                                             <a class="btn btn-sm btn-warning d-none d-md-inline"><span
-                                                        class="fas fa-star"></span></a>
+                                                        class="<?php if($courseRating>=4){echo "fas";}else{echo "far";}?> fa-star"></span></a>
                                             <a class="btn btn-sm btn-warning d-none d-md-inline"><span
-                                                        class="far fa-star"></span></a>
+                                                        class="<?php if($courseRating==5){echo "fas";}else{echo "far";}?> fa-star"></span></a>
                                         </div>
                                     </div>
                                     <div class="col-4 d-none d-sm-block">
                                         <h4>Rating Distribution</h4>
+                                        <?php
+                                        for($temp_var=5;$temp_var>0;$temp_var--){
+                                            if(!isset($courseRatingDistroPercentages[$temp_var])){
+                                                $courseRatingDistroPercentages[$temp_var] = 0;
+                                            }
+                                            if(!isset($courseRatingDistro[$temp_var])){
+                                                $courseRatingDistro[$temp_var] = 0;
+                                            }
+                                        }
+                                        $beTheFirstToReview = 0;
+                                        if($courseReviews==0){
+                                            $beTheFirstToReview = 1;
+                                            $courseReviews = 1;
+                                        }
+                                        ?>
+
                                         <div class="progress mb-1 text-center">
-                                            <div class="progress-bar bg-success" style="width:40%">
-                                                <span class="text-white">40%</span>
+                                            <div class="progress-bar bg-success" style="width:<?php echo $courseRatingDistro[5]*100/$courseReviews; ?>%">
+                                                <span class="text-white">5 Stars - <?php echo round($courseRatingDistro[5]*100/$courseReviews);?>%</span>
                                             </div>
                                         </div>
                                         <div class="progress mb-1 text-center">
-                                            <div class="progress-bar bg-success" style="width:20%">
-                                                <span class="text-white">20%</span>
+                                            <div class="progress-bar bg-success" style="width:<?php echo $courseRatingDistro[4]*100/$courseReviews; ?>%">
+                                                <span class="text-white">4 Stars - <?php echo round($courseRatingDistro[4]*100/$courseReviews);?>%</span>
                                             </div>
                                         </div>
                                         <div class="progress mb-1 text-center">
-                                            <div class="progress-bar bg-warning" style="width:15%">
-                                                <span class="text-white">15%</span>
+                                            <div class="progress-bar bg-warning" style="width:<?php echo $courseRatingDistro[3]*100/$courseReviews; ?>%">
+                                                <span class="text-white">3 Stars - <?php echo round($courseRatingDistro[3]*100/$courseReviews);?>%</span>
                                             </div>
                                         </div>
                                         <div class="progress mb-1 text-center">
-                                            <div class="progress-bar bg-warning" style="width:15%">
-                                                <span class="text-white">15%</span>
+                                            <div class="progress-bar bg-warning" style="width:<?php echo $courseRatingDistro[2]*100/$courseReviews; ?>%">
+                                                <span class="text-white">2 Stars - <?php echo round($courseRatingDistro[2]*100/$courseReviews);?>%</span>
                                             </div>
                                         </div>
                                         <div class="progress mb-1 text-center">
-                                            <div class="progress-bar bg-danger" style="width: 2%;">
-                                                <span class="text-white">2%</span>
+                                            <div class="progress-bar bg-danger" style="width:<?php echo $courseRatingDistro[1]*100/$courseReviews; ?>%">
+                                                <span class="text-white">1 Star - <?php echo round($courseRatingDistro[1]*100/$courseReviews);?>%</span>
                                             </div>
                                         </div>
                                     </div>
@@ -678,7 +695,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                                 <?php if (isThisStudentsCourse($con, $cid)) { ?>
                                     <div class="container">
                                         <form method="post" action="creview.php">
-                                            <legend>Leave a review!</legend>
+                                            <legend><?php if ($beTheFirstToReview==1){echo "Be the First to ";}?>Leave a review!</legend>
                                             <div class="form-group">
                                                 <label class="col-form-label">Review Title</label>
                                                 <input name="title" type="text" class="form-control form-control-lg"

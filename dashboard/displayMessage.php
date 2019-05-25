@@ -5,8 +5,6 @@
 require('../includes/auth.php');
 require('../includes/db.php');
 require('../includes/files.php');
-require('../includes/courseownershipauth.php');
-require('../includes/resconfig.php');
 $email = $_SESSION['email'];
 $uid = $_SESSION['uid'];
 $profileImageFileName = "";
@@ -15,6 +13,10 @@ $profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or 
 $profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
 $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
+$message = "ERROR LOADING MESSAGE";
+if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+}
 
 $dashHome = "student.php";
 $dashPerformance = "student-achievements.php";
@@ -22,7 +24,7 @@ $dashPerformanceText = "Achievements";
 $dashHelp = "student-help.php";
 $dashCommunication = "student-communication.php";
 $back = "student.php";
-if (getUserType($con, $uid) == 1) {
+if (getUserType($con, $uid)==1) {
     $dashHome = "trainer.php";
     $dashPerformance = "performance.php";
     $dashPerformanceText = "Your Performance";
@@ -44,7 +46,7 @@ if (getUserType($con, $uid) == 1) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>View File</title>
+    <title><?php echo $_SESSION['fname'] . "'s" ?> Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -329,94 +331,17 @@ if (getUserType($con, $uid) == 1) {
 
 
                 <!-- Content Row -->
-                <div class="row">
-                    <div class="container">
-                        <?php
-                        if (isset($_GET['rid'])) {
-                            $rid = $_GET['rid'];
 
-                            if (!authToViewResource($con, $rid)) {
-                                $message = "You don't have authorization for viewing this resource. Please contact admin.";
-                            }
-                            if (!isResource($con, $rid, RES_FILE)) {
-                                $message = "Warning: Wrong request issued - resource type mismatch.";
-                                header("location:displayMessage.php?message=" . htmlspecialchars($message));
-                            }
-                            $getResQuery = "SELECT rtext, rdate, raddr FROM cresources WHERE rid=$rid";
-                            $getResResult = mysqli_query($con, $getResQuery) or die($getResQuery);
-                            if (mysqli_num_rows($getResResult) > 0) {
-                                $getResData = mysqli_fetch_array($getResResult);
-                                echo "<h3>File: " . $getResData['rtext'] . "</h3><hr>";
-                                $raddr = $getResData['raddr'];
-                                $addressArray = preg_split("/res/", $raddr);
-                                $faddr = "./res" . $addressArray[1];
-                                ?>
-                                <a href="<?php echo $faddr; ?>" class="btn btn-primary" target="_blank"
-                                   download="<?php echo $getResData['rtext']; ?>">Get File</a>
-                                <?php
-                            } else {
-                                echo "(Sorry, but there is no file.)";
-                            }
-                        } else {
-                            header("location:404.html");
-                        }
-                        ?>
-                    </div>
-                </div>
                 <!-- Content Row -->
-                <div class="row">
-                        <?php
-                        $resourceCommentsQuery = "SELECT * FROM rescomments WHERE rid=$rid";
-                        $commentResult = mysqli_query($con, $resourceCommentsQuery) or die(mysqli_error($con));
-                        ?>
-                        <div class="container p-1">
-                            <?php
-                            while ($commentData = mysqli_fetch_array($commentResult)) {
-                                $commentType = $commentData['commtype'];
-                                $commentText = $commentData['commtext'];
-                                $commentTypeString = "";
-                                switch($commentType){
-                                    case 0:
-                                        $commentTypeString = "Comment";
-                                        break;
-                                    case 1:
-                                        $commentTypeString = "Question to Trainer";
-                                        break;
-                                }
-                                $commentDate = $commentData['dateofcomment'];
-                                $commenterNameQuery = "SELECT fname, lname FROM user WHERE uid=" . $commentData['uid'];
-                                $commenterNameResult = mysqli_query($con, $commenterNameQuery) or die(mysqli_error($con));
-                                $commenterNameData = mysqli_fetch_array($commenterNameResult);
-                                $commenterName = $commenterNameData['fname'] . " " . $commenterNameData['lname'];
-                                $deleteCommentButton = "";
-                                if ($commentData['uid'] == $_SESSION['uid']) {
-                                    $deleteCommentButton = "<a class='btn btn-danger' href='deleteComment.php?commentid=" . $commentData['commentid'] . "'>Delete</a>";
-                                }
-                                ?>
-                                <div class="row shadow-sm">
-                                    <div class="col-md-2 col-sm-1">
-                                        <img class="img-profile rounded"
-                                             src="https://dummyimage.com/60x60/000/fff">
-                                        <a href="viewprofile.php?uid=<?php echo $commentData['uid']; ?>"><?php echo $commenterName ?></a>
-                                    </div>
-                                    <div class="col-md-10 col-sm-8">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <?php echo $commentText; ?>
-                                            </div>
-                                            <div class="col-3 d-none d-lg-inline text-right text-primary">
-                                                <h6>
-                                                    <?php echo $commentDate; ?>
-                                                </h6>
-                                            </div>
-                                            <div class="col-2 p-1 text-right text-primary"><?php echo $deleteCommentButton; ?></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                            <?php } ?>
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="text-primary">Message</h6>
                         </div>
-
+                        <div class="card-body">
+                            <?php echo $message; ?>
+                        </div>
+                    </div>
                 </div>
 
                 <br>
