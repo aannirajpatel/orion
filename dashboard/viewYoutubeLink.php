@@ -15,10 +15,6 @@ $profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or 
 $profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
 $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
-$message = "ERROR LOADING MESSAGE";
-if (isset($_GET['message'])) {
-    $message = $_GET['message'];
-}
 
 $dashHome = "student.php";
 $dashPerformance = "student-achievements.php";
@@ -339,9 +335,9 @@ if (getUserType($con, $uid)==1) {
                     <?php
                     if (isset($_GET['rid'])) {
                         $rid = $_GET['rid'];
-                        if (!authToViewResource($con, $rid)) {
+                        /*if (!authToViewResource($con, $rid)) {
                             die("You don't have authorization for viewing this resource. Please contact admin.");
-                        }
+                        }*/
                         if (!isResource($con, $rid, RES_YOUTUBE)) {
                             die("Warning: Wrong request issued - resource type mismatch.");
                         }

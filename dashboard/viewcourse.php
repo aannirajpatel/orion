@@ -532,7 +532,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
             <?php if (getUserType($con, $_SESSION['uid']) == 0 && !isThisStudentsCourse($con, $cid)) { ?>
                 <div class="card shadow-sm" id="enrollButton">
 
-                    <div class="card-body"><a class="btn btn-primary" href="enroll.php?cid=<?php echo $cid; ?>">Enroll
+                    <div class="card-body"><a class="btn btn-primary" href="enroll.php?cid=<?php echo $cid; ?>">Unlock Certificate
                             for ₹ <?php echo $courseCost; ?></a></div>
                 </div>
             <?php } ?>
@@ -551,7 +551,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
 
                 <!-- Content Row -->
                 <?php if(isCourseCompleted($con, $cid, $_SESSION['uid'])){ ?>
-                <div class="modal" id="completionModal">
+                <div class="modal fade" id="completionModal">
                     <div class="modal-dialog">
                         <div class="modal-content">
 
@@ -564,7 +564,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                             <!-- Modal body -->
                             <div class="modal-body">
                                 You have completed this course. Your certificate can be viewed form your Achievements section as well as by clicking
-                                <a href="viewCertificate.php?cid=<?php echo $cid;?>&uid=<?php echo $uid;?>">here</a>
+                                <a target="_blank" href="viewCertificate.php?cid=<?php echo $cid;?>&uid=<?php echo $uid;?>">here</a>
                             </div>
 
                             <!-- Modal footer -->

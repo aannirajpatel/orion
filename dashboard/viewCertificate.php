@@ -4,15 +4,20 @@
  */
 require('../includes/db.php');
 require('../includes/resconfig.php');
-
+require('../includes/purchases.php');
 if (!isset($_GET['cid']) || !isset($_GET['uid'])) {
     die("Incomplete details for fetching the certificate. Please check URL.");
 }
 if (!isCourseCompleted($con, $_GET['cid'], $_GET['uid'])) {
     die("You have not completed this course.");
 }
+
 $uid = $_GET['uid'];
 $cid = $_GET['cid'];
+
+if(!purchased($con, $cid, $uid)){
+    die("Please purchase the course from the course page. Click <a href='viewcourse.php?cid=$cid'>here</a> to visit the course page.");
+}
 
 $getFullNameQuery = "SELECT fname, lname FROM user WHERE uid=$uid";
 $getFullNameResult = mysqli_query($con, $getFullNameQuery) or die(mysqli_error($con));

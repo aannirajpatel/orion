@@ -4,7 +4,7 @@
  */
 function getOrderId($uid, $cid)
 {
-    $orderId = "ORDER" . str_pad($uid . "C" . $cid . "T" . time(), 45, '0',STR_PAD_LEFT);
+    $orderId = "ORDER" . str_pad($uid . "C" . $cid . "T" . time(), 45, '0', STR_PAD_LEFT);
     if (strlen($orderId) != 50) {
         die("Order ID Cannot anything else than a 50 character string. Please check getOrderId params");
     }
@@ -13,7 +13,7 @@ function getOrderId($uid, $cid)
 
 function getCustId($uid)
 {
-    $custId = "CUST" . str_pad($uid, 60, '0',STR_PAD_LEFT);
+    $custId = "CUST" . str_pad($uid, 60, '0', STR_PAD_LEFT);
     if (strlen($custId) != 64) {
         die("Cust ID Cannot anything else than a 64 character string. Please check getCustId params");
     }
@@ -49,7 +49,7 @@ function getCourseCost($cid, $con)
 function getTxnAmount($floatAmt)
 {
     return $floatAmt;
-    $txnAmt = str_pad(number_format((float)$floatAmt, 2, '.', ''), 10, '0',STR_PAD_LEFT);
+    $txnAmt = str_pad(number_format((float)$floatAmt, 2, '.', ''), 10, '0', STR_PAD_LEFT);
     return $txnAmt;
 }
 
@@ -64,7 +64,8 @@ function getCourseName($cid, $con)
     return $getCourseNameData['cname'];
 }
 
-function enrollInFreeCourse($cid, $uid, $custid, $oid, $con){
+function enrollInFreeCourse($cid, $uid, $custid, $oid, $con)
+{
     //start transaction
     $startTransaction = mysqli_query($con, "START TRANSACTION") or die(mysqli_error($con));
     //cpurchases entry
@@ -77,14 +78,27 @@ function enrollInFreeCourse($cid, $uid, $custid, $oid, $con){
     $commitTransaction = mysqli_query($con, "COMMIT") or die(mysqli_error($con));
 }
 
-function getCourseIdFromOrderId($orderId){
-    $custIdArray = preg_split("/C/",$orderId);
+function getCourseIdFromOrderId($orderId)
+{
+    $custIdArray = preg_split("/C/", $orderId);
     $orderId = $custIdArray[1];
-    $custIdArray = preg_split("/T/",$orderId);
+    $custIdArray = preg_split("/T/", $orderId);
     $custId = $custIdArray[0];
     return (int)$custId;
 }
 
-function getPid($pid){
-    return "P".str_pad($pid,9,'0',STR_PAD_LEFT);
+function getPid($pid)
+{
+    return "P" . str_pad($pid, 9, '0', STR_PAD_LEFT);
+}
+
+function purchased($con, $cid, $uid)
+{
+    $purchasedQuery = "SELECT pid FROM cpurchases WHERE cid=$cid AND uid=$uid";
+    $purchasedResult = mysqli_query($con, $purchasedQuery) or die(mysqli_error($con));
+    if (mysqli_num_rows($purchasedResult) != 0) {
+        return 1;
+    } else {
+        return 0;
+    }
 }

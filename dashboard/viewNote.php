@@ -339,9 +339,9 @@ if (getUserType($con, $uid) == 1) {
                     <?php
                     if (isset($_GET['rid'])) {
                         $rid = $_GET['rid'];
-                        if (!authToViewResource($con, $rid)) {
+                        /*if (!authToViewResource($con, $rid)) {
                             die("You don't have authorization for viewing this resource. Please contact admin.");
-                        }
+                        }*/
                         if (!isResource($con, $rid, RES_NOTE)) {
                             die("Warning: Wrong request issued - resource type mismatch.");
                         }
