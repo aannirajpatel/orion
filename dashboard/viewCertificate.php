@@ -40,12 +40,12 @@ $certificatePermanentLink = "http://localhost/orion/dashboard/viewCertificate.ph
             src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/certificateFontStyle.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="./css/certificateStyle.css" type="text/css" charset="utf-8"/>
 </head>
 <body>
-<div id="certificate">
-    <div style="width:29.7cm; height:19cm; padding:20px; text-align:center; border: 10px solid #787878">
-        <div style="width:28cm; height:18cm; padding:20px; text-align:center; border: 5px solid #787878">
+
+    <div style="width:29.7cm; height:20cm; padding:20px; text-align:center; border: 10px solid #787878">
+        <div style="width:28cm; height:18.6cm; padding:20px; text-align:center; border: 5px solid #787878">
             <span style="font-size:100px; font-weight:bold" id="certificateHeader">Certificate of Completion</span>
             <br><br>
             <span style="font-size:50px"><i>This is to certify that</i></span>
@@ -61,15 +61,12 @@ $certificatePermanentLink = "http://localhost/orion/dashboard/viewCertificate.ph
                     href="<?php echo $certificatePermanentLink; ?>"><?php echo $certificatePermanentLink ?></a>
         </div>
     </div>
-</div>
-<br>
-<br>
-<button onclick="printCertificate();">Save this certificate as a PDF Document</button>
+<a href="" id="printBtn" onclick="printCertificate();">Save as PDF</a>
 </body>
 </html>
 <script>
     function printCertificate() {
-        $('button').hide();
+        $('#printBtn').hide();
         window.print();
     }
 </script>

@@ -11,3 +11,18 @@
 #certificateHeader{
     font-family: 'certificateregular', Arial, sans-serif;
 }
+
+#printBtn{
+    border: 2px solid #36b9cc;
+    border-radius: 50%;
+    background: #83c331;
+    position: fixed;
+    right: 1cm;
+    top: 0px;
+    height: 2cm;
+    line-height: 2cm;
+    text-align: center;
+    color: #000000;
+    text-decoration: none;
+
+}
