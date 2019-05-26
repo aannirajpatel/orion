@@ -5,6 +5,7 @@
 require('../includes/auth.php');
 require('../includes/db.php');
 require('../includes/files.php');
+require('../includes/resconfig.php');
 $email = $_SESSION['email'];
 $uid = $_SESSION['uid'];
 $profileImageFileName = "";
@@ -59,7 +60,7 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="student.php">
                 <i class="fas fa-fw fa-chalkboard-teacher"></i>
                 <span>Courses</span></a>
         </li>
@@ -290,7 +291,7 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="viewprofile.php?uid=<?php echo $uid;?>">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
                             </a>
@@ -349,12 +350,16 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
                                     $courseAuthors .= ", ";
                                 }
                             }
-
+                            $completionBadge = "";
+                            if(isCourseCompleted($con, $cid, $_SESSION['uid'])){
+                                $completionBadge = "<span class=\"badge badge-danger\">Completed</span>";
+                            }
                             $viewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary'>View</a>";
                             ?>
                             <div class="card shadow-sm">
                                 <div class="card-header">
                                     <?php echo $courseTitle; ?>
+                                    <?php echo $completionBadge;?>
                                 </div>
                                 <div class="card-body">
                                     <p>
@@ -433,5 +438,6 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
+
 </body>
 </html>

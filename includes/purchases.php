@@ -84,3 +84,7 @@ function getCourseIdFromOrderId($orderId){
     $custId = $custIdArray[0];
     return (int)$custId;
 }
+
+function getPid($pid){
+    return "P".str_pad($pid,9,'0',STR_PAD_LEFT);
+}

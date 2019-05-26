@@ -22,10 +22,22 @@ function isThisStudentsCourse($con, $cid){
     $isThisStudentsCourseQuery = "SELECT cid, uid FROM cstudents WHERE uid=$uid AND cid=$cid";
     $isThisUsersCourseResult = mysqli_query($con, $isThisStudentsCourseQuery) or die(mysqli_error($con));
 
+    $temp_var_1 = 0;
+
     if(mysqli_num_rows($isThisUsersCourseResult)>0){
-        return 1;
-    } else{
-        return 0;
+        $temp_var_1 = 1;
+    }
+
+    if($temp_var_1 == 1){
+        $checkCoursePublishedQuery = "SELECT published FROM course WHERE cid=$cid";
+        $checkCoursePublishedResult = mysqli_query($con, $checkCoursePublishedQuery) or die(mysqli_error($con));
+        $checkCoursePublishedData = mysqli_fetch_array($checkCoursePublishedResult);
+        $checkCoursePublished = $checkCoursePublishedData['published'];
+        if($checkCoursePublished == 1){
+            return 1;
+        } else{
+            return 0;
+        }
     }
 }
 
@@ -71,6 +83,18 @@ function isResource($con, $rid, $rtype){
         } else{
             return 0;
         }
+    } else{
+        return 0;
+    }
+}
+
+function isCoursePublished($con, $cid){
+    $checkCoursePublishedQuery = "SELECT published FROM course WHERE cid=$cid";
+    $checkCoursePublishedResult = mysqli_query($con, $checkCoursePublishedQuery) or die(mysqli_error($con));
+    $checkCoursePublishedData = mysqli_fetch_array($checkCoursePublishedResult);
+    $checkCoursePublished = $checkCoursePublishedData['published'];
+    if($checkCoursePublished == 1){
+        return 1;
     } else{
         return 0;
     }

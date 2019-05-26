@@ -28,7 +28,7 @@ if($searchTextWordCount<1){
     echo "<div class='alert alert-dismissible alert-warning'>Invalid Search Query</div>";
 }
 else {
-    $searchQuery = "SELECT * FROM course INNER JOIN csyllabus ON (course.cid=csyllabus.cid) WHERE ";
+    $searchQuery = "SELECT * FROM course INNER JOIN csyllabus ON (course.cid=csyllabus.cid AND published=1) WHERE ";
     foreach ($searchText as $searchWord) {
         $searchQuery .= "LOWER(cname) LIKE ('%$searchWord%') OR LOWER(cdesc) LIKE('%$searchWord%') OR LOWER(csyllabus) LIKE('%$searchWord%')";
         $searchTextWordCount--;

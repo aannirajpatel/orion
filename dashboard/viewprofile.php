@@ -16,7 +16,7 @@ $profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
 $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 
-if (!isset($_GET['uid'])) {
+if (!isset($_GET['uid']) || $_GET['uid'] <= 0) {
     die("Error loading profile - no profile ID provided to viewer. Please contact an admin.");
 }
 
@@ -28,7 +28,7 @@ $dashPerformanceText = "Achievements";
 $dashHelp = "student-help.php";
 $dashCommunication = "student-communication.php";
 $back = "student.php";
-if(getUserType($con, $_SESSION['uid'])==1){
+if (getUserType($con, $_SESSION['uid']) == 1) {
     $dashHome = "trainer.php";
     $dashPerformance = "performance.php";
     $dashPerformanceText = "Your Performance";
@@ -76,9 +76,14 @@ $bioQuery = "SELECT * FROM user WHERE uid=$profileUid";
 $bioResult = mysqli_query($con, $bioQuery) or die(mysqli_error($con));
 $bioData = mysqli_fetch_array($bioResult);
 $bio = $bioData['bio'];
-$userImageAddress = "./res/userimages/".$bioData['profileImageFileName'];
+$userImageAddress = "./res/userimages/" . $bioData['profileImageFileName'];
 $fname = $bioData['fname'];
 $lname = $bioData['lname'];
+
+if ($uid == $profileUid) {
+    $profileEditable = 1;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -141,7 +146,7 @@ $lname = $bioData['lname'];
                 <i class="fas fa-fw fa-chart-line"></i>
                 <span><?php echo $dashPerformanceText; ?></span></a>
         </li>
-        <?php if (getUserType($con, $_SESSION['uid'])==0) { ?>
+        <?php if (getUserType($con, $_SESSION['uid']) == 0) { ?>
             <li class="nav-item">
                 <a class="nav-link" href="student-purchases.php">
                     <i class="fas fa-money-check-alt"></i>
@@ -375,6 +380,13 @@ $lname = $bioData['lname'];
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">
                         Viewing Profile
+                        <?php
+                        if ($profileEditable == 1) {
+                            ?>
+                            <a href="editProfile.php" class="btn btn-primary">Edit Your Profile</a>
+                            <?php
+                        }
+                        ?>
                     </h1>
                     <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
@@ -389,12 +401,10 @@ $lname = $bioData['lname'];
                         <div class="container col-4">
                             <div class="container">
                                 <div class="card" style="width:20vw">
-                                    <img class="card-img-top" src="<?php echo $userImageAddress;?>" alt="Card image" style="width:100%;padding:10px;">
+                                    <img class="card-img-top" src="<?php echo $userImageAddress; ?>" alt="Card image"
+                                         style="width:100%;padding:10px;">
                                     <div class="card-body">
-                                        <h4 class="card-title"><?php echo $fname." ".$lname;?></h4>
-                                        <p class="card-text">
-                                            <?php echo $bio;?>
-                                        </p>
+                                        <h4 class="card-title"><?php echo $fname . " " . $lname; ?></h4>
                                     </div>
                                 </div>
                             </div>
@@ -415,6 +425,11 @@ $lname = $bioData['lname'];
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="container">
+                            <?php echo $bio; ?>
                         </div>
                     </div>
                     <?php
@@ -424,37 +439,48 @@ $lname = $bioData['lname'];
                 if (getUserType($con, $profileUid) == 0) {
                     ?>
                     <div class="row">
-                        <div class="container col-4">
-                            <div class="container">
-                                <div class="card shadow" style="width:20vw">
-                                    <img class="card-img-top" src="<?php echo $userImageAddress;?>" alt="Card image" style="width:100%;padding:10px;">
+                        <div class="container">
+                            <div class="card-columns">
+                                <!--<div class="container col-4">-->
+                                <!--<div class="container">-->
+                                <div class="card shadow">
+                                    <img class="card-img-top" src="<?php echo $userImageAddress; ?>" alt="Card image"
+                                         style="width:100%;padding:10px;">
                                     <div class="card-body">
-                                        <h4 class="card-title"><?php echo $fname." ".$lname;?></h4>
-                                        <p class="card-text">
-                                            <?php echo $bio;?>
-                                        </p>
+                                        <h4 class="card-title"><?php echo $fname . " " . $lname; ?></h4>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="container col-8">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Courses
-                                        by <?php echo $fname . " " . $lname; ?></h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="container">
-                                        <div class="table-responsive">
-                                            <table class="table" style="display:table;">
-                                                <?php loadRecentCoursesTable($con, $profileUid); ?>
-                                            </table>
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="container col-8">-->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Courses
+                                            by <?php echo $fname . " " . $lname; ?></h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="container">
+                                            <div class="table-responsive">
+                                                <table class="table" style="display:table;">
+                                                    <?php loadRecentCoursesTable($con, $profileUid); ?>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!--</div>-->
                     </div>
+                    <div class="row">
+                        <div class="container m-1">
+                            <div class="card shadow-sm">
+                                <div class="card-header"><h6 class="m-0 font-weight-bold text-primary">Bio</h6></div>
+                                <div class="card-body"><?php echo $bio; ?></div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
                     <?php
                 }
                 ?>
@@ -516,10 +542,6 @@ $lname = $bioData['lname'];
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="js/demo/chart-area-demo.js"></script>
-<script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 

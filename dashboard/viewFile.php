@@ -318,9 +318,7 @@ if (getUserType($con, $uid) == 1) {
                             </a>
                         </div>
                     </li>
-
                 </ul>
-
             </nav>
             <!-- End of Topbar -->
 
@@ -342,6 +340,9 @@ if (getUserType($con, $uid) == 1) {
                                 $message = "Warning: Wrong request issued - resource type mismatch.";
                                 header("location:displayMessage.php?message=" . htmlspecialchars($message));
                             }
+
+                            viewedResource($con, $rid, $uid);
+
                             $getResQuery = "SELECT rtext, rdate, raddr FROM cresources WHERE rid=$rid";
                             $getResResult = mysqli_query($con, $getResQuery) or die($getResQuery);
                             if (mysqli_num_rows($getResResult) > 0) {
@@ -363,59 +364,127 @@ if (getUserType($con, $uid) == 1) {
                         ?>
                     </div>
                 </div>
+                <br>
                 <!-- Content Row -->
                 <div class="row">
+                    <div class="container">
+                        <h3>Comments</h3>
+                        <hr>
+                        <form action="addComment.php" method="post">
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Enter your comment here"
+                                          name="commentText"></textarea>
+                                <input type="hidden" value="<?php echo $rid; ?>" name="resourceId">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Content Row -->
+                <div class="row">
+                    <?php
+                    $resourceCommentsQuery = "SELECT * FROM rescomments WHERE rid=$rid";
+                    $commentResult = mysqli_query($con, $resourceCommentsQuery) or die(mysqli_error($con));
+                    ?>
+                    <div class="container p-1">
                         <?php
-                        $resourceCommentsQuery = "SELECT * FROM rescomments WHERE rid=$rid";
-                        $commentResult = mysqli_query($con, $resourceCommentsQuery) or die(mysqli_error($con));
-                        ?>
-                        <div class="container p-1">
-                            <?php
-                            while ($commentData = mysqli_fetch_array($commentResult)) {
-                                $commentType = $commentData['commtype'];
-                                $commentText = $commentData['commtext'];
-                                $commentTypeString = "";
-                                switch($commentType){
-                                    case 0:
-                                        $commentTypeString = "Comment";
-                                        break;
-                                    case 1:
-                                        $commentTypeString = "Question to Trainer";
-                                        break;
-                                }
-                                $commentDate = $commentData['dateofcomment'];
-                                $commenterNameQuery = "SELECT fname, lname FROM user WHERE uid=" . $commentData['uid'];
-                                $commenterNameResult = mysqli_query($con, $commenterNameQuery) or die(mysqli_error($con));
-                                $commenterNameData = mysqli_fetch_array($commenterNameResult);
-                                $commenterName = $commenterNameData['fname'] . " " . $commenterNameData['lname'];
-                                $deleteCommentButton = "";
-                                if ($commentData['uid'] == $_SESSION['uid']) {
-                                    $deleteCommentButton = "<a class='btn btn-danger' href='deleteComment.php?commentid=" . $commentData['commentid'] . "'>Delete</a>";
-                                }
-                                ?>
-                                <div class="row shadow-sm">
-                                    <div class="col-md-2 col-sm-1">
-                                        <img class="img-profile rounded"
-                                             src="https://dummyimage.com/60x60/000/fff">
-                                        <a href="viewprofile.php?uid=<?php echo $commentData['uid']; ?>"><?php echo $commenterName ?></a>
-                                    </div>
-                                    <div class="col-md-10 col-sm-8">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <?php echo $commentText; ?>
-                                            </div>
-                                            <div class="col-3 d-none d-lg-inline text-right text-primary">
-                                                <h6>
-                                                    <?php echo $commentDate; ?>
-                                                </h6>
-                                            </div>
-                                            <div class="col-2 p-1 text-right text-primary"><?php echo $deleteCommentButton; ?></div>
-                                        </div>
-                                    </div>
+                        while ($commentData = mysqli_fetch_array($commentResult)) {
+                            $commentId = $commentData['commentid'];
+                            $commentText = $commentData['commtext'];
+                            $commentDate = $commentData['dateofcomment'];
+
+                            $commenterNameQuery = "SELECT fname, lname FROM user WHERE uid=" . $commentData['uid'];
+                            $commenterNameResult = mysqli_query($con, $commenterNameQuery) or die(mysqli_error($con));
+                            $commenterNameData = mysqli_fetch_array($commenterNameResult);
+                            $commenterName = $commenterNameData['fname'] . " " . $commenterNameData['lname'];
+
+                            $deleteCommentButton = "";
+                            if ($commentData['uid'] == $_SESSION['uid']) {
+                                $deleteCommentButton = "<a class='btn btn-danger btn-sm' href='deleteComment.php?commentid=" . $commentData['commentid'] . "'><span class='fas fa-trash'></span></a>";
+                            }
+
+                            $replyCountQuery = "SELECT count(*) AS replycount FROM commentreplies WHERE commentid=$commentId";
+                            $replyCountResult = mysqli_query($con, $replyCountQuery) or die(mysqli_error($con));
+                            $replyCountData = mysqli_fetch_array($replyCountResult);
+                            $replyCount = $replyCountData['replycount'];
+
+                            $replyToCommentButton = "<a class='btn btn-success btn-sm' id='replyBtn$commentId' onclick='showReplyBox(\"#replyTo$commentId\",\"#replyBtn$commentId\")'>$replyCount <span class='fas fa-reply'></span> </a>";
+                            ?>
+                            <div class="row shadow-sm">
+                                <div class="col-md-2 col-sm-1">
+                                    <img class="img-profile rounded"
+                                         src="https://dummyimage.com/60x60/000/fff">
+                                    <a href="viewprofile.php?uid=<?php echo $commentData['uid']; ?>"><?php echo $commenterName; ?></a>
                                 </div>
-                                <br>
-                            <?php } ?>
-                        </div>
+                                <div class="col-md-10 col-sm-8">
+                                    <div class="row">
+                                        <p><?php echo $commentText; ?></p>
+                                    </div>
+                                    <div class="row">
+                                        <?php echo $commentDate; ?>
+                                        &nbsp;
+                                        <?php echo $deleteCommentButton; ?>
+                                        &nbsp;
+                                        <?php echo $replyToCommentButton; ?>
+                                    </div>
+                                    <br>
+                                    <div class="container reply shadow-sm p-1" id="replyTo<?php echo $commentId; ?>">
+                                        <h4>Replies</h4>
+                                        <?php
+                                        $replyQuery = "SELECT * FROM commentreplies WHERE commentid = $commentId";
+                                        $replyResult = mysqli_query($con, $replyQuery) or die(mysqli_error($con));
+
+                                        while ($replyData = mysqli_fetch_array($replyResult)) {
+                                            $replyText = $replyData['replytext'];
+                                            $replyDate = $replyData['dateofreply'];
+                                            $replierNameQuery = "SELECT fname, lname FROM user WHERE uid=" . $replyData['uid'];
+                                            $replierNameResult = mysqli_query($con, $replierNameQuery) or die(mysqli_error($con));
+                                            $replierNameData = mysqli_fetch_array($replierNameResult);
+                                            $replierName = $replierNameData['fname'] . " " . $replierNameData['lname'];
+                                            $deleteReplyButton = "";
+                                            if($replyData['uid'] == $_SESSION['uid']){
+                                                $deleteReplyButton = "<a class='btn btn-sm btn-danger' href='deleteReply.php?replyId=" . $replyData['replyid'] . "'><span class='fas fa-trash'></span></a>";
+                                            }
+                                            ?>
+                                            <div class="row">
+                                                <div class="col-md-2 col-sm-1">
+                                                    <a href="viewprofile.php?uid=<?php echo $replyData['uid']; ?>"><?php echo $replierName; ?></a>
+                                                </div>
+                                                <div class="col-md-10 col-sm-8">
+                                                    <div class="row">
+                                                        <p><?php echo $replyText; ?></p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <?php echo $replyDate; ?>
+                                                        &nbsp;
+                                                        <?php echo $deleteReplyButton; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+                                        <br>
+                                        <form method="post" action="replyToComment.php">
+                                            <div class="form-group">
+                                                <textarea class="form-control" placeholder="Enter reply here"
+                                                          name="replyText" required="true"></textarea>
+                                                <input type="hidden" value="<?php echo $commentId; ?>" name="commentId">
+                                                <input type="hidden" value="<?php echo $rid; ?>" name="resourceId">
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" type="submit" value="Reply">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                            <br>
+                        <?php } ?>
+                    </div>
 
                 </div>
 
@@ -479,5 +548,24 @@ if (getUserType($con, $uid) == 1) {
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
+
+<!-- Custom comment section script, Requires jQuery 3.4 as on May 25, 2019 -->
+<script>
+    $(document).ready(function () {
+        $(".reply").hide();
+    });
+
+    function showReplyBox(replyBoxId,replyBtnId) {
+        $(replyBoxId).show();
+        var temp_str = "hideReplyBox('" + replyBoxId + "', '" + replyBtnId + "')";
+        $(replyBtnId).attr("onclick",temp_str);
+    };
+    function hideReplyBox(replyBoxId, replyBtnId){
+        $(replyBoxId).hide();
+        var temp_str = "showReplyBox('" + replyBoxId + "', '" + replyBtnId + "')";
+        $(replyBtnId).attr("onclick",temp_str);
+    }
+</script>
+
 </body>
 </html>

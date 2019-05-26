@@ -7,20 +7,27 @@ require('../includes/db.php');
 require('../includes/files.php');
 require('../includes/courseownershipauth.php');
 require('../includes/resconfig.php');
+
 $email = $_SESSION['email'];
 $uid = $_SESSION['uid'];
+
 $profileImageFileName = "";
 $profileImageFileNameQuery = "SELECT profileImageFileName FROM user WHERE email='$email'";
 $profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or die(mysqli_error($con));
 $profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
 $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
+
 if (!isset($_GET['cid'])) {
     die("Error loading course preview - no course ID provided to viewer. Please contact an admin.");
 }
 /*elseif (!isThisStudentsCourse($con, $_GET['cid']) && !isThisUsersCourse($con, $_GET['cid'])) {
     die("Error loading course - authorization problem. Please contact admin");
 }*/
+if (!isCoursePublished($con, $_GET['cid'])) {
+    $message = "This course is either not published or has been withdrawn.";
+    header("location:displayMessage.php?message=" . $message);
+}
 $cid = $_GET['cid'];
 $dashHome = "student.php";
 $dashPerformance = "student-achievements.php";
@@ -107,7 +114,7 @@ function loadSectionTable($con, $sectionNumber, $cid)
     <th>Sr.No.</th>
     <th>Name</th>
     <th>Type</th>
-    <th></th>
+    <th>Completion</th>   
     </tr>
     </thead>
     <tbody>
@@ -132,6 +139,15 @@ function loadSectionTable($con, $sectionNumber, $cid)
                 <td><?php echo printType($rtype); ?></td>
                 <!--<td><?php /*echo $resourceData['rdate']; */ ?></td>-->
                 <td>
+                    <?php if (resHasBeenViewed($con, $rid, $_SESSION['uid'])) { ?>
+                        <span class="fas fa-check-circle"></span>
+                        <?php
+                    } else{
+                        ?>
+                        <span class="far fa-circle"></span>
+                        <?php
+                    }
+                    ?>
                     <a class="btn btn-primary"
                        href="<?php echo resViewFile($rtype); ?>?rid=<?php echo $rid; ?>">
                         <span class="<?php echo printGlyph($rtype); ?>"></span>
@@ -142,7 +158,6 @@ function loadSectionTable($con, $sectionNumber, $cid)
             <?php
         }
         echo "</tbody>";
-
     }
 }
 
@@ -499,7 +514,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="viewprofile.php?uid=<?php echo $uid; ?>">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
                             </a>
@@ -535,8 +550,34 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                 </div>
 
                 <!-- Content Row -->
+                <?php if(isCourseCompleted($con, $cid, $_SESSION['uid'])){ ?>
+                <div class="modal" id="completionModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
 
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Congratulations!</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
 
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                You have completed this course. Your certificate can be viewed form your Achievements section as well as by clicking
+                                <a href="viewCertificate.php?cid=<?php echo $cid;?>&uid=<?php echo $uid;?>">here</a>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                    <?php
+                }
+                ?>
                 <div class="row">
                     <div class="container">
                         <div class="card shadow mb-4">
@@ -600,7 +641,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                                                 </div>
                                                 <br>
                                                 <div class="table-responsive">
-                                                    <table class="table" style="display:table;">
+                                                    <table class="table">
                                                         <?php loadSectionTable($con, $sectionNumber, $cid); ?>
                                                     </table>
                                                 </div>
@@ -635,58 +676,83 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                                         </h2>
                                         <div>
                                             <a class="btn btn-sm btn-warning d-none d-md-inline"><span
-                                                        class="<?php if($courseRating>=1){echo "fas";}else{echo "far";}?> fa-star"></span></a>
+                                                        class="<?php if ($courseRating >= 1) {
+                                                            echo "fas";
+                                                        } else {
+                                                            echo "far";
+                                                        } ?> fa-star"></span></a>
                                             <a class="btn btn-sm btn-warning d-none d-md-inline"><span
-                                                        class="<?php if($courseRating>=2){echo "fas";}else{echo "far";}?> fa-star"></span></a>
+                                                        class="<?php if ($courseRating >= 2) {
+                                                            echo "fas";
+                                                        } else {
+                                                            echo "far";
+                                                        } ?> fa-star"></span></a>
                                             <a class="btn btn-sm btn-warning d-none d-md-inline"><span
-                                                        class="<?php if($courseRating>=3){echo "fas";}else{echo "far";}?> fa-star"></span></a>
+                                                        class="<?php if ($courseRating >= 3) {
+                                                            echo "fas";
+                                                        } else {
+                                                            echo "far";
+                                                        } ?> fa-star"></span></a>
                                             <a class="btn btn-sm btn-warning d-none d-md-inline"><span
-                                                        class="<?php if($courseRating>=4){echo "fas";}else{echo "far";}?> fa-star"></span></a>
+                                                        class="<?php if ($courseRating >= 4) {
+                                                            echo "fas";
+                                                        } else {
+                                                            echo "far";
+                                                        } ?> fa-star"></span></a>
                                             <a class="btn btn-sm btn-warning d-none d-md-inline"><span
-                                                        class="<?php if($courseRating==5){echo "fas";}else{echo "far";}?> fa-star"></span></a>
+                                                        class="<?php if ($courseRating == 5) {
+                                                            echo "fas";
+                                                        } else {
+                                                            echo "far";
+                                                        } ?> fa-star"></span></a>
                                         </div>
                                     </div>
                                     <div class="col-4 d-none d-sm-block">
                                         <h4>Rating Distribution</h4>
                                         <?php
-                                        for($temp_var=5;$temp_var>0;$temp_var--){
-                                            if(!isset($courseRatingDistroPercentages[$temp_var])){
+                                        for ($temp_var = 5; $temp_var > 0; $temp_var--) {
+                                            if (!isset($courseRatingDistroPercentages[$temp_var])) {
                                                 $courseRatingDistroPercentages[$temp_var] = 0;
                                             }
-                                            if(!isset($courseRatingDistro[$temp_var])){
+                                            if (!isset($courseRatingDistro[$temp_var])) {
                                                 $courseRatingDistro[$temp_var] = 0;
                                             }
                                         }
                                         $beTheFirstToReview = 0;
-                                        if($courseReviews==0){
+                                        if ($courseReviews == 0) {
                                             $beTheFirstToReview = 1;
                                             $courseReviews = 1;
                                         }
                                         ?>
 
                                         <div class="progress mb-1 text-center">
-                                            <div class="progress-bar bg-success" style="width:<?php echo $courseRatingDistro[5]*100/$courseReviews; ?>%">
-                                                <span class="text-white">5 Stars - <?php echo round($courseRatingDistro[5]*100/$courseReviews);?>%</span>
+                                            <div class="progress-bar bg-success"
+                                                 style="width:<?php echo $courseRatingDistro[5] * 100 / $courseReviews; ?>%">
+                                                <span class="text-white">5 Stars - <?php echo round($courseRatingDistro[5] * 100 / $courseReviews); ?>%</span>
                                             </div>
                                         </div>
                                         <div class="progress mb-1 text-center">
-                                            <div class="progress-bar bg-success" style="width:<?php echo $courseRatingDistro[4]*100/$courseReviews; ?>%">
-                                                <span class="text-white">4 Stars - <?php echo round($courseRatingDistro[4]*100/$courseReviews);?>%</span>
+                                            <div class="progress-bar bg-success"
+                                                 style="width:<?php echo $courseRatingDistro[4] * 100 / $courseReviews; ?>%">
+                                                <span class="text-white">4 Stars - <?php echo round($courseRatingDistro[4] * 100 / $courseReviews); ?>%</span>
                                             </div>
                                         </div>
                                         <div class="progress mb-1 text-center">
-                                            <div class="progress-bar bg-warning" style="width:<?php echo $courseRatingDistro[3]*100/$courseReviews; ?>%">
-                                                <span class="text-white">3 Stars - <?php echo round($courseRatingDistro[3]*100/$courseReviews);?>%</span>
+                                            <div class="progress-bar bg-warning"
+                                                 style="width:<?php echo $courseRatingDistro[3] * 100 / $courseReviews; ?>%">
+                                                <span class="text-white">3 Stars - <?php echo round($courseRatingDistro[3] * 100 / $courseReviews); ?>%</span>
                                             </div>
                                         </div>
                                         <div class="progress mb-1 text-center">
-                                            <div class="progress-bar bg-warning" style="width:<?php echo $courseRatingDistro[2]*100/$courseReviews; ?>%">
-                                                <span class="text-white">2 Stars - <?php echo round($courseRatingDistro[2]*100/$courseReviews);?>%</span>
+                                            <div class="progress-bar bg-warning"
+                                                 style="width:<?php echo $courseRatingDistro[2] * 100 / $courseReviews; ?>%">
+                                                <span class="text-white">2 Stars - <?php echo round($courseRatingDistro[2] * 100 / $courseReviews); ?>%</span>
                                             </div>
                                         </div>
                                         <div class="progress mb-1 text-center">
-                                            <div class="progress-bar bg-danger" style="width:<?php echo $courseRatingDistro[1]*100/$courseReviews; ?>%">
-                                                <span class="text-white">1 Star - <?php echo round($courseRatingDistro[1]*100/$courseReviews);?>%</span>
+                                            <div class="progress-bar bg-danger"
+                                                 style="width:<?php echo $courseRatingDistro[1] * 100 / $courseReviews; ?>%">
+                                                <span class="text-white">1 Star - <?php echo round($courseRatingDistro[1] * 100 / $courseReviews); ?>%</span>
                                             </div>
                                         </div>
                                     </div>
@@ -695,7 +761,10 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                                 <?php if (isThisStudentsCourse($con, $cid)) { ?>
                                     <div class="container">
                                         <form method="post" action="creview.php">
-                                            <legend><?php if ($beTheFirstToReview==1){echo "Be the First to ";}?>Leave a review!</legend>
+                                            <legend><?php if ($beTheFirstToReview == 1) {
+                                                    echo "Be the First to ";
+                                                } ?>Leave a review!
+                                            </legend>
                                             <div class="form-group">
                                                 <label class="col-form-label">Review Title</label>
                                                 <input name="title" type="text" class="form-control form-control-lg"
@@ -739,35 +808,40 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                                         $reviewerName = $reviewerNameData['fname'] . " " . $reviewerNameData['lname'];
                                         $deleteReviewButton = "";
                                         if ($reviewData['uid'] == $_SESSION['uid']) {
-                                            $deleteReviewButton = "<a class='btn btn-danger' href='deleteReview.php?crid=" . $reviewData['crid'] . "'>Delete</a>";
+                                            $deleteReviewButton = "<a class='btn btn-danger' href='deleteReview.php?crid=" . $reviewData['crid'] . "'><span class='fas fa-trash'></span></a>";
                                         }
                                         ?>
-                                        <div class="row shadow-sm">
-                                            <div class="col-md-2 col-sm-1">
-                                                <img class="img-profile rounded"
-                                                     src="https://dummyimage.com/60x60/000/fff">
-                                                <a href="viewprofile.php?uid=<?php echo $reviewData['uid']; ?>"><?php echo $reviewerName ?></a>
-                                            </div>
-                                            <div class="col-md-10 col-sm-8">
-                                                <div class="row">
-                                                    <div class="col-6"><h5
-                                                                class="d-inline"><?php echo $reviewTitle; ?></h5></div>
-                                                    <div class="col-2 text-right text-primary">
-                                                        <h6><?php echo $reviewRating; ?>/5&nbsp;<span
-                                                                    class="far fa-star"></span></h6></div>
-                                                    <div class="col-3 d-none d-lg-inline text-right text-primary">
-                                                        <h6>
-                                                            <?php echo $reviewDate; ?>
-                                                        </h6>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-2 col-sm-1">
+                                                    <img class="img-profile rounded d-none d-lg-inline"
+                                                         src="https://dummyimage.com/60x60/000/fff">
+                                                    <br>
+                                                    <a href="viewprofile.php?uid=<?php echo $reviewData['uid']; ?>"><?php echo $reviewerName ?></a>
+                                                </div>
+                                                <div class="col-md-10 col-sm-8">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-5"><h5
+                                                                    class="d-inline"><?php echo $reviewTitle; ?></h5>
+                                                        </div>
+                                                        <div class="col-md-2 col-sm-3 text-right text-primary">
+                                                            <h6><?php echo $reviewRating; ?>&nbsp;<span
+                                                                        class="far fa-star"></span></h6></div>
+                                                        <div class="col-md-3 d-none d-lg-inline text-right text-primary">
+                                                            <h6>
+                                                                <?php echo $reviewDate; ?>
+                                                            </h6>
+                                                        </div>
+                                                        <div class="col-1 p-1 text-right text-primary"><?php echo $deleteReviewButton; ?></div>
                                                     </div>
-                                                    <div class="col-1 p-1 text-right text-primary"><?php echo $deleteReviewButton; ?></div>
-                                                </div>
-                                                <div class="d-none d-lg-block">
-                                                    <?php echo $reviewDesc; ?>
+                                                    <div class="d-none d-lg-block">
+                                                        <?php echo $reviewDesc; ?>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <br>
+                                            <hr>
                                         </div>
-                                        <br>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -854,6 +928,9 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
 <script>
     $(document).ready(function () {
         updateTextInput(3);
+        if($('#completionModal').length){
+            $('#completionModal').modal('show');
+        }
     });
 
     function updateTextInput(val) {
