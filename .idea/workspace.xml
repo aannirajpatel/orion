@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dashboard/addAnswer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/addQuestion.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/auditCourse.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/communication.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/qna.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/student-communication.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/student.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewCertificate.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewCertificate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewcourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewcourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/courseownershipauth.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/courseownershipauth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/performance.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/performance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/trainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/trainer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/viewprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewprofile.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,8 +41,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/trainer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+            <state relative-caret-position="93">
+              <caret line="384" column="62" selection-start-line="384" selection-start-column="62" selection-end-line="384" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashboard/viewprofile.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="431" column="46" selection-start-line="431" selection-start-column="46" selection-end-line="431" selection-end-column="46" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#24429#24435#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/student-communication.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="381" column="84" selection-start-line="381" selection-start-column="84" selection-end-line="381" selection-end-column="84" />
+            <state relative-caret-position="6681">
+              <caret line="393" column="29" lean-forward="true" selection-start-line="393" selection-start-column="29" selection-end-line="393" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -112,15 +122,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/createresource.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/viewCertificate.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="458">
@@ -144,21 +145,22 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dashboard/performance.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-170">
+              <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+              <folding>
+                <element signature="n#table#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$profileI</find>
-      <find>profileImageFileAddress</find>
-      <find>Answers</find>
-      <find>Comm</find>
-      <find>newComms</find>
-      <find>profile</find>
-      <find>img</find>
-      <find>Asked</find>
-      <find>show</find>
-      <find>boxId</find>
-      <find>showAnswer</find>
       <find>hr&gt;</find>
       <find>getProfile</find>
       <find>is not</find>
@@ -178,6 +180,17 @@
       <find>unlock</find>
       <find>+</find>
       <find>answers</find>
+      <find>profile</find>
+      <find>bio</find>
+      <find>$bio</find>
+      <find>card-header</find>
+      <find>h6</find>
+      <find>table</find>
+      <find>$profileIm</find>
+      <find>profileImageFile</find>
+      <find>Activity</find>
+      <find>logout model</find>
+      <find>href</find>
     </findStrings>
     <replaceStrings>
       <replace>CourseRating</replace>
@@ -225,12 +238,10 @@
         <option value="$PROJECT_DIR$/login/index.php" />
         <option value="$PROJECT_DIR$/dashboard/editNote.php" />
         <option value="$PROJECT_DIR$/dashboard/createNote.php" />
-        <option value="$PROJECT_DIR$/dashboard/performance.php" />
         <option value="$PROJECT_DIR$/includes/auth.php" />
         <option value="$PROJECT_DIR$/dashboard/coursepreview.php" />
         <option value="$PROJECT_DIR$/dashboard/coursedit.php" />
         <option value="$PROJECT_DIR$/dashboard/publishcourse.php" />
-        <option value="$PROJECT_DIR$/dashboard/trainer.php" />
         <option value="$PROJECT_DIR$/trial/average_user_rating_rating_breakdown.html" />
         <option value="$PROJECT_DIR$/dashboard/withdrawcourse.php" />
         <option value="$PROJECT_DIR$/paytm/PaytmKit/pgResponse.php" />
@@ -244,7 +255,6 @@
         <option value="$PROJECT_DIR$/includes/addComment.php" />
         <option value="$PROJECT_DIR$/dashboard/student-purchases.php" />
         <option value="$PROJECT_DIR$/dashboard/editProfile.php" />
-        <option value="$PROJECT_DIR$/dashboard/viewprofile.php" />
         <option value="$PROJECT_DIR$/dashboard/searchcourse.php" />
         <option value="$PROJECT_DIR$/includes/resconfig.php" />
         <option value="$PROJECT_DIR$/dashboard/creview.php" />
@@ -269,6 +279,9 @@
         <option value="$PROJECT_DIR$/dashboard/viewcourse.php" />
         <option value="$PROJECT_DIR$/dashboard/communication.php" />
         <option value="$PROJECT_DIR$/dashboard/student-communication.php" />
+        <option value="$PROJECT_DIR$/dashboard/trainer.php" />
+        <option value="$PROJECT_DIR$/dashboard/viewprofile.php" />
+        <option value="$PROJECT_DIR$/dashboard/performance.php" />
       </list>
     </option>
   </component>
@@ -462,11 +475,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558864429778</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Finish QnA communications module&#10;Start Trainer collaboration module">
+      <created>1558946487588</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1558946487588</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302117000" />
+    <option name="totallyTimeSpent" value="303341000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -493,7 +513,7 @@
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" sideWeight="0.49924356" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
@@ -538,7 +558,8 @@
     <MESSAGE value="Add nav and sidebar for resource viewers&#10;Make resource comment table&#10;Make resource comment reply table" />
     <MESSAGE value="Finish View Achievements in Student Dashboard&#10;Finish View certificate&#10;Finish Print certificate" />
     <MESSAGE value="Change business model - users can view resources and complete the course.&#10;Upon completion, certificate needs to be purchased." />
-    <option name="LAST_COMMIT_MESSAGE" value="Change business model - users can view resources and complete the course.&#10;Upon completion, certificate needs to be purchased." />
+    <MESSAGE value="Finish QnA communications module&#10;Start Trainer collaboration module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish QnA communications module&#10;Start Trainer collaboration module" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/dashboard/editNote.php">
@@ -634,13 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/performance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/paytm/PaytmKit/pgRedirect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -721,13 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="30" column="106" selection-start-line="30" selection-start-column="106" selection-end-line="30" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/viewprofile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8500">
-          <caret line="543" column="52" selection-start-line="543" selection-start-column="52" selection-end-line="543" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -932,13 +939,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/trainer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/viewcourse.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -958,8 +958,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/student-communication.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="381" column="84" selection-start-line="381" selection-start-column="84" selection-end-line="381" selection-end-column="84" />
+        <state relative-caret-position="6681">
+          <caret line="393" column="29" lean-forward="true" selection-start-line="393" selection-start-column="29" selection-end-line="393" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/trainer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="384" column="62" selection-start-line="384" selection-start-column="62" selection-end-line="384" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/viewprofile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="431" column="46" selection-start-line="431" selection-start-column="46" selection-end-line="431" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#24429#24435#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/performance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <folding>
+            <element signature="n#table#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

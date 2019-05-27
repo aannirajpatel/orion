@@ -429,7 +429,14 @@ if ($uid == $profileUid) {
                     </div>
                     <div class="row">
                         <div class="container">
-                            <?php echo $bio; ?>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="m-0 font-weight-bold text-primary">Bio</h6>
+                                </div>
+                                    <div class="card-body">
+                                        <?php echo $bio; ?>
+                                    </div>
+                            </div>
                         </div>
                     </div>
                     <?php

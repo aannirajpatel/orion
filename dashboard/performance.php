@@ -259,8 +259,7 @@ for ($month = 1; $month <= 12; $month++) {
                             </h6>
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="../userimages/<?php echo $profileImageFileName; ?>"
-                                         ;
+                                    <img class="rounded-circle" src="<?php echo $profileImageFileAddress; ?>"
                                          alt="">
                                     <div class="status-indicator bg-success"></div>
                                 </div>
@@ -324,22 +323,14 @@ for ($month = 1; $month <= 12; $month++) {
                                 <?php echo $_SESSION['fname'] . " " . $_SESSION['lname']; ?>
                             </span>
                             <img class="img-profile rounded-circle"
-                                 src="../userimages/<?php echo $profileImageFileName; ?>">
+                                 src="<?php echo $profileImageFileAddress; ?>">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="viewprofile.php?uid=<?php echo $uid;?>">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Activity Log
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -507,7 +498,8 @@ for ($month = 1; $month <= 12; $month++) {
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
-                                <table class="table table-borderless">
+                                <div class="table-responsive">
+                                <table class="table">
                                     <thead>
                                     <tr>
                                         <td>Purchase ID</td>
@@ -552,6 +544,7 @@ for ($month = 1; $month <= 12; $month++) {
                                     ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
