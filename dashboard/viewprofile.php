@@ -79,7 +79,7 @@ $bio = $bioData['bio'];
 $userImageAddress = "./res/userimages/" . $bioData['profileImageFileName'];
 $fname = $bioData['fname'];
 $lname = $bioData['lname'];
-
+$profileEditable = 0;
 if ($uid == $profileUid) {
     $profileEditable = 1;
 }
@@ -357,7 +357,7 @@ if ($uid == $profileUid) {
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="viewprofile.php?uid=<?php echo $uid;?>">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
                             </a>
@@ -393,10 +393,6 @@ if ($uid == $profileUid) {
                 </div>
 
                 <!-- Content Row -->
-
-                <?php
-                if (getUserType($con, $profileUid) == 1) {
-                    ?>
                     <div class="row">
                         <div class="container col-4">
                             <div class="container">
@@ -427,6 +423,7 @@ if ($uid == $profileUid) {
                             </div>
                         </div>
                     </div>
+                <br>
                     <div class="row">
                         <div class="container">
                             <div class="card">
@@ -439,58 +436,7 @@ if ($uid == $profileUid) {
                             </div>
                         </div>
                     </div>
-                    <?php
-                }
-                ?>
-                <?php
-                if (getUserType($con, $profileUid) == 0) {
-                    ?>
-                    <div class="row">
-                        <div class="container">
-                            <div class="card-columns">
-                                <!--<div class="container col-4">-->
-                                <!--<div class="container">-->
-                                <div class="card shadow">
-                                    <img class="card-img-top" src="<?php echo $userImageAddress; ?>" alt="Card image"
-                                         style="width:100%;padding:10px;">
-                                    <div class="card-body">
-                                        <h4 class="card-title"><?php echo $fname . " " . $lname; ?></h4>
-                                    </div>
-                                </div>
-                                <!--</div>-->
-                                <!--</div>-->
-                                <!--<div class="container col-8">-->
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                        <h6 class="m-0 font-weight-bold text-primary">Courses
-                                            by <?php echo $fname . " " . $lname; ?></h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="container">
-                                            <div class="table-responsive">
-                                                <table class="table" style="display:table;">
-                                                    <?php loadRecentCoursesTable($con, $profileUid); ?>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--</div>-->
-                    </div>
-                    <div class="row">
-                        <div class="container m-1">
-                            <div class="card shadow-sm">
-                                <div class="card-header"><h6 class="m-0 font-weight-bold text-primary">Bio</h6></div>
-                                <div class="card-body"><?php echo $bio; ?></div>
-                            </div>
-                        </div>
-                    </div>
                     <br>
-                    <?php
-                }
-                ?>
                 <!-- /.container-fluid -->
             </div>
         </div>
