@@ -152,7 +152,7 @@ for ($month = 1; $month <= 12; $month++) {
                 </button>
 
                 <!-- Topbar Search -->
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <!--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
                         <input type="text" class="form-control bg-light border-0 small"
                                placeholder="Search for a course..."
@@ -163,7 +163,7 @@ for ($month = 1; $month <= 12; $month++) {
                             </button>
                         </div>
                     </div>
-                </form>
+                </form>-->
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -612,7 +612,6 @@ for ($month = 1; $month <= 12; $month++) {
 
 <!-- Page level custom scripts -->
 <?php require("js/chartLoader/chart-area-demo.php"); ?>
-<script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 

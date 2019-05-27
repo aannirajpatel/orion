@@ -74,7 +74,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
     }
 }
 
-$updateLastViewTimeQuery = "UPDATE user SET lastviewedqna = CURRENT_TIMESTAMP WHERE uid=$uid";
+$updateLastViewTimeQuery = "INSERT INTO lastviewedqna (uid,cid) VALUES($uid,$cid) ON DUPLICATE KEY UPDATE lastviewed=CURRENT_TIMESTAMP";
 $updateLastViewTimeResult = mysqli_query($con, $updateLastViewTimeQuery) or die(mysqli_error($con));
 
 //Functions for fetching QnAs
@@ -86,9 +86,9 @@ function fetchQuestions($con, $cid)
     return $questionsResult;
 }
 
-function fetchAnswers($con, $cid)
+function fetchAnswers($con, $questionId)
 {
-    $answersQuery = "SELECT * FROM answer,question WHERE (answer.questionid=question.questionid AND question.cid = $cid)";
+    $answersQuery = "SELECT * FROM answer WHERE (answer.questionid=$questionId)";
     $answersResult = mysqli_query($con, $answersQuery) or die(mysqli_error($con));
     return $answersResult;
 }
@@ -110,7 +110,7 @@ function getNameWithProfileLinkFromUid($con, $uid)
     $nameQuery = "SELECT fname, lname FROM user WHERE uid=$uid";
     $nameResult = mysqli_query($con, $nameQuery) or die(mysqli_error($con));
     $nameData = mysqli_fetch_array($nameResult);
-    $name = $nameData['fname']." ".$nameData['lname'];
+    $name = $nameData['fname'] . " " . $nameData['lname'];
     $nameWithProfileLink .= $name;
     $nameWithProfileLink .= "</a>";
     return $nameWithProfileLink;
@@ -138,6 +138,18 @@ function getNameWithProfileLinkFromUid($con, $uid)
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!--
+        Copyright (c) 2007-2008 Brian Kirchoff (http://nicedit.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+        -->
+    <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+    <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 
     <style>
         #enrollButton {
@@ -489,85 +501,93 @@ function getNameWithProfileLinkFromUid($con, $uid)
                 </div>
                 <br>
                 <div class="row">
-                <div class="container">
-                    <?php
-                    $questionsResult = fetchQuestions($con, $cid);
-                    while ($question = mysqli_fetch_array($questionsResult)) {
-                        $askerUid = $question['uid'];
-                        $dateofquestion = $question['dateofquestion'];
-                        $questionText = $question['qtext'];
-                        $questionId = $question['questionid'];
-                        ?>
-                        <div class="card">
-                            <div class="card-header">
-                                <?php
-                                echo getProfileImageCircleFromUid($con, $askerUid, $userProfileImageFolder);
-                                echo getNameWithProfileLinkFromUid($con, $askerUid);
-                                echo " asked on ";
-                                echo $dateofquestion;
-                                ?>
-                            </div>
-                            <div class="card-body">
-                                <?php
-                                echo $questionText;
-                                ?>
-
-                                <div class="container">
+                    <div class="container">
+                        <?php
+                        $questionsResult = fetchQuestions($con, $cid);
+                        while ($question = mysqli_fetch_array($questionsResult)) {
+                            $askerUid = $question['uid'];
+                            $dateofquestion = $question['dateofquestion'];
+                            $questionText = $question['qtext'];
+                            $questionId = $question['questionid'];
+                            ?>
+                            <div class="card">
+                                <div class="card-header">
                                     <?php
-                                    $answersResult = fetchAnswers($con, $cid);
-                                    if(mysqli_num_rows($answersResult)>0){
-                                        ?>
-                                        <hr>
-                                        <?php
-                                    }
-                                    while ($answer = mysqli_fetch_array($answersResult)) {
-                                        $answererUid = $answer['uid'];
-                                        $dateofanswer = $answer['dateofanswer'];
-                                        $answerText = $answer['atext']
-                                        ?>
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <?php
-                                                echo getProfileImageCircleFromUid($con, $answererUid, $userProfileImageFolder);
-                                                echo getNameWithProfileLinkFromUid($con, $answererUid);
-                                                echo " Answered On ";
-                                                echo $dateofanswer;
-                                                ?>
-                                            </div>
-                                            <div class="card-body">
-                                                <?php
-                                                echo $answerText;
-                                                ?>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <?php
-                                    }
+                                    echo getProfileImageCircleFromUid($con, $askerUid, $userProfileImageFolder);
+                                    echo getNameWithProfileLinkFromUid($con, $askerUid);
+                                    echo " asked on ";
+                                    echo $dateofquestion;
                                     ?>
                                 </div>
-                            </div>
-                            <div class="card-footer">
-                                <a class="btn btn-success text-white" id="btnAnswerTo<?php echo $questionId; ?>"
-                                   onclick="showAnswerBox('#btnAnswerTo<?php echo $questionId; ?>','#answerTo<?php echo $questionId; ?>')"><span
-                                            class="fas fa-plus"></span>Add Answer</a>
-                                <br>
-                                <br>
-                                <form method="post" action="addAnswer.php" class="answerBox" id="answerTo<?php echo $questionId; ?>">
-                                    <div class="form-group">
-                                        <textarea class="form-control" name="atext"></textarea>
-                                        <input type="hidden" name="questionid" value="<?php echo $questionId; ?>">
-                                        <input type="hidden" name="cid" value="<?php echo $cid; ?>">
+                                <div class="card-body">
+                                    <?php
+                                    echo $questionText;
+                                    ?>
+
+                                    <div class="container">
+                                        <?php
+                                        $answersResult = fetchAnswers($con, $questionId);
+                                        if (mysqli_num_rows($answersResult) > 0) {
+                                            ?>
+                                            <hr>
+                                            <?php
+                                        }
+                                        while ($answer = mysqli_fetch_array($answersResult)) {
+                                            $answererUid = $answer['uid'];
+                                            $dateofanswer = $answer['dateofanswer'];
+                                            $answerText = $answer['atext']
+                                            ?>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <?php
+                                                    echo getProfileImageCircleFromUid($con, $answererUid, $userProfileImageFolder);
+                                                    echo getNameWithProfileLinkFromUid($con, $answererUid);
+                                                    echo " Answered On ";
+                                                    echo $dateofanswer;
+                                                    ?>
+                                                </div>
+                                                <div class="card-body">
+                                                    <?php
+                                                    echo $answerText;
+                                                    ?>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <?php
+                                        }
+                                        ?>
                                     </div>
-                                    <div class="form-group">
-                                        <input class="form-control" type="submit" value="Submit">
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn btn-success text-white" id="btnAnswerTo<?php echo $questionId; ?>"
+                                       onclick="showAnswerBox('#btnAnswerTo<?php echo $questionId; ?>','#answerTo<?php echo $questionId; ?>')"><span
+                                                class="fas fa-plus"></span>Add Answer</a>
+                                    <br>
+                                    <br>
+
+                                    <div class="card answerBox" id="answerTo<?php echo $questionId; ?>">
+                                        <div class="card-body">
+                                            <form method="post" action="addAnswer.php">
+                                                <div class="form-group">
+                                                    <label>Please provide your answer below</label>
+                                                    <textarea class="form-control" name="atext"></textarea>
+                                                    <input type="hidden" name="questionid"
+                                                           value="<?php echo $questionId; ?>">
+                                                    <input type="hidden" name="cid" value="<?php echo $cid; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="form-control" type="submit" value="Submit">
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                        </div>
-                        <?php
-                    }
-                    ?>
-                </div>
+                            <br>
+                            <?php
+                        }
+                        ?>
+                    </div>
                 </div>
                 <br>
                 <div class="row">
@@ -647,17 +667,17 @@ function getNameWithProfileLinkFromUid($con, $uid)
 
 <!-- Page level custom scripts -->
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('.answerBox').hide();
     });
 
-    function showAnswerBox(btnId, boxId){
-        $(btnId).attr("onclick","hideAnswerBox('"+btnId+"','"+boxId+"')");
+    function showAnswerBox(btnId, boxId) {
+        $(btnId).attr("onclick", "hideAnswerBox('" + btnId + "','" + boxId + "')");
         $(boxId).show();
     }
 
-    function hideAnswerBox(btnId, boxId){
-        $(btnId).attr("onclick","showAnswerBox('"+btnId+"','"+boxId+"')");
+    function hideAnswerBox(btnId, boxId) {
+        $(btnId).attr("onclick", "showAnswerBox('" + btnId + "','" + boxId + "')");
         $(boxId).hide();
     }
 </script>

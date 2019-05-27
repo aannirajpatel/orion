@@ -34,11 +34,20 @@ if (getUserType($con, $uid)==1) {
 }
 
 function newComms($con, $cid, $uid){
-    $newQuestionsQuery = "SELECT questionid FROM question, user WHERE(user.uid=$uid AND question.cid=$cid AND question.dateofquestion > user.lastviewedqna)";
+    $lastViewedTimeQuery = "SELECT * FROM lastviewedqna WHERE cid=$cid and uid=$uid";
+    $lastViewedTimeResult = mysqli_query($con, $lastViewedTimeQuery) or die(mysqli_error($con));
+    if(mysqli_num_rows($lastViewedTimeResult) == 1){
+        $lastViewedTimeData = mysqli_fetch_array($lastViewedTimeResult);
+        $lastViewedTime = $lastViewedTimeData['lastviewed'];
+    } else{
+        $lastViewedTime = "0000-00-00 00:00:00";
+    }
+
+    $newQuestionsQuery = "SELECT questionid FROM question, user WHERE(user.uid=$uid AND question.cid=$cid AND question.dateofquestion>'$lastViewedTime')";
     $newQuestionsResult = mysqli_query($con, $newQuestionsQuery) or die(mysqli_error($con));
     $newQuestions = mysqli_num_rows($newQuestionsResult);
 
-    $newAnswersQuery = "SELECT answerid FROM answer, user, question WHERE(answer.questionid = question.questionid AND question.cid=$cid AND user.uid = $uid AND answer.dateofanswer > user.lastviewedqna)";
+    $newAnswersQuery = "SELECT answerid FROM answer, user, question WHERE(answer.questionid = question.questionid AND question.cid=$cid AND user.uid = $uid AND answer.dateofanswer > '$lastViewedTime')";
     $newAnswersResult = mysqli_query($con, $newAnswersQuery) or die(mysqli_error($con));
     $newAnswers = mysqli_num_rows($newAnswersResult);
 
@@ -141,7 +150,7 @@ function newComms($con, $cid, $uid){
                 </button>
 
                 <!-- Topbar Search -->
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                <!--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
                       method="get" action="searchcourse.php">
                     <div class="input-group">
                         <input type="text" class="form-control bg-light border-0 small"
@@ -154,7 +163,7 @@ function newComms($con, $cid, $uid){
                             </button>
                         </div>
                     </div>
-                </form>
+                </form>-->
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">

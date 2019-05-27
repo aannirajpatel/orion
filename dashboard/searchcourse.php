@@ -14,7 +14,7 @@ $profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
 $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 if(!isset($_GET['q'])){
-    location("student.php");
+    header("location:student.php");
 }
 $searchText = mysqli_real_escape_string($con, $_GET['q']);
 $searchText = strtolower($searchText);

@@ -4,8 +4,16 @@
  */
 require('../includes/auth.php');
 require('../includes/db.php');
+require('../includes/files.php');
 require('../includes/courseownershipauth.php');
 require('../includes/resconfig.php');
+$uid = $_SESSION['uid'];
+$email = $_SESSION['email'];
+$profileImageFileNameQuery = "SELECT profileImageFileName FROM user WHERE email='$email'";
+$profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or die(mysqli_error($con));
+$profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
+$profileImageFileName = $profileImageFileNameData['profileImageFileName'];
+$profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 
 function printType($rtype)
 {
@@ -120,9 +128,8 @@ function loadSectionName($con, $sectionNumber, $cid)
 }
 
 if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
-    $_SESSION['cid'] = $_GET['cid'];
 
-    $cid = $_SESSION['cid'];
+    $cid = $_GET['cid'];
 
     $cdescQuery = "SELECT cname,cdesc FROM course WHERE cid=$cid";
     $cdescResult = mysqli_query($con, $cdescQuery) or die(mysqli_error($con));
@@ -330,7 +337,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle"
-                                             src="./res/userimages/<?php echo $profileImageFileName; ?>"
+                                             src="<?php echo $profileImageFileAddress;?>"
                                              alt="">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -397,7 +404,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                                 <?php echo $_SESSION['fname'] . " " . $_SESSION['lname']; ?>
                             </span>
                                 <img class="img-profile rounded-circle"
-                                     src="./res/userimages/<?php echo $profileImageFileName; ?>">
+                                     src="<?php echo $profileImageFileAddress; ?>">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -431,42 +438,109 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                                     class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
                     </div>
 
+                    <div class="row">
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="m-0 font-weight-bold text-primary">Trainers for this course</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="list-group">
+                                        <?php
+                                        $collabListQuery = "SELECT uid FROM ctrainers WHERE cid=$cid";
+                                        $collabListResult = mysqli_query($con, $collabListQuery) or die(mysqli_error($con));
+                                        while ($collabListData = mysqli_fetch_array($collabListResult)) {
+                                            $nameQuery = "SELECT fname, lname FROM user WHERE uid=" . $collabListData['uid'];
+                                            $nameResult = mysqli_query($con, $nameQuery);
+                                            $nameData = mysqli_fetch_array($nameResult);
+                                            ?>
+                                            <a target="_blank" class="list-group-item"
+                                               href="viewprofile.php?uid=<?php echo $collabListData['uid']; ?>"><?php echo $nameData['fname'] . " " . $nameData['lname']; ?></a>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
                     <!-- Content Row -->
+                    <div class="row">
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="m-0 font-weight-bold text-primary">Add a collaborator for your
+                                        course</h6>
+                                </div>
+                                <div class="card-body">
+                                    <form action="addCollaborator.php" method="post">
+                                        <div class="form-group">
+                                            <input type="text" id="collaboratorLiveSearch" name="collab"
+                                                   class="form-control" onkeyup="showResult(this.value)">
+                                            <div id="collaboratorLiveSearchResult" class="list-group"></div>
+                                            <br>
+                                            <input type="hidden" name="cid" value="<?php echo $cid; ?>">
+                                            <input type="submit" class="form-control text-white bg-primary"
+                                                   value="Add Collaborator">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!--Course Editor-->
                     <br>
                     <div class="row">
                         <div class="container">
-
-                            <h4>Course Description</h4>
-                            <form method="POST" action="updateDescription.php">
-                                <div class="form-group">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="m-0 font-weight-bold text-primary">Course Description</h6>
+                                </div>
+                                <div class="card-body">
+                                    <form method="POST" action="updateDescription.php">
+                                        <div class="form-group">
                                     <textarea class="form-control" id="cdesc"
                                               name="cdesc"><?php echo $cdesc; ?></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" name="updatecdesc" value="true"
+                                                    class="btn btn-success form-control">Update
+                                                Course
+                                                Description
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="form-group">
-                                    <button type="submit" name="updatecdesc" value="true" class="btn btn-success">Update
-                                        Course
-                                        Description
-                                    </button>
-                                </div>
-                            </form>
-                            <br>
+                            </div>
                         </div>
+                    </div>
+                    <br>
+                    <div class="row">
                         <div class="container">
-                            <h4>Course Syllabus</h4>
-                            <form method="POST" action="updateSyllabus.php">
-                                <!-- Textarea to input new course syllabus text-->
-                                <div class="form-group">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="m-0 font-weight-bold text-primary">Course Syllabus</h6>
+                                </div>
+                                <div class="card-body">
+                                    <form method="POST" action="updateSyllabus.php">
+                                        <!-- Textarea to input new course syllabus text-->
+                                        <div class="form-group">
                                     <textarea class="form-control" id="csyllabus"
                                               name="csyllabus"><?php echo $csyllabus; ?></textarea>
-                                    <!-- Button to update course syllabus-->
+                                            <!-- Button to update course syllabus-->
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" name="updatecsyllabus" class="btn btn-success">Update
+                                                Course
+                                                Syllabus
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="form-group">
-                                    <button type="submit" name="updatecsyllabus" class="btn btn-success">Update Course
-                                        Syllabus
-                                    </button>
-                                </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                     <br>
@@ -494,7 +568,8 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                                 <!-- Section Header - Accordion -->
                                 <div class="container d-sm-flex align-items-center justify-content-between mb-4">
                                     <a href="#collapse<?php echo $sectionNumber; ?>" data-toggle="collapse"
-                                       data-target="#collapse<?php echo $sectionNumber; ?>" style=":hover{ text-underline: none;}">
+                                       data-target="#collapse<?php echo $sectionNumber; ?>"
+                                       style=":hover{ text-underline: none;}">
                                         <h4>Section <?php echo $sectionNumber; ?><?php echo ": " . $sectionName; ?></h4>
                                         <div>
                                             <a href="createresource.php?cid=<?php echo $cid; ?>&section=<?php echo $sectionNumber; ?>"
@@ -616,8 +691,36 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
     <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script> src="js/demo/chart-pie-demo.js"></script>
+
+
+    <script>
+        function showResult(str) {
+            $('#collaboratorLiveSearchResult').show();
+            if (str.length == 0) {
+                document.getElementById("collaboratorLiveSearchResult").innerHTML = "";
+                document.getElementById("collaboratorLiveSearchResult").style.border = "0px";
+                return;
+            }
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {  // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("collaboratorLiveSearchResult").innerHTML = this.responseText;
+                }
+            }
+            xmlhttp.open("GET", "collaboratorSearch.php?q=" + str, true);
+            xmlhttp.send();
+        }
+
+        function addThisEmail(str) {
+            $("#collaboratorLiveSearch").val(str);
+            $("#collaboratorLiveSearchResult").hide();
+        }
+    </script>
 
     </body>
 
