@@ -529,7 +529,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
 
             </nav>
             <!-- End of Topbar -->
-            <?php if (getUserType($con, $_SESSION['uid']) == 0 && !isThisStudentsCourse($con, $cid)) { ?>
+            <?php if (!isThisStudentsCourse($con, $cid)) { ?>
                 <div class="card shadow-sm" id="enrollButton">
 
                     <div class="card-body"><a class="btn btn-primary" href="enroll.php?cid=<?php echo $cid; ?>">Unlock Certificate
@@ -538,17 +538,18 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
             <?php } ?>
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">
                         <?php echo $courseName; ?>
                         <a href="<?php echo $back; ?>" class="btn btn-info">Back</a>
+                        <?php if(!isAuditing($con, $cid, $uid)){?>
+                        <a href="auditCourse.php?cid=<?php echo $cid;?>" class="btn btn-success"><span class="fas fa-plus"></span> Add Course to Audit List</a>
+                        <?php } ?>
                     </h1>
                     <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
                 </div>
-
                 <!-- Content Row -->
                 <?php if(isCourseCompleted($con, $cid, $_SESSION['uid'])){ ?>
                 <div class="modal fade" id="completionModal">
@@ -571,7 +572,6 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
-
                         </div>
                     </div>
                 </div>

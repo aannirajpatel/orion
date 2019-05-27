@@ -36,6 +36,27 @@ $dateofcomplete = $getCompletionData['dateofcomplete'];
 $dateofcomplete = date("M d, Y", strtotime($dateofcomplete));
 
 $certificatePermanentLink = "http://localhost/orion/dashboard/viewCertificate.php?cid=$cid&uid=$uid";
+
+$authorQuery = "SELECT user.uid, fname, lname FROM user INNER JOIN ctrainers ON (ctrainers.cid=$cid AND user.uid=ctrainers.uid) INNER JOIN course ON (course.cid=ctrainers.cid)";
+$authorResult = mysqli_query($con, $authorQuery) or die(mysqli_error($con));
+if (mysqli_num_rows($authorResult) > 1) {
+    $authorPlurality = "s";
+} else {
+    $authorPlurality = "";
+}
+$authors = "";
+$numAuthors = mysqli_num_rows($authorResult);
+$authorNumber = 1;
+while ($authorData = mysqli_fetch_array($authorResult)) {
+    $authors = $authors . $authorData['fname'] . " " . $authorData['lname'];
+    $authorNumber++;
+    if ($authorNumber < $numAuthors-1) {
+        $authors = $authors . ", ";
+    }
+    if($authorNumber == $numAuthors-1){
+        $authors = $authors . " and ";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,16 +72,24 @@ $certificatePermanentLink = "http://localhost/orion/dashboard/viewCertificate.ph
 
     <div style="width:29.7cm; height:20cm; padding:20px; text-align:center; border: 10px solid #787878">
         <div style="width:28cm; height:18.6cm; padding:20px; text-align:center; border: 5px solid #787878">
-            <span style="font-size:100px; font-weight:bold" id="certificateHeader">Certificate of Completion</span>
+            <span style="font-size:90px; font-weight:bold" id="certificateHeader">Certificate of Completion</span>
             <br><br>
-            <span style="font-size:50px"><i>This is to certify that</i></span>
+            <span style="font-size:30px"><i>This is to certify that</i></span>
             <br><br>
-            <span style="font-size:60px"><b><?php echo $fullName; ?></b></span><br/><br/>
-            <span style="font-size:50px"><i>has completed the course</i></span> <br/><br/>
-            <span style="font-size:60px"><?php echo $cname; ?></span> <br/><br/>
-            <br/><br/><br/><br/>
-            <span style="font-size:50px"><i>dated</i></span><br>
-            <span style="font-size:60px"><?php echo $dateofcomplete; ?></span>
+            <span style="font-size:40px"><b><?php echo $fullName; ?></b></span><br/><br/>
+            <span style="font-size:30px"><i>has completed the course</i></span> <br/><br/>
+            <span style="font-size:40px"><?php echo $cname; ?></span>
+            <br/><br>
+            <span style="font-size:20px">by</span><br>
+            <br/>
+            <span style="font-size:30px"><?php echo $authors; ?></span>
+            <br/><br>
+            <span style="font-size:20px">via</span><br>
+            <br/>
+            <img style="height:80px" src="./img/orionLogo.png"><br/><br/>
+            <!--<br/><br/><br/><br/>-->
+            <span style="font-size:30px"><i>dated</i></span><br><br>
+            <span style="font-size:30px"><?php echo $dateofcomplete; ?></span>
             <br><br>
             Verify by going to <a
                     href="<?php echo $certificatePermanentLink; ?>"><?php echo $certificatePermanentLink ?></a>

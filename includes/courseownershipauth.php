@@ -99,4 +99,14 @@ function isCoursePublished($con, $cid){
         return 0;
     }
 }
+
+function isAuditing($con, $cid, $uid){
+    $isAuditingQuery = "SELECT cid FROM audit WHERE uid=$uid AND cid=$cid";
+    $isAuditingResult = mysqli_query($con, $isAuditingQuery) or die(mysqli_error($con));
+    if(mysqli_num_rows($isAuditingResult)==1){
+        return 1;
+    } else{
+        return 0;
+    }
+}
 ?>

@@ -310,6 +310,79 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">
+                        Courses You Listed for Audit
+                    </h1>
+                    <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
+                </div>
+
+                <!-- Content Row -->
+
+                <!-- Content Row -->
+                <div class="row">
+                    <div class="card-columns">
+                        <?php
+                        $courseListQuery = "SELECT cid FROM audit WHERE uid=$uid ORDER BY cid desc";
+                        $courseListResult = mysqli_query($con, $courseListQuery) or die(mysqli_error($con));
+                        while($courseListQueryData = mysqli_fetch_array($courseListResult)) {
+                            $cid = $courseListQueryData['cid'];
+
+                            $courseQuery = "SELECT * FROM course WHERE cid=$cid";
+                            $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
+                            $courseData = mysqli_fetch_array($courseResult) or die(mysqli_error($con));
+                            $courseTitle = $courseData['cname'];
+                            $courseDesc = $courseData['cdesc'];
+                            $courseAuthorsQuery = "SELECT uid FROM ctrainers WHERE cid=$cid";
+                            $courseAuthorsResult = mysqli_query($con, $courseAuthorsQuery) or die(mysqli_error($con));
+
+                            $courseAuthors = "";
+                            $totalAuthors = mysqli_num_rows($courseAuthorsResult);
+                            while ($courseAuthorsData = mysqli_fetch_array($courseAuthorsResult)) {
+                                $courseAuthorNameQuery = "SELECT fname, lname FROM user WHERE uid=" . $courseAuthorsData['uid'];
+                                $courseAuthorNameResult = mysqli_query($con, $courseAuthorNameQuery) or die(mysqli_error($con));
+                                $courseAuthorNameData = mysqli_fetch_array($courseAuthorNameResult);
+                                $courseAuthors .= "<a href='viewprofile.php?uid=" . $courseAuthorsData['uid'] . "'>" . $courseAuthorNameData['fname'] . " " . $courseAuthorNameData['lname'] . "</a>";
+                                $totalAuthors--;
+                                if ($totalAuthors > 0) {
+                                    $courseAuthors .= ", ";
+                                }
+                            }
+                            $completionBadge = "";
+                            if(isCourseCompleted($con, $cid, $_SESSION['uid'])){
+                                $completionBadge = "<span class=\"badge badge-danger\">Completed</span>";
+                            }
+                            $viewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary'>View</a>";
+                            ?>
+                            <div class="card shadow-sm">
+                                <div class="card-header">
+                                    <?php echo $courseTitle; ?>
+                                    <?php echo $completionBadge;?>
+                                </div>
+                                <div class="card-body">
+                                    <p>
+                                        <?php echo $courseDesc; ?>
+                                    </p>
+                                    By:&nbsp;<?php echo $courseAuthors; ?>
+                                </div>
+                                <div class="card-footer">
+                                    <?php echo $viewLink; ?>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
+
+                    </div>
+                </div>
+
+                <br>
+                <hr>
+                <br>
+
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">
@@ -379,6 +452,7 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
                 </div>
 
                 <br>
+
 
             </div>
             <!-- /.container-fluid -->
