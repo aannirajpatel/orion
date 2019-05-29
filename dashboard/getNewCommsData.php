@@ -68,9 +68,6 @@ if(getUserType($con, $uid)==0){
 
     $totalNewComms = 0;
 
-    define("NEW_QUESTIONS_COUNT_INDEX",0);
-    define("NEW_ANSWERS_COUNT_INDEX",1);
-
     $courseListQuery = "SELECT cid FROM audit WHERE uid=$uid UNION SELECT cid FROM cstudents WHERE uid=$uid ORDER BY cid desc";
     $courseListResult = mysqli_query($con, $courseListQuery) or die(mysqli_error($con));
 
