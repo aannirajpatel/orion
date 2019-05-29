@@ -480,11 +480,11 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                                     <h6 class="m-0 font-weight-bold text-primary">Course Syllabus</h6>
                                 </div>
                                 <div class="card-body">
+
                                     <form method="POST" action="updateSyllabus.php">
                                         <!-- Textarea to input new course syllabus text-->
                                         <div class="form-group">
-                                    <textarea class="form-control" id="csyllabus"
-                                              name="csyllabus"><?php echo $csyllabus; ?></textarea>
+                                    <textarea class="form-control" id="csyllabus" name="csyllabus"><?php echo $csyllabus; ?></textarea>
                                             <!-- Button to update course syllabus-->
                                         </div>
                                         <div class="form-group">
@@ -494,6 +494,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                                             </button>
                                         </div>
                                     </form>
+
                                 </div>
                             </div>
                         </div>
