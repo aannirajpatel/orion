@@ -39,7 +39,7 @@ function printGlyph($rtype)
         case RES_VIDEO:
             return "far fa-play-circle";
         case RES_FILE:
-            return "fas fa-file";
+            return "fas fa-file-download";
         case RES_YOUTUBE:
             return "fab fa-youtube";
         case RES_LINK:
@@ -246,8 +246,9 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                     <i class="fas fa-fw fa-question"></i>
                     <span>Help</span></a>
             </li>
-
-        </ul>
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>        </ul>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -345,7 +346,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid" style="color: #000;">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -391,7 +392,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                             </div>
                         </div>
                     </div>
-
+                    <br>
                     <div class="row">
                         <div class="container">
                             <div class="card">
@@ -461,7 +462,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" name="updatecdesc" value="true"
-                                                    class="btn btn-success form-control">Update
+                                                    class="btn btn-primary form-control">Update
                                                 Course
                                                 Description
                                             </button>
@@ -487,7 +488,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                                             <!-- Button to update course syllabus-->
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" name="updatecsyllabus" class="btn btn-success">Update
+                                            <button type="submit" name="updatecsyllabus" class="form-control btn btn-primary">Update
                                                 Course
                                                 Syllabus
                                             </button>
