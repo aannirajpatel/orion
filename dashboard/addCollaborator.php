@@ -7,6 +7,11 @@ require('../includes/db.php');
 require('../includes/courseownershipauth.php');
 require('../includes/resconfig.php');
 
+if(!isThisUsersCourse($con, $cid)){
+    $message = "Unauthorized attempt to add collaborator.";
+    header("location:displayMessage.php?message=".$message);
+}
+
 if(!isset($_POST['collabemail'])) {
     header("location:trainer.php");
 }

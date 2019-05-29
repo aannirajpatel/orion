@@ -18,11 +18,21 @@ $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 
 function newComms($con, $cid, $uid){
-    $newQuestionsQuery = "SELECT questionid FROM question, user WHERE(user.uid=$uid AND question.cid=$cid AND question.dateofquestion > user.lastviewedqna)";
+
+    $lastViewedTimeQuery = "SELECT * FROM lastviewedqna WHERE cid=$cid and uid=$uid";
+    $lastViewedTimeResult = mysqli_query($con, $lastViewedTimeQuery) or die(mysqli_error($con));
+    if(mysqli_num_rows($lastViewedTimeResult) == 1){
+        $lastViewedTimeData = mysqli_fetch_array($lastViewedTimeResult);
+        $lastViewedTime = $lastViewedTimeData['lastviewed'];
+    } else{
+        $lastViewedTime = "0000-00-00 00:00:00";
+    }
+
+    $newQuestionsQuery = "SELECT questionid FROM question, user WHERE(user.uid=$uid AND question.cid=$cid AND question.dateofquestion>'$lastViewedTime')";
     $newQuestionsResult = mysqli_query($con, $newQuestionsQuery) or die(mysqli_error($con));
     $newQuestions = mysqli_num_rows($newQuestionsResult);
 
-    $newAnswersQuery = "SELECT answerid FROM answer, user, question WHERE(answer.questionid = question.questionid AND question.cid=$cid AND user.uid = $uid AND answer.dateofanswer > user.lastviewedqna)";
+    $newAnswersQuery = "SELECT answerid FROM answer, user, question WHERE(answer.questionid = question.questionid AND question.cid=$cid AND user.uid = $uid AND answer.dateofanswer > '$lastViewedTime')";
     $newAnswersResult = mysqli_query($con, $newAnswersQuery) or die(mysqli_error($con));
     $newAnswers = mysqli_num_rows($newAnswersResult);
 

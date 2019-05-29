@@ -438,6 +438,41 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                                     class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
                     </div>
 
+
+                    <!--Template for creating cards is provided below. Made by Aan Patel. Enjoy :) -->
+                    <!--                    <div class="row">
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-header">
+
+                                </div>
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <div class="row">
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="m-0 font-weight-bold text-primary">Course Name</h6>
+                                </div>
+                                <div class="card-body">
+                                    <form method="post" action="updateCname.php?cid=<?php echo $cid;?>">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="cname" value="<?php echo $cname;?>">
+                                            <br>
+                                            <input type="hidden" name="cid" value="<?php echo $cid; ?>">
+                                            <input type="submit" class="form-control bg-primary text-white" value="Update">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="container">
                             <div class="card">
