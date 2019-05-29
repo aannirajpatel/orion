@@ -7,8 +7,8 @@ require('../includes/db.php');
 require('../includes/files.php');
 require('../includes/resconfig.php');
 
-define("NEW_QUESTIONS_COUNT_INDEX",0);
-define("NEW_ANSWERS_COUNT_INDEX",1);
+define("NEW_QUESTIONS_COUNT_INDEX", 0);
+define("NEW_ANSWERS_COUNT_INDEX", 1);
 $email = $_SESSION['email'];
 $uid = $_SESSION['uid'];
 $profileImageFileName = "";
@@ -24,7 +24,7 @@ $dashPerformanceText = "Achievements";
 $dashHelp = "student-help.php";
 $dashCommunication = "student-communication.php";
 $back = "student-communication.php";
-if (getUserType($con, $uid)==1) {
+if (getUserType($con, $uid) == 1) {
     $dashHome = "trainer.php";
     $dashPerformance = "performance.php";
     $dashPerformanceText = "Your Performance";
@@ -33,13 +33,14 @@ if (getUserType($con, $uid)==1) {
     $back = "communication.php";
 }
 
-function newComms($con, $cid, $uid){
+function newComms($con, $cid, $uid)
+{
     $lastViewedTimeQuery = "SELECT * FROM lastviewedqna WHERE cid=$cid and uid=$uid";
     $lastViewedTimeResult = mysqli_query($con, $lastViewedTimeQuery) or die(mysqli_error($con));
-    if(mysqli_num_rows($lastViewedTimeResult) == 1){
+    if (mysqli_num_rows($lastViewedTimeResult) == 1) {
         $lastViewedTimeData = mysqli_fetch_array($lastViewedTimeResult);
         $lastViewedTime = $lastViewedTimeData['lastviewed'];
-    } else{
+    } else {
         $lastViewedTime = "0000-00-00 00:00:00";
     }
 
@@ -54,6 +55,7 @@ function newComms($con, $cid, $uid){
     return array($newQuestions, $newAnswers);
 }
 
+$totalNewComms = 0;
 ?>
 
 <!DOCTYPE html>
@@ -192,128 +194,13 @@ function newComms($con, $cid, $uid){
                         </div>
                     </li>
 
-                    <!-- Nav Item - Alerts -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-bell fa-fw"></i>
-                            <!-- Counter - Alerts -->
-                            <span class="badge badge-danger badge-counter">3+</span>
-                        </a>
-                        <!-- Dropdown - Alerts -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                             aria-labelledby="alertsDropdown">
-                            <h6 class="dropdown-header">
-                                Notification Center
-                            </h6>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-primary">
-                                        <i class="fas fa-file-alt text-white"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">December 12, 2019</div>
-                                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-success">
-                                        <i class="fas fa-donate text-white"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">December 7, 2019</div>
-                                    $290.29 has been deposited into your account!
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-warning">
-                                        <i class="fas fa-exclamation-triangle text-white"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">December 2, 2019</div>
-                                    Spending Alert: We've noticed unusually high spending for your account.
-                                </div>
-                            </a>
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                        </div>
-                    </li>
-
                     <!-- Nav Item - Messages -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item no-arrow mx-1" id="communicationsNavLink">
+                        <a class="nav-link" href="student-communication.php" role="button">
                             <i class="fas fa-envelope fa-fw"></i>
                             <!-- Counter - Messages -->
-                            <span class="badge badge-danger badge-counter">7</span>
+                            <span class="badge badge-danger badge-counter" id="communicationsBadge"></span>
                         </a>
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                             aria-labelledby="messagesDropdown">
-                            <h6 class="dropdown-header">
-                                Message Center
-                            </h6>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="<?php echo $profileImageFileAddress; ?>"
-                                         alt="">
-                                    <div class="status-indicator bg-success"></div>
-                                </div>
-                                <div class="font-weight-bold">
-                                    <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                        problem I've been having.
-                                    </div>
-                                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60"
-                                         alt="">
-                                    <div class="status-indicator"></div>
-                                </div>
-                                <div>
-                                    <div class="text-truncate">I have the photos that you ordered last month, how
-                                        would
-                                        you like them sent to you?
-                                    </div>
-                                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60"
-                                         alt="">
-                                    <div class="status-indicator bg-warning"></div>
-                                </div>
-                                <div>
-                                    <div class="text-truncate">Last month's report looks great, I am very happy with
-                                        the
-                                        progress so far, keep up the good work!
-                                    </div>
-                                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                         alt="">
-                                    <div class="status-indicator bg-success"></div>
-                                </div>
-                                <div>
-                                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                        told
-                                        me that people say this to all dogs, even if they aren't good...
-                                    </div>
-                                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                        </div>
                     </li>
 
                     <div class="topbar-divider d-none d-sm-block"></div>
@@ -395,17 +282,20 @@ function newComms($con, $cid, $uid){
                                 $commBadge = "";
                                 $commBadgeData = newComms($con, $cid, $uid);
                                 if ($commBadgeData[NEW_QUESTIONS_COUNT_INDEX]) {
-                                    $commBadge = "<span class=\"badge badge-danger\">+".$commBadgeData[NEW_QUESTIONS_COUNT_INDEX]." Questions</span>";
+                                    $commBadge = "<span class=\"badge badge-danger\">+" . $commBadgeData[NEW_QUESTIONS_COUNT_INDEX] . " Questions</span>";
+                                    $totalNewComms += $commBadge[NEW_QUESTIONS_COUNT_INDEX];
                                 }
-                                if($commBadgeData[NEW_ANSWERS_COUNT_INDEX]){
-                                    $commBadge .= " <span class=\"badge badge-danger\">+".$commBadgeData[NEW_ANSWERS_COUNT_INDEX]." Answers</span>";
+                                if ($commBadgeData[NEW_ANSWERS_COUNT_INDEX]) {
+                                    $commBadge .= " <span class=\"badge badge-danger\">+" . $commBadgeData[NEW_ANSWERS_COUNT_INDEX] . " Answers</span>";
+                                    $totalNewComms += $commBadge[NEW_ANSWERS_COUNT_INDEX];
                                 }
                                 $viewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary'>View</a>";
                                 ?>
-                                <a class="list-group-item list-group-item-action" href="qna.php?cid=<?php echo $cid; ?>">
+                                <a class="list-group-item list-group-item-action"
+                                   href="qna.php?cid=<?php echo $cid; ?>">
 
-                                        <?php echo $courseTitle; ?>
-                                        <?php echo $commBadge; ?>
+                                    <?php echo $courseTitle; ?>
+                                    <?php echo $commBadge; ?>
 
                                 </a>
                                 <?php
@@ -471,6 +361,6 @@ function newComms($con, $cid, $uid){
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
-
+<?php require('js/communicationsBadge.php');?>
 </body>
 </html>

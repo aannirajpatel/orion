@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dashboard/updateCname.php" afterDir="false" />
+    <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="Update profile viewer - unify for student, trainer&#10;Finish course editor cname changer">
+      <change afterPath="$PROJECT_DIR$/dashboard/js/communicationsBadge.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/addCollaborator.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/addCollaborator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/communication.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/communication.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/coursedit.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/coursedit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/performance.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/performance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/student-achievements.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/student-achievements.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/student-communication.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/student-communication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/student-purchases.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/student-purchases.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/student.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/trainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/trainer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/register.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,113 +46,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/viewprofile.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="502" lean-forward="true" selection-start-line="502" selection-end-line="502" />
-              <folding>
-                <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#24429#24435#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/coursedit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="465" column="48" selection-start-line="465" selection-start-column="48" selection-end-line="465" selection-end-column="48" />
-              <folding>
-                <element signature="n#loadSectionName#0;n#!!top" />
-                <element signature="e#21722#22220#0#HTML" />
-                <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dashboard/student-communication.php">
+        <entry file="file://$PROJECT_DIR$/login/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="34" column="202" selection-start-line="34" selection-start-column="202" selection-end-line="34" selection-end-column="202" />
+            <state relative-caret-position="171">
+              <caret line="164" column="57" lean-forward="true" selection-start-line="164" selection-start-column="57" selection-end-line="164" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/communication.php">
+        <entry file="file://$PROJECT_DIR$/login/register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="202" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/updateCname.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/addCollaborator.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" selection-start-line="9" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/collaboratorSearch.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="43" column="103" selection-start-line="43" selection-start-column="103" selection-end-line="43" selection-end-column="103" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/performance.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="14" selection-end-column="75" />
-              <folding>
-                <element signature="n#table#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/qna.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="75" selection-start-line="16" selection-start-column="75" selection-end-line="16" selection-end-column="75" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/editNote.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="31" selection-end-column="91" />
+            <state relative-caret-position="17">
+              <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -154,39 +68,38 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>collaborator</find>
-      <find>collaboratorLiveSearch</find>
-      <find>jquert</find>
-      <find>email</find>
-      <find>collbor</find>
-      <find>&lt;h6</find>
-      <find>&lt;h4</find>
-      <find>collab</find>
-      <find>add coll</find>
-      <find>trainers for</find>
-      <find>course desc</find>
-      <find>&lt;h6 class</find>
-      <find>&lt;h4&gt;</find>
-      <find>course sylabus</find>
-      <find>profileImage</find>
-      <find>$cid</find>
-      <find>profileIm</find>
-      <find>userProfileImage</find>
-      <find>WHERE</find>
-      <find>user.last</find>
-      <find>viewed</find>
-      <find>update</find>
-      <find>profile</find>
-      <find>profileEditable</find>
-      <find>$profileEditable</find>
-      <find>Profile</find>
-      <find>bio</find>
-      <find>collabor</find>
-      <find>cdesc</find>
-      <find>&lt;form cl</find>
+      <find>bg-gradient</find>
+      <find>envel</find>
+      <find>newComms</find>
+      <find>envelp</find>
+      <find>3+</find>
+      <find>active</find>
+      <find>envelope</find>
+      <find>newC</find>
+      <find>NEW_QUESTIONS_COUNT_INDEX</find>
+      <find>communications</find>
+      <find>7&lt;/</find>
+      <find>totalN</find>
+      <find>7&lt;</find>
+      <find>communicationsB</find>
+      <find>envelop</find>
+      <find>communicationsBadge</find>
+      <find>sBadge</find>
+      <find>sBad</find>
+      <find>&lt;li</find>
+      <find>NavLink</find>
+      <find>&lt;script src=</find>
+      <find>newAnswers</find>
+      <find>newQuestion`</find>
+      <find>$totalNew</find>
+      <find>newQuestions</find>
+      <find>login with</find>
+      <find>with goo</find>
+      <find>already h</find>
+      <find>forgo</find>
+      <find>forgot</find>
     </findStrings>
     <replaceStrings>
-      <replace>fas fa-star</replace>
       <replace>btn-sm</replace>
       <replace>desc</replace>
       <replace>$searchText</replace>
@@ -216,6 +129,7 @@
       <replace>answerer</replace>
       <replace>Question</replace>
       <replace>Viewed</replace>
+      <replace>require(</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -224,9 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dashboard/editVideo.php" />
-        <option value="$PROJECT_DIR$/login/index.php" />
-        <option value="$PROJECT_DIR$/dashboard/editNote.php" />
         <option value="$PROJECT_DIR$/dashboard/createNote.php" />
         <option value="$PROJECT_DIR$/includes/auth.php" />
         <option value="$PROJECT_DIR$/dashboard/coursepreview.php" />
@@ -242,13 +153,11 @@
         <option value="$PROJECT_DIR$/dashboard/displayMessage.php" />
         <option value="$PROJECT_DIR$/dashboard/replyToComment.php" />
         <option value="$PROJECT_DIR$/includes/addComment.php" />
-        <option value="$PROJECT_DIR$/dashboard/student-purchases.php" />
         <option value="$PROJECT_DIR$/dashboard/editProfile.php" />
         <option value="$PROJECT_DIR$/dashboard/searchcourse.php" />
         <option value="$PROJECT_DIR$/includes/resconfig.php" />
         <option value="$PROJECT_DIR$/dashboard/creview.php" />
         <option value="$PROJECT_DIR$/dashboard/css/certificateFontStyle.css" />
-        <option value="$PROJECT_DIR$/dashboard/student-achievements.php" />
         <option value="$PROJECT_DIR$/dashboard/css/certificateStyle.css" />
         <option value="$PROJECT_DIR$/dashboard/viewLink.php" />
         <option value="$PROJECT_DIR$/dashboard/viewYoutubeLink.php" />
@@ -258,23 +167,28 @@
         <option value="$PROJECT_DIR$/includes/purchases.php" />
         <option value="$PROJECT_DIR$/dashboard/auditCourse.php" />
         <option value="$PROJECT_DIR$/includes/courseownershipauth.php" />
-        <option value="$PROJECT_DIR$/dashboard/student.php" />
         <option value="$PROJECT_DIR$/includes/files.php" />
         <option value="$PROJECT_DIR$/dashboard/viewCertificate.php" />
         <option value="$PROJECT_DIR$/dashboard/trainer-communication.php" />
         <option value="$PROJECT_DIR$/dashboard/addQuestion.php" />
         <option value="$PROJECT_DIR$/dashboard/addAnswer.php" />
         <option value="$PROJECT_DIR$/dashboard/viewcourse.php" />
-        <option value="$PROJECT_DIR$/dashboard/trainer.php" />
-        <option value="$PROJECT_DIR$/dashboard/performance.php" />
         <option value="$PROJECT_DIR$/dashboard/collaboratorSearch.php" />
-        <option value="$PROJECT_DIR$/dashboard/communication.php" />
         <option value="$PROJECT_DIR$/dashboard/qna.php" />
         <option value="$PROJECT_DIR$/dashboard/viewprofile.php" />
         <option value="$PROJECT_DIR$/dashboard/addCollaborator.php" />
         <option value="$PROJECT_DIR$/dashboard/updateCname.php" />
+        <option value="$PROJECT_DIR$/dashboard/js/communicationsBadge.js" />
         <option value="$PROJECT_DIR$/dashboard/coursedit.php" />
+        <option value="$PROJECT_DIR$/dashboard/student.php" />
+        <option value="$PROJECT_DIR$/dashboard/performance.php" />
+        <option value="$PROJECT_DIR$/dashboard/trainer.php" />
+        <option value="$PROJECT_DIR$/dashboard/communication.php" />
+        <option value="$PROJECT_DIR$/dashboard/student-purchases.php" />
         <option value="$PROJECT_DIR$/dashboard/student-communication.php" />
+        <option value="$PROJECT_DIR$/dashboard/student-achievements.php" />
+        <option value="$PROJECT_DIR$/login/register.php" />
+        <option value="$PROJECT_DIR$/login/index.php" />
       </list>
     </option>
   </component>
@@ -335,12 +249,7 @@
             <path>
               <item name="orion" type="b2602c69:ProjectViewProjectNode" />
               <item name="orion" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="orion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="orion" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -397,6 +306,7 @@
       <workItem from="1557821450106" duration="127000" />
       <workItem from="1557821972046" duration="149867000" />
       <workItem from="1558345087001" duration="17675000" />
+      <workItem from="1559105266936" duration="6548000" />
     </task>
     <task id="LOCAL-00001" summary="Updating course editor to bootstrap4&#10;Coursepreview is done&#10;Trainer dashboard courses page is done&#10;Profile viewer is still a work in progress&#10;Trainer pair-up pending&#10;Student side remaining&#10;Purchases">
       <created>1558502400930</created>
@@ -496,11 +406,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558958111912</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Update profile viewer - unify for student, trainer&#10;Finish course editor cname changer">
+      <created>1559105319925</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1559105319925</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="315598000" />
+    <option name="totallyTimeSpent" value="322146000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -513,8 +430,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15355521" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1913767" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="0" weight="0.3289689" />
@@ -574,34 +492,10 @@
     <MESSAGE value="Finish QnA communications module&#10;Start Trainer collaboration module" />
     <MESSAGE value="Update QnA communications module&#10;Finish Trainer collaboration module" />
     <MESSAGE value="Update profile viewer - unify for student, trainer&#10;Start course editor cname changer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update profile viewer - unify for student, trainer&#10;Start course editor cname changer" />
+    <MESSAGE value="Update profile viewer - unify for student, trainer&#10;Finish course editor cname changer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update profile viewer - unify for student, trainer&#10;Finish course editor cname changer" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dashboard/blank.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/publishcourse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trial/average_user_rating_rating_breakdown.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="256" column="30" lean-forward="true" selection-start-line="68" selection-start-column="4" selection-end-line="256" selection-end-column="30" />
-          <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/coursepreview.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -709,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/student-purchases.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="422" column="7" selection-start-line="4" selection-end-line="422" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/creview.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -744,13 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-151">
           <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/student-achievements.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="70" column="50" selection-start-line="70" selection-start-column="50" selection-end-line="70" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -841,19 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/student.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/files.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -904,60 +771,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/trainer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6451">
-          <caret line="390" column="33" lean-forward="true" selection-start-line="390" selection-start-column="33" selection-end-line="390" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/editNote.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="31" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/collaboratorSearch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="43" column="103" selection-start-line="43" selection-start-column="103" selection-end-line="43" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/performance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="14" selection-end-column="75" />
-          <folding>
-            <element signature="n#table#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/qna.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="75" selection-start-line="16" selection-start-column="75" selection-end-line="16" selection-end-column="75" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/viewprofile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="502" lean-forward="true" selection-start-line="502" selection-end-line="502" />
-          <folding>
-            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#24429#24435#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="8534">
+          <caret line="502" selection-start-line="502" selection-end-line="502" />
         </state>
       </provider>
     </entry>
@@ -968,37 +785,134 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/collaboratorSearch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="43" column="103" selection-start-line="43" selection-start-column="103" selection-end-line="43" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/qna.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="75" selection-start-line="16" selection-start-column="75" selection-end-line="16" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/editNote.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="31" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/updateCname.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+        <state relative-caret-position="476">
+          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/js/communicationsBadge.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="43" lean-forward="true" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/coursedit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="465" column="48" selection-start-line="465" selection-start-column="48" selection-end-line="465" selection-end-column="48" />
+        <state relative-caret-position="17">
+          <caret line="648" column="50" lean-forward="true" selection-start-line="648" selection-start-column="50" selection-end-line="648" selection-end-column="50" />
           <folding>
+            <element signature="n#printType#0;n#!!top" />
+            <element signature="n#printGlyph#0;n#!!top" />
+            <element signature="n#printSectionDescription#0;n#!!top" />
+            <element signature="n#loadSectionTable#0;n#!!top" />
             <element signature="n#loadSectionName#0;n#!!top" />
-            <element signature="e#21722#22220#0#HTML" />
-            <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#newComms#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/communication.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="202" />
+        <state relative-caret-position="209">
+          <caret line="363" column="46" selection-start-line="363" selection-start-column="46" selection-end-line="363" selection-end-column="46" />
+          <folding>
+            <element signature="n#newComms#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/trainer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="377" column="7" selection-start-line="377" selection-start-column="7" selection-end-line="377" selection-end-column="7" />
+          <folding>
+            <element signature="n#newComms#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/performance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="538" column="46" selection-start-line="538" selection-start-column="46" selection-end-line="538" selection-end-column="46" />
+          <folding>
+            <element signature="n#newComms#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/student-purchases.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="410" column="46" selection-start-line="410" selection-start-column="46" selection-end-line="410" selection-end-column="46" />
+          <folding>
+            <element signature="n#newComms#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/student-communication.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="34" column="202" selection-start-line="34" selection-start-column="202" selection-end-line="34" selection-end-column="202" />
+        <state relative-caret-position="192">
+          <caret line="351" column="46" selection-start-line="351" selection-start-column="46" selection-end-line="351" selection-end-column="46" />
+          <folding>
+            <element signature="n#newComms#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/student-achievements.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="347" column="46" selection-start-line="347" selection-start-column="46" selection-end-line="347" selection-end-column="46" />
+          <folding>
+            <element signature="n#newComms#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/student.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="438" selection-start-line="438" selection-end-line="438" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="164" column="57" lean-forward="true" selection-start-line="164" selection-start-column="57" selection-end-line="164" selection-end-column="57" />
         </state>
       </provider>
     </entry>
