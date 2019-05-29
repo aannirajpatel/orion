@@ -95,7 +95,7 @@ while ($courseListQueryData = mysqli_fetch_array($courseListResult)) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="trainer.php">
                     <i class="fas fa-fw fa-chalkboard-teacher"></i>
                     <span>Courses</span></a>
             </li>
@@ -117,7 +117,9 @@ while ($courseListQueryData = mysqli_fetch_array($courseListResult)) {
                     <i class="fas fa-fw fa-question"></i>
                     <span>Help</span></a>
             </li>
-
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
         </ul>
         <!-- End of Sidebar -->
 
@@ -286,16 +288,16 @@ while ($courseListQueryData = mysqli_fetch_array($courseListResult)) {
                                     $totalResourcesData = mysqli_fetch_array($totalResourcesResult);
                                     $totalResources = $totalResourcesData['totalresources'];
                                     if ($coursePublished == 0) {
-                                        $publishLink = "<a class='btn btn-danger text-white' href='publishcourse.php?cid=$cid'>Publish</a>";
+                                        $publishLink = "<a class='btn btn-danger text-white' href='publishcourse.php?cid=$cid'><span class='far fa-paper-plane'></span> <span class='d-none d-md-inline'>Publish</span></a>";
                                         $publishData = "Unpublished";
-                                        $previewLink = "<a href='coursepreview.php?cid=$cid' class='btn btn-primary'>Preview</a>";
+                                        $previewLink = "<a href='coursepreview.php?cid=$cid' class='btn btn-primary'><span class='far fa-eye'></span></a>";
                                     } else {
-                                        $publishLink = "<a class='btn btn-danger text-white' href='withdrawcourse.php?cid=$cid'>Withdraw</a>";
+                                        $publishLink = "<a class='btn btn-danger text-white' href='withdrawcourse.php?cid=$cid'><span class='fas fa-minus-circle'></span> <span class='d-none d-md-inline'>Withdraw</span></a>";
                                         $publishData = "Published";
-                                        $previewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary'>View</a>";
+                                        $previewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary'><span class='far fa-eye'></span></a>";
                                     }
 
-                                    $editLink = "<a href='coursedit.php?cid=$cid' class='btn btn-success'>Edit</a>";
+                                    $editLink = "<a href='coursedit.php?cid=$cid' class='btn btn-success'><span class='fas fa-pen'></span></a>";
                                     ?>
                                     <tr>
                                         <td><?php echo $courseTitle; ?></td>

@@ -571,6 +571,6 @@ if (getUserType($con, $uid) == 1) {
         $(replyBtnId).attr("onclick", temp_str);
     }
 </script>
-
+<?php require('js/communicationsBadge.php');?>
 </body>
 </html>

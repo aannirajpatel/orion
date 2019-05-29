@@ -1,27 +1,22 @@
 <?php
 /**
- * Written by Aan (aancodes@gmail.com) at Global BizConnect on 20/5/19 3:22 PM.
+ * Written by Aan (aancodes@gmail.com) at Global BizConnect on 29/5/19 12:48 PM.
  */
 require('../includes/auth.php');
 require('../includes/db.php');
 require('../includes/files.php');
-require('../includes/courseownershipauth.php');
-require('../includes/resconfig.php');
 $email = $_SESSION['email'];
 $uid = $_SESSION['uid'];
-
 $profileImageFileName = "";
 $profileImageFileNameQuery = "SELECT profileImageFileName FROM user WHERE email='$email'";
 $profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or die(mysqli_error($con));
 $profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
 $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
-
-if (!isset($_GET['uid']) || $_GET['uid'] <= 0) {
-    die("Error loading profile - no profile ID provided to viewer. Please contact an admin.");
+$message="Contact us via e-mail at <a href='mailto:globalbizconnect01@gmail.com?subject=HELP_REQUEST_FROM_TRAINER&body=Problem: '>globalbizconnect01@gmail.com</a>";
+if (isset($_GET['message'])) {
+    $message = $_GET['message'];
 }
-
-$profileUid = $_GET['uid'];
 
 $dashHome = "student.php";
 $dashPerformance = "student-achievements.php";
@@ -29,60 +24,13 @@ $dashPerformanceText = "Achievements";
 $dashHelp = "student-help.php";
 $dashCommunication = "student-communication.php";
 $back = "student.php";
-if (getUserType($con, $_SESSION['uid']) == 1) {
+if (getUserType($con, $uid)==1) {
     $dashHome = "trainer.php";
     $dashPerformance = "performance.php";
     $dashPerformanceText = "Your Performance";
     $dashHelp = "help.php";
     $dashCommunication = "communication.php";
     $back = "trainer.php";
-}
-
-function loadRecentCoursesTable($con, $uid)
-{
-    echo "
-<thead>
-    <tr>
-    <th>Name</th>
-    <th>Date Published</th>
-    </tr>
-    </thead>
-    <tbody>
-    ";
-    $resourceQuery = "SELECT * FROM course INNER JOIN ctrainers ON (course.cid = ctrainers.cid AND ctrainers.uid=$uid AND course.published=1) ORDER BY dateofpublish";
-    $resourceResult = mysqli_query($con, $resourceQuery) or die(mysqli_error($con));
-    $resourceNumber = 0;
-    $totalResources = mysqli_num_rows($resourceResult);
-    if ($totalResources == 0) {
-        echo "<tr><td colspan='2'>No courses published by this user yet.</td></tr>";
-    } else {
-        while ($totalResources > 0) {
-            $resourceData = mysqli_fetch_array($resourceResult);
-            $resourceNumber++;
-            $totalResources--;
-            $cid = $resourceData['cid'];
-            ?>
-            <tr>
-                <td><a href="viewcourse.php?cid=<?php echo $cid; ?>"><?php echo $resourceData['cname']; ?></a></td>
-                <td><?php echo $resourceData['dateofpublish']; ?></td>
-            </tr>
-            <?php
-        }
-        echo "</tbody>";
-
-    }
-}
-
-$bioQuery = "SELECT * FROM user WHERE uid=$profileUid";
-$bioResult = mysqli_query($con, $bioQuery) or die(mysqli_error($con));
-$bioData = mysqli_fetch_array($bioResult);
-$bio = $bioData['bio'];
-$userImageAddress = "./res/userimages/" . $bioData['profileImageFileName'];
-$fname = $bioData['fname'];
-$lname = $bioData['lname'];
-$profileEditable = 0;
-if ($uid == $profileUid) {
-    $profileEditable = 1;
 }
 
 ?>
@@ -98,7 +46,7 @@ if ($uid == $profileUid) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Viewing Profile</title>
+    <title><?php echo $_SESSION['fname'] . "'s" ?> Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -119,7 +67,7 @@ if ($uid == $profileUid) {
     <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
             <div class="sidebar-brand-icon">
                 <i class="fas fa-atom"></i>
             </div>
@@ -130,7 +78,7 @@ if ($uid == $profileUid) {
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="<?php echo $dashHome; ?>">
                 <i class="fas fa-fw fa-chalkboard-teacher"></i>
                 <span>Courses</span></a>
@@ -147,7 +95,7 @@ if ($uid == $profileUid) {
                 <i class="fas fa-fw fa-chart-line"></i>
                 <span><?php echo $dashPerformanceText; ?></span></a>
         </li>
-        <?php if (getUserType($con, $_SESSION['uid']) == 0) { ?>
+        <?php if (getUserType($con, $uid) == 0) { ?>
             <li class="nav-item">
                 <a class="nav-link" href="student-purchases.php">
                     <i class="fas fa-money-check-alt"></i>
@@ -155,7 +103,7 @@ if ($uid == $profileUid) {
                 </a>
             </li>
         <?php } ?>
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="<?php echo $dashHelp; ?>">
                 <i class="fas fa-fw fa-question"></i>
                 <span>Help</span></a>
@@ -181,9 +129,11 @@ if ($uid == $profileUid) {
                 </button>
 
                 <!-- Topbar Search -->
-                <!--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                      method="get" action="searchcourse.php">
                     <div class="input-group">
                         <input type="text" class="form-control bg-light border-0 small"
+                               name="q"
                                placeholder="Search for a course..."
                                aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
@@ -192,7 +142,7 @@ if ($uid == $profileUid) {
                             </button>
                         </div>
                     </div>
-                </form>-->
+                </form>
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -221,13 +171,128 @@ if ($uid == $profileUid) {
                         </div>
                     </li>
 
+                    <!-- Nav Item - Alerts -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell fa-fw"></i>
+                            <!-- Counter - Alerts -->
+                            <span class="badge badge-danger badge-counter">3+</span>
+                        </a>
+                        <!-- Dropdown - Alerts -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="alertsDropdown">
+                            <h6 class="dropdown-header">
+                                Notification Center
+                            </h6>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-primary">
+                                        <i class="fas fa-file-alt text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 12, 2019</div>
+                                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-success">
+                                        <i class="fas fa-donate text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 7, 2019</div>
+                                    $290.29 has been deposited into your account!
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-warning">
+                                        <i class="fas fa-exclamation-triangle text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 2, 2019</div>
+                                    Spending Alert: We've noticed unusually high spending for your account.
+                                </div>
+                            </a>
+                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                        </div>
+                    </li>
+
                     <!-- Nav Item - Messages -->
-                    <li class="nav-item no-arrow mx-1" id="communicationsNavLink">
-                        <a class="nav-link" href="<?php if(getUserType($con, $uid)==1){echo "communication.php";} if(getUserType($con, $uid)==0){echo "student-communication.php";}?>" role="button">
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-envelope fa-fw"></i>
                             <!-- Counter - Messages -->
-                            <span class="badge badge-danger badge-counter" id="communicationsBadge"></span>
+                            <span class="badge badge-danger badge-counter">7</span>
                         </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="messagesDropdown">
+                            <h6 class="dropdown-header">
+                                Message Center
+                            </h6>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="<?php echo $profileImageFileAddress; ?>"
+                                         alt="">
+                                    <div class="status-indicator bg-success"></div>
+                                </div>
+                                <div class="font-weight-bold">
+                                    <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                        problem I've been having.
+                                    </div>
+                                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60"
+                                         alt="">
+                                    <div class="status-indicator"></div>
+                                </div>
+                                <div>
+                                    <div class="text-truncate">I have the photos that you ordered last month, how
+                                        would
+                                        you like them sent to you?
+                                    </div>
+                                    <div class="small text-gray-500">Jae Chun · 1d</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60"
+                                         alt="">
+                                    <div class="status-indicator bg-warning"></div>
+                                </div>
+                                <div>
+                                    <div class="text-truncate">Last month's report looks great, I am very happy with
+                                        the
+                                        progress so far, keep up the good work!
+                                    </div>
+                                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                         alt="">
+                                    <div class="status-indicator bg-success"></div>
+                                </div>
+                                <div>
+                                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                        told
+                                        me that people say this to all dogs, even if they aren't good...
+                                    </div>
+                                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                        </div>
                     </li>
 
                     <div class="topbar-divider d-none d-sm-block"></div>
@@ -240,12 +305,12 @@ if ($uid == $profileUid) {
                                 <?php echo $_SESSION['fname'] . " " . $_SESSION['lname']; ?>
                             </span>
                             <img class="img-profile rounded-circle"
-                                 src="./res/userimages/<?php echo $profileImageFileName; ?>">
+                                 src="<?php echo $profileImageFileAddress; ?>">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="viewprofile.php?uid=<?php echo $uid;?>">
+                            <a class="dropdown-item" href="#">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
                             </a>
@@ -264,69 +329,26 @@ if ($uid == $profileUid) {
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-                <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">
-                        Viewing Profile
-                        <?php
-                        if ($profileEditable == 1) {
-                            ?>
-                            <a href="editProfile.php" class="btn btn-primary">Edit Your Profile</a>
-                            <?php
-                        }
-                        ?>
-                    </h1>
-                    <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
-                </div>
 
                 <!-- Content Row -->
-                    <div class="row">
-                        <div class="container col-4">
-                            <div class="container">
-                                <div class="card" style="width:20vw">
-                                    <img class="card-img-top" src="<?php echo $userImageAddress; ?>" alt="Card image"
-                                         style="width:100%;padding:10px;">
-                                    <div class="card-body">
-                                        <h4 class="card-title"><?php echo $fname . " " . $lname; ?></h4>
-                                    </div>
-                                </div>
-                            </div>
+
+                <!-- Content Row -->
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="text-primary">Help</h6>
                         </div>
-                        <div class="container col-8">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Courses
-                                        by <?php echo $fname . " " . $lname; ?></h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="container">
-                                        <div class="table-responsive">
-                                            <table class="table" style="display:table;">
-                                                <?php loadRecentCoursesTable($con, $profileUid); ?>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="card-body">
+                            <?php echo $message; ?>
                         </div>
                     </div>
+                </div>
+
                 <br>
-                    <div class="row">
-                        <div class="container">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h6 class="m-0 font-weight-bold text-primary">Bio</h6>
-                                </div>
-                                    <div class="card-body">
-                                        <?php echo $bio; ?>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                <!-- /.container-fluid -->
+
             </div>
+            <!-- /.container-fluid -->
+
         </div>
         <!-- End of Main Content -->
 
@@ -350,7 +372,6 @@ if ($uid == $profileUid) {
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
-
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
@@ -383,10 +404,5 @@ if ($uid == $profileUid) {
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
-<?php require ('getNewCommsData.php');?>
-<?php require('js/communicationsBadge.php');?>
-
 </body>
-
 </html>
-

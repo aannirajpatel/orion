@@ -14,13 +14,14 @@ $profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
 $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 
-function newComms($con, $cid, $uid){
+function newComms($con, $cid, $uid)
+{
     $lastViewedTimeQuery = "SELECT * FROM lastviewedqna WHERE cid=$cid and uid=$uid";
     $lastViewedTimeResult = mysqli_query($con, $lastViewedTimeQuery) or die(mysqli_error($con));
-    if(mysqli_num_rows($lastViewedTimeResult) == 1){
+    if (mysqli_num_rows($lastViewedTimeResult) == 1) {
         $lastViewedTimeData = mysqli_fetch_array($lastViewedTimeResult);
         $lastViewedTime = $lastViewedTimeData['lastviewed'];
-    } else{
+    } else {
         $lastViewedTime = "0000-00-00 00:00:00";
     }
 
@@ -37,8 +38,8 @@ function newComms($con, $cid, $uid){
 
 $totalNewComms = 0;
 
-define("NEW_QUESTIONS_COUNT_INDEX",0);
-define("NEW_ANSWERS_COUNT_INDEX",1);
+define("NEW_QUESTIONS_COUNT_INDEX", 0);
+define("NEW_ANSWERS_COUNT_INDEX", 1);
 
 $courseListQuery = "SELECT cid FROM ctrainers WHERE uid=$uid";
 $courseListResult = mysqli_query($con, $courseListQuery) or die(mysqli_error($con));
@@ -169,7 +170,9 @@ for ($month = 1; $month <= 12; $month++) {
                 <i class="fas fa-fw fa-question"></i>
                 <span>Help</span></a>
         </li>
-
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
     </ul>
     <!-- End of Sidebar -->
 
@@ -251,7 +254,7 @@ for ($month = 1; $month <= 12; $month++) {
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="viewprofile.php?uid=<?php echo $uid;?>">
+                            <a class="dropdown-item" href="viewprofile.php?uid=<?php echo $uid; ?>">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
                             </a>
@@ -422,51 +425,51 @@ for ($month = 1; $month <= 12; $month++) {
                             <!-- Card Body -->
                             <div class="card-body">
                                 <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <td>Purchase ID</td>
-                                        <td>Course Name</td>
-                                        <td>Payment</td>
-                                        <td>Transaction Time</td>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                    $transactionsQuery = "SELECT * FROM cpurchases INNER JOIN ctrainers ON (cpurchases.cid=ctrainers.cid AND ctrainers.uid=$uid)";
-                                    $transactionsResult = mysqli_query($con, $transactionsQuery) or die(mysqli_error($con));
-                                    while ($transactionsData = mysqli_fetch_array($transactionsResult)) {
-                                        $cpid = $transactionsData['pid'];
-
-                                        $cid = $transactionsData['cid'];
-
-                                        $cname = "";
-                                        $cnameQuery = "SELECT cname FROM course WHERE cid=$cid";
-                                        $cnameResult = mysqli_query($con, $cnameQuery) or die(mysqli_error($con));
-                                        if(mysqli_num_rows($cnameResult)>0){
-                                            $cnameData = mysqli_fetch_array($cnameResult);
-                                            $cname = $cnameData['cname'];
-                                        }
-
-                                        $payment = $transactionsData['cost'];
-                                        $findSharesQuery = "SELECT count(*) AS sharers FROM ctrainers WHERE cid=$cid";
-                                        $findSharesResult = mysqli_query($con, $findSharesQuery);
-                                        $findSharesData = mysqli_fetch_array($findSharesResult);
-                                        $payment /= $findSharesData['sharers'];
-
-                                        $transactionTime = $transactionsData['dateofpurchase'];
-                                        ?>
+                                    <table class="table">
+                                        <thead>
                                         <tr>
-                                            <td><?php echo $cpid; ?></td>
-                                            <td><?php echo $cname; ?></td>
-                                            <td><?php echo $payment; ?></td>
-                                            <td><?php echo $transactionTime; ?></td>
+                                            <td>Purchase ID</td>
+                                            <td>Course Name</td>
+                                            <td>Payment</td>
+                                            <td>Transaction Time</td>
                                         </tr>
+                                        </thead>
+                                        <tbody>
                                         <?php
-                                    }
-                                    ?>
-                                    </tbody>
-                                </table>
+                                        $transactionsQuery = "SELECT * FROM cpurchases INNER JOIN ctrainers ON (cpurchases.cid=ctrainers.cid AND ctrainers.uid=$uid)";
+                                        $transactionsResult = mysqli_query($con, $transactionsQuery) or die(mysqli_error($con));
+                                        while ($transactionsData = mysqli_fetch_array($transactionsResult)) {
+                                            $cpid = $transactionsData['pid'];
+
+                                            $cid = $transactionsData['cid'];
+
+                                            $cname = "";
+                                            $cnameQuery = "SELECT cname FROM course WHERE cid=$cid";
+                                            $cnameResult = mysqli_query($con, $cnameQuery) or die(mysqli_error($con));
+                                            if (mysqli_num_rows($cnameResult) > 0) {
+                                                $cnameData = mysqli_fetch_array($cnameResult);
+                                                $cname = $cnameData['cname'];
+                                            }
+
+                                            $payment = $transactionsData['cost'];
+                                            $findSharesQuery = "SELECT count(*) AS sharers FROM ctrainers WHERE cid=$cid";
+                                            $findSharesResult = mysqli_query($con, $findSharesQuery);
+                                            $findSharesData = mysqli_fetch_array($findSharesResult);
+                                            $payment /= $findSharesData['sharers'];
+
+                                            $transactionTime = $transactionsData['dateofpurchase'];
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $cpid; ?></td>
+                                                <td><?php echo $cname; ?></td>
+                                                <td><?php echo $payment; ?></td>
+                                                <td><?php echo $transactionTime; ?></td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -536,7 +539,7 @@ for ($month = 1; $month <= 12; $month++) {
 <!-- Page level custom scripts -->
 <?php require("js/chartLoader/chart-area-demo.php"); ?>
 
-<?php require('js/communicationsBadge.php');?>
+<?php require('js/communicationsBadge.php'); ?>
 
 </body>
 
