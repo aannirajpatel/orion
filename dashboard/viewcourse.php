@@ -338,6 +338,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                 </button>
 
                 <!-- Topbar Search -->
+                <?php if(getUserType($con, $uid)==0){ ?>
                 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
                       method="get" action="searchcourse.php">
                     <div class="input-group">
@@ -352,7 +353,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                         </div>
                     </div>
                 </form>
-
+                <?php } ?>
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 

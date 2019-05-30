@@ -3,40 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/communication.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/communication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/coursedit.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/coursedit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/coursepreview.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/coursepreview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/createLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/createNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createNote.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/createYoutubeLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createYoutubeLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/createcourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createcourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/createresource.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createresource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/displayMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/displayMessage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editNote.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editProfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editSection.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editSection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editVideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editVideo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editYoutubeLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editYoutubeLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/enroll.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/enroll.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/help.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/help.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/qna.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/qna.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/student-achievements.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/student-achievements.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/student-communication.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/student-communication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/student-help.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/student-help.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/student-purchases.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/student-purchases.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/student.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/trainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/trainer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewNote.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewVideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewVideo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewYoutubeLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewYoutubeLink.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/viewcourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewcourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewprofile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/processForgotPasswordRequest.php" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -68,13 +37,50 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashboard/addAnswer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="28" column="2" lean-forward="true" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashboard/help.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="67">
+              <caret line="132" column="120" lean-forward="true" selection-start-line="132" selection-start-column="120" selection-end-line="132" selection-end-column="120" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashboard/viewcourse.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="340" column="16" selection-start-line="340" selection-start-column="16" selection-end-line="340" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dashboard/qna.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="286" column="26" selection-start-line="286" selection-start-column="26" selection-end-line="286" selection-end-column="26" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&lt;/bod</find>
-      <find>sBadge</find>
-      <find>7&lt;</find>
       <find>getNewCommsData</find>
       <find>dataT</find>
       <find>desc</find>
@@ -102,6 +108,9 @@
       <find>head</find>
       <find>&lt;head</find>
       <find>method=</find>
+      <find>search for a</find>
+      <find>search for a cou</find>
+      <find>search for</find>
     </findStrings>
     <replaceStrings>
       <replace>btn-sm</replace>
@@ -178,21 +187,21 @@
         <option value="$PROJECT_DIR$/dashboard/editVideo.php" />
         <option value="$PROJECT_DIR$/dashboard/editYoutubeLink.php" />
         <option value="$PROJECT_DIR$/dashboard/enroll.php" />
-        <option value="$PROJECT_DIR$/dashboard/help.php" />
-        <option value="$PROJECT_DIR$/dashboard/qna.php" />
         <option value="$PROJECT_DIR$/dashboard/register.php" />
         <option value="$PROJECT_DIR$/dashboard/student.php" />
         <option value="$PROJECT_DIR$/dashboard/student-achievements.php" />
         <option value="$PROJECT_DIR$/dashboard/student-help.php" />
         <option value="$PROJECT_DIR$/dashboard/student-purchases.php" />
         <option value="$PROJECT_DIR$/dashboard/trainer.php" />
-        <option value="$PROJECT_DIR$/dashboard/viewcourse.php" />
         <option value="$PROJECT_DIR$/dashboard/viewFile.php" />
         <option value="$PROJECT_DIR$/dashboard/viewLink.php" />
         <option value="$PROJECT_DIR$/dashboard/viewNote.php" />
         <option value="$PROJECT_DIR$/dashboard/viewprofile.php" />
         <option value="$PROJECT_DIR$/dashboard/viewVideo.php" />
         <option value="$PROJECT_DIR$/dashboard/viewYoutubeLink.php" />
+        <option value="$PROJECT_DIR$/dashboard/help.php" />
+        <option value="$PROJECT_DIR$/dashboard/viewcourse.php" />
+        <option value="$PROJECT_DIR$/dashboard/qna.php" />
       </list>
     </option>
   </component>
@@ -349,7 +358,7 @@
       <workItem from="1557821450106" duration="127000" />
       <workItem from="1557821972046" duration="149867000" />
       <workItem from="1558345087001" duration="17675000" />
-      <workItem from="1559105266936" duration="37552000" />
+      <workItem from="1559105266936" duration="39820000" />
     </task>
     <task id="LOCAL-00001" summary="Updating course editor to bootstrap4&#10;Coursepreview is done&#10;Trainer dashboard courses page is done&#10;Profile viewer is still a work in progress&#10;Trainer pair-up pending&#10;Student side remaining&#10;Purchases">
       <created>1558502400930</created>
@@ -512,11 +521,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559202568263</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Finish mandatory landscape mode in mobiles">
+      <created>1559210307052</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1559210307052</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="353150000" />
+    <option name="totallyTimeSpent" value="355418000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -529,8 +545,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.1913767" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.1913767" />
       <window_info id="Structure" order="1" sideWeight="0.502439" side_tool="true" weight="0.1913767" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" weight="0.3289689" />
@@ -544,7 +561,7 @@
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" sideWeight="0.49924356" weight="0.3289689" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25204584" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.25204584" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
       <window_info anchor="right" id="Database" order="0" weight="0.32980332" />
@@ -578,6 +595,32 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updating course editor to bootstrap4&#10;Coursepreview is done&#10;Trainer dashboard courses page is done&#10;Profile viewer is still a work in progress&#10;Trainer pair-up pending&#10;Student side remaining&#10;Purchases" />
     <MESSAGE value="Updated course editor to bootstrap4" />
@@ -600,16 +643,10 @@
     <MESSAGE value="Debug communication badge in comms page&#10;Navbar color change to Purple" />
     <MESSAGE value="Start mandatory landscape mode in mobiles" />
     <MESSAGE value="Setup E-mail server using PHPMailer&#10;Setup reset link&#10;Incomplete mandatory landscape mode in mobiles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup E-mail server using PHPMailer&#10;Setup reset link&#10;Incomplete mandatory landscape mode in mobiles" />
+    <MESSAGE value="Finish mandatory landscape mode in mobiles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish mandatory landscape mode in mobiles" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/login/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1087">
-          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11645">
@@ -787,13 +824,6 @@
         <state relative-caret-position="-1019" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/help.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="291" column="36" selection-start-line="291" selection-start-column="36" selection-end-line="291" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-121" />
@@ -810,16 +840,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/qna.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="572" column="36" selection-start-line="572" selection-start-column="36" selection-end-line="572" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -886,13 +906,6 @@
         <state relative-caret-position="-1155" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/viewcourse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="830" column="36" selection-start-line="830" selection-start-column="36" selection-end-line="830" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/viewFile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -939,6 +952,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="459" column="36" selection-start-line="459" selection-start-column="36" selection-end-line="459" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/addAnswer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="28" column="2" lean-forward="true" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/help.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="132" column="120" lean-forward="true" selection-start-line="132" selection-start-column="120" selection-end-line="132" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/viewcourse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="340" column="16" selection-start-line="340" selection-start-column="16" selection-end-line="340" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/qna.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="286" column="26" selection-start-line="286" selection-start-column="26" selection-end-line="286" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

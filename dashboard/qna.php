@@ -269,6 +269,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 </button>
 
                 <!-- Topbar Search -->
+                <?php if(getUserType($con, $uid)==0){ ?>
                 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
                       method="get" action="searchcourse.php">
                     <div class="input-group">
@@ -283,7 +284,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         </div>
                     </div>
                 </form>
-
+                <?php } ?>
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
