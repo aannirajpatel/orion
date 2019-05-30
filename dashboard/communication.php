@@ -51,7 +51,6 @@ function newComms($con, $cid, $uid)
     $newAnswersQuery = "SELECT answerid FROM answer, user, question WHERE(answer.questionid = question.questionid AND question.cid=$cid AND user.uid = $uid AND answer.dateofanswer > '$lastViewedTime')";
     $newAnswersResult = mysqli_query($con, $newAnswersQuery) or die(mysqli_error($con));
     $newAnswers = mysqli_num_rows($newAnswersResult);
-
     return array($newQuestions, $newAnswers);
 }
 
@@ -78,6 +77,7 @@ $totalNewComms = 0;
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/orion.css" rel="stylesheet">
 
 </head>
 
@@ -277,17 +277,15 @@ $totalNewComms = 0;
                                         $courseAuthors .= ", ";
                                     }
                                 }
-
-
                                 $commBadge = "";
                                 $commBadgeData = newComms($con, $cid, $uid);
-                                if ($commBadgeData[NEW_QUESTIONS_COUNT_INDEX]) {
+                                if ($commBadgeData[NEW_QUESTIONS_COUNT_INDEX]>0) {
                                     $commBadge = "<span class=\"badge badge-danger\">+" . $commBadgeData[NEW_QUESTIONS_COUNT_INDEX] . " Questions</span>";
-                                    $totalNewComms += $commBadge[NEW_QUESTIONS_COUNT_INDEX];
+                                    $totalNewComms += $commBadgeData[NEW_QUESTIONS_COUNT_INDEX];
                                 }
-                                if ($commBadgeData[NEW_ANSWERS_COUNT_INDEX]) {
+                                if ($commBadgeData[NEW_ANSWERS_COUNT_INDEX]>0) {
                                     $commBadge .= " <span class=\"badge badge-danger\">+" . $commBadgeData[NEW_ANSWERS_COUNT_INDEX] . " Answers</span>";
-                                    $totalNewComms += $commBadge[NEW_ANSWERS_COUNT_INDEX];
+                                    $totalNewComms += $commBadgeData[NEW_ANSWERS_COUNT_INDEX];
                                 }
                                 $viewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary'>View</a>";
                                 ?>

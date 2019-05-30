@@ -459,6 +459,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                                         <div class="form-group">
                                     <textarea class="form-control" id="cdesc"
                                               name="cdesc"><?php echo $cdesc; ?></textarea>
+                                            <input type="hidden" name="cid" value="<?php echo $cid;?>">
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" name="updatecdesc" value="true"

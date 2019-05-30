@@ -65,6 +65,8 @@ if (isset($_GET['cid']) && isset($_GET['section'])) {
 
         <!-- Custom styles for this template-->
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="css/orion.css" rel="stylesheet">
+        <link rel="icon" href="../favicon.ico">
 
         <!--
             Copyright (c) 2007-2008 Brian Kirchoff (http://nicedit.com)
