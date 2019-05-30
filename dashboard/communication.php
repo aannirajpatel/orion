@@ -279,11 +279,11 @@ $totalNewComms = 0;
                                 }
                                 $commBadge = "";
                                 $commBadgeData = newComms($con, $cid, $uid);
-                                if ($commBadgeData[NEW_QUESTIONS_COUNT_INDEX]>0) {
+                                if ($commBadgeData[NEW_QUESTIONS_COUNT_INDEX] > 0) {
                                     $commBadge = "<span class=\"badge badge-danger\">+" . $commBadgeData[NEW_QUESTIONS_COUNT_INDEX] . " Questions</span>";
                                     $totalNewComms += $commBadgeData[NEW_QUESTIONS_COUNT_INDEX];
                                 }
-                                if ($commBadgeData[NEW_ANSWERS_COUNT_INDEX]>0) {
+                                if ($commBadgeData[NEW_ANSWERS_COUNT_INDEX] > 0) {
                                     $commBadge .= " <span class=\"badge badge-danger\">+" . $commBadgeData[NEW_ANSWERS_COUNT_INDEX] . " Answers</span>";
                                     $totalNewComms += $commBadgeData[NEW_ANSWERS_COUNT_INDEX];
                                 }
@@ -359,6 +359,11 @@ $totalNewComms = 0;
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
-<?php require('js/communicationsBadge.php');?>
+<script>
+    $(document).ready(function () {
+        screen.lockOrientation("landscape");
+    });
+</script>
+<?php require('js/communicationsBadge.php'); ?>
 </body>
 </html>

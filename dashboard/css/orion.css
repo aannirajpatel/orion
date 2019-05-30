@@ -1,0 +1,27 @@
+#accordionSidebar {
+    background: #662D91;
+}
+
+#warning-message {
+    display: none;
+}
+
+@media only screen and (orientation: portrait) {
+    #wrapper {
+        display: none;
+    }
+
+    #warning-message {
+        display: block;
+        height: 100vh;
+    }
+    #rotateIcon{
+        font-size: 15rem;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    #warning-message {
+        display: none;
+    }
+}

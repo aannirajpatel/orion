@@ -106,10 +106,12 @@ $google_login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urle
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/orion.css" rel="stylesheet">
+    <link href="../favicon.ico" rel="icon">
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="login-bg">
 
 <div class="container">
     <?php if ($invalidLogin == 1) { ?>
