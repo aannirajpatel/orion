@@ -26,6 +26,14 @@
       <path value="$PROJECT_DIR$/login/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/login/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/login/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/login/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/login/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/login/vendor/league/oauth2-google" />
+      <path value="$PROJECT_DIR$/login/vendor/league/oauth2-client" />
+      <path value="$PROJECT_DIR$/login/vendor/mollie/polyfill-libsodium" />
+      <path value="$PROJECT_DIR$/login/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/login/vendor/hayageek/oauth2-yahoo" />
+      <path value="$PROJECT_DIR$/login/vendor/stevenmaguire/oauth2-microsoft" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

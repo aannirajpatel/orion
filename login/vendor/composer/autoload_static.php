@@ -12,6 +12,8 @@ class ComposerStaticInit50efffc59ff67061ffe5c328f8a6dd60
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
+        '49d7e2e91a66e18467cc8d8b8b02459b' => __DIR__ . '/..' . '/mollie/polyfill-libsodium/bootstrap.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -19,15 +21,29 @@ class ComposerStaticInit50efffc59ff67061ffe5c328f8a6dd60
         array (
             'phpseclib\\' => 10,
         ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Stevenmaguire\\OAuth2\\Client\\' => 28,
+        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Cache\\' => 10,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'M' => 
         array (
             'Monolog\\' => 8,
+        ),
+        'L' => 
+        array (
+            'League\\OAuth2\\Client\\' => 21,
+        ),
+        'H' => 
+        array (
+            'Hayageek\\OAuth2\\Client\\' => 23,
         ),
         'G' => 
         array (
@@ -47,6 +63,14 @@ class ComposerStaticInit50efffc59ff67061ffe5c328f8a6dd60
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
         ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Stevenmaguire\\OAuth2\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stevenmaguire/oauth2-microsoft/src',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
@@ -59,9 +83,22 @@ class ComposerStaticInit50efffc59ff67061ffe5c328f8a6dd60
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'League\\OAuth2\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/oauth2-client/src',
+            1 => __DIR__ . '/..' . '/league/oauth2-google/src',
+        ),
+        'Hayageek\\OAuth2\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hayageek/oauth2-yahoo/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (

@@ -58,10 +58,12 @@ if (isset($_POST['password'])) {
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/orion.css" rel="stylesheet">
+    <link href="../favicon.ico" rel="icon">
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="login-bg">
 
 <div class="container">
 

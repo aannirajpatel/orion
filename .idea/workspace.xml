@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Login Info.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/css/orion.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/img/courseSample.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/rotateScreen.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/css/orion.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orion.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login/resetPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/orion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/orion.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/communication.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/communication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/qna.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/qna.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/student-communication.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/student-communication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/login/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/login/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/forgot-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/forgot-password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/login/vendor/composer/installed.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,11 +49,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/student-communication.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="361" column="7" lean-forward="true" selection-start-line="361" selection-start-column="7" selection-end-line="361" selection-end-column="7" />
+            <state relative-caret-position="238">
+              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
               <folding>
                 <element signature="n#newComms#0;n#!!top" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/forgot-password.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
+              <folding>
+                <element signature="e#6#40#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/resetPassword.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/login/register.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="61" column="43" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -70,26 +100,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/css/orion.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
+            <state relative-caret-position="442">
               <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/css/orion.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="29" column="18" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/communication.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="361" selection-start-line="361" selection-end-line="365" selection-end-column="9" />
+            <state relative-caret-position="458">
+              <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -114,26 +135,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="113" column="21" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/enroll.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/enrollResponse.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+            <state relative-caret-position="104">
+              <caret line="108" column="4" lean-forward="true" selection-start-line="108" selection-start-column="4" selection-end-line="109" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -142,7 +145,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>form</find>
       <find>&lt;/bod</find>
       <find>sBadge</find>
       <find>7&lt;</find>
@@ -172,6 +174,7 @@
       <find>active</find>
       <find>head</find>
       <find>&lt;head</find>
+      <find>method=</find>
     </findStrings>
     <replaceStrings>
       <replace>btn-sm</replace>
@@ -212,11 +215,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dashboard/updateCname.php" />
         <option value="$PROJECT_DIR$/dashboard/js/communicationsBadge.js" />
-        <option value="$PROJECT_DIR$/login/register.php" />
         <option value="$PROJECT_DIR$/login/processForgotPasswordRequest.php" />
-        <option value="$PROJECT_DIR$/login/forgot-password.php" />
         <option value="$PROJECT_DIR$/dashboard/js/communicationsBadge.php" />
         <option value="$PROJECT_DIR$/dashboard/createresource.php" />
         <option value="$PROJECT_DIR$/dashboard/addResourceFile.php" />
@@ -263,6 +263,9 @@
         <option value="$PROJECT_DIR$/login/index.php" />
         <option value="$PROJECT_DIR$/dashboard/css/orion.css" />
         <option value="$PROJECT_DIR$/login/css/orion.css" />
+        <option value="$PROJECT_DIR$/login/forgot-password.php" />
+        <option value="$PROJECT_DIR$/login/resetPassword.php" />
+        <option value="$PROJECT_DIR$/login/register.php" />
       </list>
     </option>
   </component>
@@ -300,6 +303,14 @@
       <path value="$PROJECT_DIR$/login/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/login/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/login/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/login/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/login/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/login/vendor/league/oauth2-google" />
+      <path value="$PROJECT_DIR$/login/vendor/league/oauth2-client" />
+      <path value="$PROJECT_DIR$/login/vendor/mollie/polyfill-libsodium" />
+      <path value="$PROJECT_DIR$/login/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/login/vendor/hayageek/oauth2-yahoo" />
+      <path value="$PROJECT_DIR$/login/vendor/stevenmaguire/oauth2-microsoft" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -411,7 +422,7 @@
       <workItem from="1557821450106" duration="127000" />
       <workItem from="1557821972046" duration="149867000" />
       <workItem from="1558345087001" duration="17675000" />
-      <workItem from="1559105266936" duration="29255000" />
+      <workItem from="1559105266936" duration="33688000" />
     </task>
     <task id="LOCAL-00001" summary="Updating course editor to bootstrap4&#10;Coursepreview is done&#10;Trainer dashboard courses page is done&#10;Profile viewer is still a work in progress&#10;Trainer pair-up pending&#10;Student side remaining&#10;Purchases">
       <created>1558502400930</created>
@@ -560,11 +571,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559195393169</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Start mandatory landscape mode in mobiles">
+      <created>1559197997927</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1559197997927</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="344853000" />
+    <option name="totallyTimeSpent" value="349286000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -577,8 +595,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.1913767" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.1913767" />
       <window_info id="Structure" order="1" sideWeight="0.502439" side_tool="true" weight="0.1913767" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="0" weight="0.3289689" />
@@ -590,8 +609,8 @@
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" sideWeight="0.49924356" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289689" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25204584" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
       <window_info anchor="right" id="Database" order="0" weight="0.32980332" />
@@ -645,48 +664,10 @@
     <MESSAGE value="Finish add navbar and topbar to resource editing forms" />
     <MESSAGE value="Add live messages notif badge to Searchcourse.php" />
     <MESSAGE value="Debug communication badge in comms page&#10;Navbar color change to Purple" />
-    <option name="LAST_COMMIT_MESSAGE" value="Debug communication badge in comms page&#10;Navbar color change to Purple" />
+    <MESSAGE value="Start mandatory landscape mode in mobiles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start mandatory landscape mode in mobiles" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dashboard/addResourceYoutubeLink.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="245" column="48" selection-start-line="245" selection-start-column="48" selection-end-line="245" selection-end-column="172" />
-          <folding>
-            <element signature="e#1055#3124#0#HTML" />
-            <element signature="e#11126#11147#0#HTML" expanded="true" />
-            <element signature="e#14332#14431#0#HTML" />
-            <element signature="e#14461#15429#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/addResourceVideo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="208" column="39" selection-start-line="208" selection-start-column="39" selection-end-line="208" selection-end-column="39" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#a#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/createresource.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="75" lean-forward="true" selection-start-line="18" selection-end-line="25" selection-end-column="75" />
-          <folding>
-            <element signature="n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#a#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/addResourceLink.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -999,7 +980,7 @@
     <entry file="file://$PROJECT_DIR$/dashboard/enrollResponse.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1007,23 +988,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="361" selection-start-line="361" selection-end-line="365" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/rotateScreen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/student-communication.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="361" column="7" lean-forward="true" selection-start-line="361" selection-start-column="7" selection-end-line="361" selection-end-column="7" />
-          <folding>
-            <element signature="n#newComms#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1040,24 +1004,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/index.php">
+    <entry file="file://$PROJECT_DIR$/login/css/orion.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="113" column="21" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
+        <state relative-caret-position="458">
+          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/css/orion.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
+        <state relative-caret-position="442">
           <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/css/orion.css">
+    <entry file="file://$PROJECT_DIR$/dashboard/rotateScreen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="29" column="18" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+        <state relative-caret-position="170">
+          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/student-communication.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding>
+            <element signature="n#newComms#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/forgot-password.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
+          <folding>
+            <element signature="e#6#40#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="108" column="4" lean-forward="true" selection-start-line="108" selection-start-column="4" selection-end-line="109" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/resetPassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="61" column="43" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
         </state>
       </provider>
     </entry>

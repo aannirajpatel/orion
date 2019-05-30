@@ -20,12 +20,20 @@
       <excludeFolder url="file://$MODULE_DIR$/login/vendor/guzzlehttp/guzzle" />
       <excludeFolder url="file://$MODULE_DIR$/login/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/login/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/login/vendor/hayageek/oauth2-yahoo" />
+      <excludeFolder url="file://$MODULE_DIR$/login/vendor/league/oauth2-client" />
+      <excludeFolder url="file://$MODULE_DIR$/login/vendor/league/oauth2-google" />
+      <excludeFolder url="file://$MODULE_DIR$/login/vendor/mollie/polyfill-libsodium" />
       <excludeFolder url="file://$MODULE_DIR$/login/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/login/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/login/vendor/phpmailer/phpmailer" />
       <excludeFolder url="file://$MODULE_DIR$/login/vendor/phpseclib/phpseclib" />
       <excludeFolder url="file://$MODULE_DIR$/login/vendor/psr/cache" />
       <excludeFolder url="file://$MODULE_DIR$/login/vendor/psr/http-message" />
       <excludeFolder url="file://$MODULE_DIR$/login/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/login/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/login/vendor/stevenmaguire/oauth2-microsoft" />
+      <excludeFolder url="file://$MODULE_DIR$/login/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
     </content>
