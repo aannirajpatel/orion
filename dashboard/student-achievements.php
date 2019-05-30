@@ -346,7 +346,7 @@ while ($courseListQueryData = mysqli_fetch_array($courseListResult)) {
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
-
+<?php require('rotateScreen.php');?>
 <?php require('js/communicationsBadge.php');?>
 </body>
 </html>

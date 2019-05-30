@@ -384,6 +384,7 @@ $lname = $bioData['lname'];
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
+<?php require('rotateScreen.php');?>
 <?php require('getNewCommsData.php'); ?>
 <?php require('js/communicationsBadge.php'); ?>
 </body>

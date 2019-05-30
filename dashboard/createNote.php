@@ -48,6 +48,7 @@ if (isset($_POST['title'])) {
         <a class="btn btn-success" href='addResourceNote.php?<?php echo "cid=$cid&section=$sectionNumber&rtype=$rtype";?>'>Add another note to
             selected section.</a>
     </div>
+    <?php require('rotateScreen.php');?>
     </body>
     </html>
     <?php

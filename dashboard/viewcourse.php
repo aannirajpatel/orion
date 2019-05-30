@@ -828,6 +828,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
         }
     }
 </script>
+<?php require('rotateScreen.php');?>
 <?php require ('getNewCommsData.php');?>
 <?php require('js/communicationsBadge.php');?>
 </body>

@@ -492,5 +492,6 @@ $courseName = getCourseName($cid, $con);
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
+<?php require('rotateScreen.php');?>
 </body>
 </html>

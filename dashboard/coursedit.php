@@ -680,7 +680,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
             $("#collaboratorLiveSearchResult").hide();
         }
     </script>
-
+    <?php require('rotateScreen.php');?>
     </body>
 
     </html>

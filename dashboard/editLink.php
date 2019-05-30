@@ -337,6 +337,7 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
     <script src="vendor/chart.js/Chart.min.js"></script>
     <?php require('getNewCommsData.php'); ?>
     <?php require('js/communicationsBadge.php'); ?>
+    <?php require('rotateScreen.php');?>
     </body>
     </html>
 <?php

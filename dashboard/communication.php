@@ -359,11 +359,7 @@ $totalNewComms = 0;
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
-<script>
-    $(document).ready(function () {
-        screen.lockOrientation("landscape");
-    });
-</script>
+<?php require('rotateScreen.php');?>
 <?php require('js/communicationsBadge.php'); ?>
 </body>
 </html>

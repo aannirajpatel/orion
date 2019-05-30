@@ -88,5 +88,6 @@ if (isset($_POST['cname'])) {
         </fieldset>
     </form>
 </div>
+<?php require('rotateScreen.php');?>
 </body>
 </html>

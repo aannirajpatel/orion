@@ -463,6 +463,7 @@ if (getUserType($con, $uid)==1) {
         $(replyBtnId).attr("onclick",temp_str);
     }
 </script>
+<?php require('rotateScreen.php');?>
 <?php require ('getNewCommsData.php');?>
 <?php require('js/communicationsBadge.php');?>
 </body>
