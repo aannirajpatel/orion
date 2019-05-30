@@ -200,6 +200,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
         <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
         <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+        <link href="css/orion.css" rel="stylesheet">
 
     </head>
     <body id="page-top">
