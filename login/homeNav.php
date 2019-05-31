@@ -1,10 +1,6 @@
 <?php
 /**
- * Written by Aan (aancodes@gmail.com) at Global BizConnect on 31/5/19 10:49 AM.
- */
-
-/**
- * Written by Aan (aancodes@gmail.com) at Global BizConnect on 31/5/19 10:29 AM.
+ * Written by Aan (aancodes@gmail.com) at Global BizConnect on 31/5/19 1:49 PM.
  */
 echo "<header class=\"header menu_2\">
         <div id=\"preloader\">

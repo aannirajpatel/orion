@@ -30,7 +30,7 @@ if(mysqli_num_rows($checkResult)==1){
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Reset Password</title>
+        <title>Reset Password | Orion E-Learning</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

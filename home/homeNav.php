@@ -29,6 +29,11 @@ echo "<header class=\"header menu_2\">
                 <li>
                     <span><a href=\"courses.php\">Courses</a></span>
                 </li>
+                
+                <li>
+                    <span><a href=\"#0\" class=\"search-overlay-menu-btn\">Search</a></span>
+                </li>
+              
                 <li><span><a href=\"about.php\">About</a></span>
                 </li>
                 <li>
@@ -41,7 +46,7 @@ echo "<header class=\"header menu_2\">
         <!-- Search Menu -->
         <div class=\"search-overlay-menu\">
             <span class=\"search-overlay-close\"><span class=\"closebt\"><i class=\"ti-close\"></i></span></span>
-            <form role=\"search\" id=\"searchform\" method=\"get\">
+            <form role=\"search\" action='courses.php' id=\"searchform\" method=\"get\">
                 <input value=\"\" name=\"q\" type=\"search\" placeholder=\"Search...\"/>
                 <button type=\"submit\"><i class=\"icon_search\"></i>
                 </button>

@@ -49,7 +49,7 @@ if (isset($_POST['password'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Orion - Register</title>
+    <title>Register | Orion E-Learning</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

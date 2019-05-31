@@ -96,7 +96,7 @@ $google_login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urle
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Orion - Login</title>
+    <title>Login | Orion E-Learning</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
