@@ -10,7 +10,7 @@ require '../includes/db.php';
 // Instantiation and passing `true` enables exceptions
 $mail = new PHPMailer(true);
 if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-    $getUserDetailsQuery = "SELECT password, uid FROM user WHERE email='" . $_POST['email']."'";
+    $getUserDetailsQuery = "SELECT password, uid FROM user WHERE email='" . $_POST['email'] . "'";
     $getUserDetailsResult = mysqli_query($con, $getUserDetailsQuery);
     if (mysqli_num_rows($getUserDetailsResult) == 1) {
         $getUserDetailsData = mysqli_fetch_array($getUserDetailsResult);
@@ -46,7 +46,7 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
             $mail->Body = 'Click <a href="localhost/orion/login/resetPassword.php?uid=' . $uid . '&ph=' . $passHash . '">here</a> to reset your Orion E-Learning password.';
             $mail->AltBody = 'If the above link doesnt work, paste this in your URL box: localhost/orion/login/resetPassword.php?uid=' . $uid . '&ph=' . $passHash . '';
             $mail->send();
-            echo "<script>alert('A reset link has been sent to ".$_POST['email']."');</script>";
+            echo "<script>alert('A reset link has been sent to " . $_POST['email'] . "');</script>";
         } catch (Exception $e) {
             echo "<script>alert('Message could not be sent. Mailer Error: {$mail->ErrorInfo}');</script>";
         }
@@ -77,57 +77,70 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
     <link href="css/orion.css" rel="stylesheet">
     <link href="../favicon.ico" rel="icon">
 
+    <!-- Sheets from UD3M@-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/vendors.css" rel="stylesheet">
+    <link href="css/icon_fonts/css/all_icons.min.css" rel="stylesheet">
+    <!-- YOUR CUSTOM CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+
 </head>
 
 <body class="login-bg">
+<div id="page">
+    <?php require 'homeNav.php'; ?>
+    <br><br>
+    <main class="login-bg">
+        <div class="container">
 
-<div class="container">
+            <!-- Outer Row -->
+            <div class="row justify-content-center">
 
-    <!-- Outer Row -->
-    <div class="row justify-content-center">
+                <div class="col-xl-10 col-lg-12 col-md-9">
 
-        <div class="col-xl-10 col-lg-12 col-md-9">
-
-            <div class="card o-hidden border-0 shadow-lg my-5">
-                <div class="card-body p-0">
-                    <!-- Nested Row within Card Body -->
-                    <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
-                        <div class="col-lg-6">
-                            <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-2">Forgot Your Password?</h1>
-                                    <p class="mb-4">We get it, stuff happens. Just enter your email address below and
-                                        we'll send you a link to reset your password!</p>
-                                </div>
-                                <form class="user" method="post" action="">
-                                    <div class="form-group">
-                                        <input type="email" name="email" class="form-control form-control-user"
-                                               id="exampleInputEmail" aria-describedby="emailHelp"
-                                               placeholder="Enter Email Address...">
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
+                                <div class="col-lg-6">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-2">Forgot Your Password?</h1>
+                                            <p class="mb-4">We get it, stuff happens. Just enter your email address
+                                                below and
+                                                we'll send you a link to reset your password!</p>
+                                        </div>
+                                        <form class="user" method="post" action="">
+                                            <div class="form-group">
+                                                <input type="email" name="email" class="form-control form-control-user"
+                                                       id="exampleInputEmail" aria-describedby="emailHelp"
+                                                       placeholder="Enter Email Address...">
+                                            </div>
+                                            <input type="submit" class="btn btn-primary btn-user btn-block"
+                                                   value="Reset Password">
+                                        </form>
+                                        <hr>
+                                        <div class="text-center">
+                                            <a class="small" href="register.php">Create an Account!</a>
+                                        </div>
+                                        <div class="text-center">
+                                            <a class="small" href="index.php">Already have an account? Login!</a>
+                                        </div>
                                     </div>
-                                    <input type="submit" class="btn btn-primary btn-user btn-block"
-                                           value="Reset Password">
-                                </form>
-                                <hr>
-                                <div class="text-center">
-                                    <a class="small" href="register.php">Create an Account!</a>
-                                </div>
-                                <div class="text-center">
-                                    <a class="small" href="index.php">Already have an account? Login!</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
+
             </div>
 
         </div>
-
-    </div>
-
+    </main>
+    <?php require 'homeFooter.php'; ?>
 </div>
-
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -137,6 +150,9 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
+<script src="js/common_scripts.js"></script>
+<script src="js/main.js"></script>
+<script src="assets/validate.js"></script>
 
 </body>
 

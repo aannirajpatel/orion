@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/home/homeNav.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/contact.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/homeFooter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/about.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/home/img/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/index.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,20 +40,79 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/home/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="401" column="41" selection-start-line="401" selection-start-column="41" selection-end-line="401" selection-end-column="41" />
+            <state relative-caret-position="238">
+              <caret line="31" column="15" lean-forward="true" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+              <folding>
+                <element signature="n#div#4;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/homeNav.php">
+        <entry file="file://$PROJECT_DIR$/login - Copy/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+            <state relative-caret-position="304">
+              <caret line="203" column="46" selection-start-line="203" selection-start-column="46" selection-end-line="203" selection-end-column="46" />
+              <folding>
+                <element signature="n#main#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login - Copy/register.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="155" column="4" selection-start-line="155" selection-start-column="4" selection-end-line="155" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login - Copy/forgot-password.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" />
+              <folding>
+                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/login - Copy/homeNav.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home/homeFooter.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home/about.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="40" column="57" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home/contact.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="151" column="4" selection-start-line="151" selection-start-column="4" selection-end-line="151" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -59,40 +121,38 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tooltip</find>
-      <find>data-toggle=&quot;too</find>
-      <find>publishcourse</find>
-      <find>&lt;td&gt;</find>
-      <find>update course</find>
-      <find>bg-</find>
-      <find>topbar</find>
-      <find>NewComms</find>
-      <find>newComms</find>
-      <find>NEW_QUESTIONS_COUNT_INDEX</find>
-      <find>wrapper</find>
-      <find>warning</find>
-      <find>active</find>
-      <find>head</find>
-      <find>&lt;head</find>
-      <find>method=</find>
-      <find>search for a</find>
-      <find>search for a cou</find>
-      <find>search for</find>
-      <find>orion.c</find>
-      <find>nav</find>
-      <find>login.html</find>
-      <find>news and</find>
-      <find>useful</find>
-      <find>contac</find>
-      <find>lock</find>
-      <find>login</find>
-      <find>ADMISSIOn</find>
-      <find>+200</find>
+      <find>enjoy a grea</find>
+      <find>2019</find>
+      <find>enroll now</find>
+      <find>&lt;a href=&quot;#0&quot; class=&quot;wish_bt&quot;&gt;&lt;/a&gt;</find>
+      <find>Quali</find>
+      <find>Julia</find>
+      <find>our origin</find>
+      <find>founder</find>
+      <find>Udema</find>
+      <find>`</find>
       <find>udema</find>
+      <find>Udem</find>
+      <find>foot</find>
+      <find>email</find>
+      <find>&lt;form</find>
+      <find>maps</find>
+      <find>map</find>
+      <find>preview</find>
+      <find>view cours</find>
+      <find>'courseid</find>
+      <find>totalStu</find>
+      <find>Catefor</find>
+      <find>&lt;head</find>
+      <find>&lt;bod</find>
+      <find>&lt;he</find>
+      <find>account type</find>
+      <find>main</find>
+      <find>&lt;main</find>
+      <find>&lt;?php</find>
+      <find>home</find>
     </findStrings>
     <replaceStrings>
-      <replace>desc</replace>
-      <replace>$searchText</replace>
       <replace>Name</replace>
       <replace>cname</replace>
       <replace>`</replace>
@@ -121,6 +181,8 @@
       <replace>Viewed</replace>
       <replace>require(</replace>
       <replace>Orion</replace>
+      <replace>&lt;!--&lt;a href=&quot;#0&quot; class=&quot;wish_bt&quot;&gt;&lt;/a&gt;--&gt;</replace>
+      <replace>View course</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -129,13 +191,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dashboard/getNewCommsData.php" />
-        <option value="$PROJECT_DIR$/dashboard/tables.html" />
-        <option value="$PROJECT_DIR$/dashboard/searchcourse.php" />
-        <option value="$PROJECT_DIR$/dashboard/updateDescription.php" />
-        <option value="$PROJECT_DIR$/dashboard/performance.php" />
-        <option value="$PROJECT_DIR$/dashboard/admin.php" />
-        <option value="$PROJECT_DIR$/dashboard/auditCourse.php" />
         <option value="$PROJECT_DIR$/dashboard/editVideoHandler.php" />
         <option value="$PROJECT_DIR$/dashboard/rotateScreen.php" />
         <option value="$PROJECT_DIR$/login/index.php" />
@@ -179,7 +234,14 @@
         <option value="$PROJECT_DIR$/dashboard/help.php" />
         <option value="$PROJECT_DIR$/home/assets/homeNav.php" />
         <option value="$PROJECT_DIR$/home/homeNav.php" />
+        <option value="$PROJECT_DIR$/home/homeFooter.php" />
+        <option value="$PROJECT_DIR$/home/about.php" />
+        <option value="$PROJECT_DIR$/home/contact.php" />
         <option value="$PROJECT_DIR$/home/index.php" />
+        <option value="$PROJECT_DIR$/login - Copy/index.php" />
+        <option value="$PROJECT_DIR$/login - Copy/register.php" />
+        <option value="$PROJECT_DIR$/login - Copy/forgot-password.php" />
+        <option value="$PROJECT_DIR$/login - Copy/homeNav.php" />
       </list>
     </option>
   </component>
@@ -259,13 +321,7 @@
             <path>
               <item name="orion" type="b2602c69:ProjectViewProjectNode" />
               <item name="orion" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="orion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="orion" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="login - Copy" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -325,7 +381,7 @@
       <workItem from="1557821972046" duration="149867000" />
       <workItem from="1558345087001" duration="17675000" />
       <workItem from="1559105266936" duration="41607000" />
-      <workItem from="1559219339358" duration="2383000" />
+      <workItem from="1559219339358" duration="14057000" />
     </task>
     <task id="LOCAL-00001" summary="Updating course editor to bootstrap4&#10;Coursepreview is done&#10;Trainer dashboard courses page is done&#10;Profile viewer is still a work in progress&#10;Trainer pair-up pending&#10;Student side remaining&#10;Purchases">
       <created>1558502400930</created>
@@ -513,7 +569,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359588000" />
+    <option name="totallyTimeSpent" value="371262000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -526,7 +582,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.19440243" />
       <window_info id="Structure" order="1" sideWeight="0.502439" side_tool="true" weight="0.1913767" />
@@ -541,7 +596,7 @@
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" sideWeight="0.49924356" weight="0.3289689" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25204584" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.25204584" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.3289689" />
@@ -643,59 +698,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="QnA and Course viewer hide searchbar in teacher mode" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dashboard/createcourse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/createLink.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/createNote.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/createresource.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="296" column="36" selection-start-line="296" selection-start-column="36" selection-end-line="296" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/createsection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/createYoutubeLink.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/creview.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-101" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/deleteResource.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/deletesection.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/editFile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
@@ -970,17 +972,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/login/forgot-password.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="24" column="50" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/resetPassword.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/about.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="40" column="57" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/home/homeNav.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        <state relative-caret-position="833">
+          <caret line="49" column="15" lean-forward="true" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
+          <folding>
+            <element signature="e#6#94#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/contact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="151" column="4" selection-start-line="151" selection-start-column="4" selection-end-line="151" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login - Copy/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="203" column="46" selection-start-line="203" selection-start-column="46" selection-end-line="203" selection-end-column="46" />
+          <folding>
+            <element signature="n#main#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login - Copy/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="155" column="4" selection-start-line="155" selection-start-column="4" selection-end-line="155" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login - Copy/forgot-password.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/home/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="401" column="41" selection-start-line="401" selection-start-column="41" selection-end-line="401" selection-end-column="41" />
+        <state relative-caret-position="238">
+          <caret line="31" column="15" lean-forward="true" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+          <folding>
+            <element signature="n#div#4;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/homeFooter.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login - Copy/homeNav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
         </state>
       </provider>
     </entry>

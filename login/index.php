@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 require('../includes/db.php');
 include('settings.php');
@@ -105,14 +104,25 @@ $google_login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urle
           rel="stylesheet">
 
     <!-- Custom styles for this template-->
+
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="css/orion.css" rel="stylesheet">
     <link href="../favicon.ico" rel="icon">
 
+    <!-- Sheets from UD3M@-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/vendors.css" rel="stylesheet">
+    <link href="css/icon_fonts/css/all_icons.min.css" rel="stylesheet">
+    <!-- YOUR CUSTOM CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+
 </head>
 
 <body class="login-bg">
-
+<div id="page">
+<?php require 'homeNav.php';?>
+<br><br>
+<main class="login-bg">
 <div class="container">
     <?php if ($invalidLogin == 1) { ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -178,17 +188,21 @@ $google_login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urle
     </div>
 
 </div>
+</main>
+<?php require 'homeFooter.php';?>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
-
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    <script src="js/common_scripts.js"></script>
+    <script src="js/main.js"></script>
+    <script src="assets/validate.js"></script>
+</div>
 </body>
 
 </html>

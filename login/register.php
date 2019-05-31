@@ -31,9 +31,9 @@ if (isset($_POST['password'])) {
     $_SESSION['lname'] = $lname;
     $_SESSION['type'] = $type;
     $uidQuery = "SELECT uid FROM user WHERE email = '$email'";
-    $uidResult = mysqli_query($con,$uidQuery);
+    $uidResult = mysqli_query($con, $uidQuery);
     $uidData = mysqli_fetch_array($uidResult);
-    $_SESSION['uid']=$uidData['uid'];
+    $_SESSION['uid'] = $uidData['uid'];
     header('location:../login');
 }
 ?>
@@ -61,85 +61,100 @@ if (isset($_POST['password'])) {
     <link href="css/orion.css" rel="stylesheet">
     <link href="../favicon.ico" rel="icon">
 
+    <!-- Sheets from UD3M@-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/vendors.css" rel="stylesheet">
+    <link href="css/icon_fonts/css/all_icons.min.css" rel="stylesheet">
+    <!-- YOUR CUSTOM CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+
 </head>
 
 <body class="login-bg">
+<div id="page">
+    <?php require 'homeNav.php'; ?>
+    <br><br>
+    <main class="login-bg">
+        <div class="container">
+            <?php if ($userAlreadyExists == 1) {
+                ?>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    User already exists! Please use another e-mail address to register or login <a
+                            href="login.php">here</a>.
+                </div>
+                <?php
 
-<div class="container">
-
-    <?php if ($userAlreadyExists == 1) {
-        ?>
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            User already exists! Please use another e-mail address to register or login <a href="login.php">here</a>.
-        </div>
-        <?php
-
-    }
-    ?>
-    <div class="card o-hidden border-0 shadow-lg my-5">
-        <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="row">
-                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                <div class="col-lg-7">
-                    <div class="p-5">
-                        <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
-                        </div>
-                        <form class="user" method="POST" action="">
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" name="fname"
-                                           id="exampleFirstName" placeholder="First Name">
+            }
+            ?>
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                        <div class="col-lg-7">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" name="lname"
-                                           id="exampleLastName" placeholder="Last Name">
+                                <form class="user" method="POST" action="">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="text" class="form-control form-control-user" name="fname"
+                                                   id="exampleFirstName" placeholder="First Name">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control form-control-user" name="lname"
+                                                   id="exampleLastName" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control form-control-user" name="email"
+                                               id="exampleInputEmail" placeholder="Email Address">
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="password" class="form-control form-control-user"
+                                                   name="password"
+                                                   id="exampleInputPassword" placeholder="Password">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="password" class="form-control form-control-user"
+                                                   name="repeat-password"
+                                                   id="exampleRepeatPassword" placeholder="Repeat Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="label" for="account-type">Choose an account type:</label>
+                                        <select class="form-control p-0" id="account-type" name="account-type"/>
+                                        <option value="0">Student</option>
+                                        <option value="1">Trainer</option>
+                                        <option value="2">Admin</option>
+                                        </select>
+                                    </div>
+                                    <input type="submit" class="btn btn-primary btn-user btn-block"
+                                           value="Register Account"/>
+                                    <hr>
+                                    <a href="<?= $google_signup_url ?>" class="btn btn-google btn-user btn-block">
+                                        <i class="fab fa-google fa-fw"></i> Register with Google
+                                    </a>
+                                    <!--<a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                        <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                    </a>-->
+                                </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a class="small" href="index.php">Already have an account? Login!</a>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control form-control-user" name="email"
-                                       id="exampleInputEmail" placeholder="Email Address">
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="password" class="form-control form-control-user" name="password"
-                                           id="exampleInputPassword" placeholder="Password">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="password" class="form-control form-control-user" name="repeat-password"
-                                           id="exampleRepeatPassword" placeholder="Repeat Password">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="label" for="account-type">Choose an account type:</label>
-                                <select class="form-control" id="account-type" name="account-type"/>
-                                <option value="0">Student</option>
-                                <option value="1">Trainer</option>
-                                <option value="2">Admin</option>
-                                </select>
-                            </div>
-                            <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Account"/>
-                            <hr>
-                            <a href="<?= $google_signup_url ?>" class="btn btn-google btn-user btn-block">
-                                <i class="fab fa-google fa-fw"></i> Register with Google
-                            </a>
-                            <!--<a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                            </a>-->
-                        </form>
-                        <hr>
-                        <div class="text-center">
-                            <a class="small" href="index.php">Already have an account? Login!</a>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </div>
-
+    </main>
+    <?php require 'homeFooter.php';?>
 </div>
-
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -149,7 +164,9 @@ if (isset($_POST['password'])) {
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
-
+<script src="js/common_scripts.js"></script>
+<script src="js/main.js"></script>
+<script src="assets/validate.js"></script>
 </body>
 
 </html>
