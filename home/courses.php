@@ -38,7 +38,7 @@ if(isset($_GET['q'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Udema a modern educational site template">
-    <meta name="author" content="Ansonika">
+    <meta name="author" content="Orion Publications">
     <title>Courses | Orion E-Learning</title>
 
     <!-- Favicons-->
@@ -95,7 +95,7 @@ if(isset($_GET['q'])){
                     }
                     $cname = $courseData['cname'];
                     $cost = $courseData['cost'];
-                    $cimg = $courseData['cimg'];
+                    $cimg = "../dashboard/".$courseData['cimg'];
                     $cdesc = $courseData['cdesc'];
                     $category = $courseData['category'];
                     $totalReviewsQuery = "SELECT count(*) as totalreviews, avg(rating) AS avgrating FROM creviews WHERE cid=$cid";

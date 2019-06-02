@@ -45,7 +45,12 @@ if (isset($_GET['code'])) {
             $_SESSION['access_token_expiry'] = time() + $data['expires_in'];
 
             $_SESSION['access_token'] = $data['access_token'];
-            header('location: ../dashboard');
+            $fwLink = "";
+            if(isset($_SESSION['fwLink'])){
+                $fwLink = "/".$_SESSION['fwLink'];
+                unset($_SESSION['fwLink']);
+            }
+            header('location:../dashboard'.$fwLink);
         } else {
             die("Error logging you in via google. Try normal login <a href='login.php'>here</a>");
         }

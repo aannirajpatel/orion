@@ -3,8 +3,16 @@ session_start();
 require('../includes/db.php');
 include('settings.php');
 $invalidLogin = 0;
+if(isset($_GET['fwLink'])){
+    $_SESSION['fwLink']= $_GET['fwLink'];
+}
 if (isset($_SESSION['email']) && time() < $_SESSION['access_token_expiry']) {
-    header('location:../dashboard');
+    $fwLink = "";
+    if(isset($_SESSION['fwLink'])){
+        $fwLink = "/".$_SESSION['fwLink'];
+        unset($_SESSION['fwLink']);
+    }
+    header('location:../dashboard'.$fwLink);
 }
 if (isset($_POST['password']) && isset($_POST['email'])) {
     $email = $_POST['email'];
@@ -39,7 +47,11 @@ if (isset($_POST['password']) && isset($_POST['email'])) {
             setcookie("email", $email, time() + (30 * 86400));
             setcookie("password", $password, time() + (30 * 86400));
         }
-        header('location:../dashboard');
+        $fwLink = "";
+        if(isset($_GET['fwLink'])){
+            $fwLink = "/".$_GET['fwLink'];
+        }
+        header('location:../dashboard'.$fwLink);
     } else {
         $invalidLogin = 1;
     }
@@ -75,6 +87,11 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
 
         setcookie("email", $email, time() + (30 * 86400));
         setcookie("password", $password, time() + (30 * 86400));
+        $fwLink = "";
+        if(isset($_GET['fwLink'])){
+            $fwLink = "/".$_GET['fwLink'];
+        }
+        header('location:../dashboard'.$fwLink);
         header('location:../dashboard');
     } else {
         $invalidLogin = 1;
@@ -119,10 +136,10 @@ $google_login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urle
 </head>
 
 <body class="login-bg">
-<div id="page">
-<?php require 'homeNav.php';?>
+<div id="page" class="bg-transparent">
+    <?php require '../home/homeNav.php'; ?>
 <br><br>
-<main class="login-bg">
+<main class="bg-transparent">
 <div class="container">
     <?php if ($invalidLogin == 1) { ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -189,7 +206,7 @@ $google_login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urle
 
 </div>
 </main>
-<?php require 'homeFooter.php';?>
+    <?php require '../home/homeFooter.php'; ?>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

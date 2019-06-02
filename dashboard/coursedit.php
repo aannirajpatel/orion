@@ -127,13 +127,14 @@ function loadSectionName($con, $sectionNumber, $cid)
     return $sectionData['sname'];
 }
 
-function newComms($con, $cid, $uid){
+function newComms($con, $cid, $uid)
+{
     $lastViewedTimeQuery = "SELECT * FROM lastviewedqna WHERE cid=$cid and uid=$uid";
     $lastViewedTimeResult = mysqli_query($con, $lastViewedTimeQuery) or die(mysqli_error($con));
-    if(mysqli_num_rows($lastViewedTimeResult) == 1){
+    if (mysqli_num_rows($lastViewedTimeResult) == 1) {
         $lastViewedTimeData = mysqli_fetch_array($lastViewedTimeResult);
         $lastViewedTime = $lastViewedTimeData['lastviewed'];
-    } else{
+    } else {
         $lastViewedTime = "0000-00-00 00:00:00";
     }
 
@@ -150,13 +151,13 @@ function newComms($con, $cid, $uid){
 
 $totalNewComms = 0;
 
-define("NEW_QUESTIONS_COUNT_INDEX",0);
-define("NEW_ANSWERS_COUNT_INDEX",1);
+define("NEW_QUESTIONS_COUNT_INDEX", 0);
+define("NEW_ANSWERS_COUNT_INDEX", 1);
 
 $courseListQuery = "SELECT cid FROM ctrainers WHERE uid=$uid";
 $courseListResult = mysqli_query($con, $courseListQuery) or die(mysqli_error($con));
 while ($courseListQueryData = mysqli_fetch_array($courseListResult)) {
-$cid = $courseListQueryData['cid'];
+    $cid = $courseListQueryData['cid'];
     $cid = $courseListQueryData['cid'];
     $commBadgeData = newComms($con, $cid, $uid);
     $totalNewComms += $commBadgeData[NEW_QUESTIONS_COUNT_INDEX];
@@ -167,7 +168,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
 
     $cid = $_GET['cid'];
 
-    $cdescQuery = "SELECT cname,cdesc FROM course WHERE cid=$cid";
+    $cdescQuery = "SELECT * FROM course WHERE cid=$cid";
     $cdescResult = mysqli_query($con, $cdescQuery) or die(mysqli_error($con));
     $cdesc = "";
     $cname = "";
@@ -175,6 +176,8 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
         $cdescData = mysqli_fetch_array($cdescResult);
         $cdesc = $cdescData['cdesc'];
         $cname = $cdescData['cname'];
+        $cimg = $cdescData['cimg'];
+        $selectedCategory = $cdescData['category'];
     }
 
     $csyllabusQuery = "SELECT csyllabus FROM csyllabus WHERE cid=$cid";
@@ -249,7 +252,8 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
             </li>
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>        </ul>
+            </div>
+        </ul>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -330,7 +334,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                  aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="viewprofile.php?uid=<?php echo $uid;?>">
+                                <a class="dropdown-item" href="viewprofile.php?uid=<?php echo $uid; ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -378,15 +382,64 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                         <div class="container">
                             <div class="card">
                                 <div class="card-header">
+                                    <h6 class="m-0 font-weight-bold text-primary">Course Specifics</h6>
+                                </div>
+                                <div class="card-body">
+                                    <form method="post" action="updateCategoryAndImg.php" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label for="category">Update course category:</label>
+                                            <select class="form-control" name="category">
+                                                <?php if ($selectedCategory != "") { ?>
+                                                    <option value="<?php echo $selectedCategory; ?>"><?php echo $selectedCategory; ?></option>
+                                                <?php } ?>
+                                                <?php
+                                                $categories = array("Engineering", "Business", "Programming");
+                                                foreach ($categories as $category) {
+                                                    if ($category != $selectedCategory)
+                                                        ?>
+                                                        <option value="<?php echo $category; ?>"><?php echo $category; ?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
+                                            <input type="hidden" name="cid" value="<?php echo $cid;?>">
+                                            <br>
+                                            <?php
+                                            if ($cimg != "") {
+                                                ?>
+                                                Course image:<br>
+                                                <img class="img-fluid" src="<?php echo $cimg; ?>">
+                                                <br>
+                                                <?php
+                                            }
+                                            ?>
+                                            <label for="courseImg">Update course image:</label>
+                                            <input class="form-control-file" type="file" name="courseImg">
+                                            <span class="help-block font-italic">Don't put any file here if you want the course image to stay the same</span>
+                                            <br><br>
+                                            <input class="form-control btn btn-primary text-white" type="submit" value="Update">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-header">
                                     <h6 class="m-0 font-weight-bold text-primary">Course Name</h6>
                                 </div>
                                 <div class="card-body">
-                                    <form method="post" action="updateCname.php?cid=<?php echo $cid;?>">
+                                    <form method="post" action="updateCname.php?cid=<?php echo $cid; ?>">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="cname" value="<?php echo $cname;?>">
+                                            <input type="text" class="form-control" name="cname"
+                                                   value="<?php echo $cname; ?>">
                                             <br>
                                             <input type="hidden" name="cid" value="<?php echo $cid; ?>">
-                                            <input type="submit" class="form-control bg-primary text-white" value="Update">
+                                            <input type="submit" class="form-control bg-primary text-white"
+                                                   value="Update">
                                         </div>
                                     </form>
                                 </div>
@@ -460,7 +513,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                                         <div class="form-group">
                                     <textarea class="form-control" id="cdesc"
                                               name="cdesc"><?php echo $cdesc; ?></textarea>
-                                            <input type="hidden" name="cid" value="<?php echo $cid;?>">
+                                            <input type="hidden" name="cid" value="<?php echo $cid; ?>">
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" name="updatecdesc" value="true"
@@ -486,11 +539,13 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
                                     <form method="POST" action="updateSyllabus.php">
                                         <!-- Textarea to input new course syllabus text-->
                                         <div class="form-group">
-                                    <textarea class="form-control" id="csyllabus" name="csyllabus"><?php echo $csyllabus; ?></textarea>
+                                            <textarea class="form-control" id="csyllabus"
+                                                      name="csyllabus"><?php echo $csyllabus; ?></textarea>
                                             <!-- Button to update course syllabus-->
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" name="updatecsyllabus" class="form-control btn btn-primary">Update
+                                            <button type="submit" name="updatecsyllabus"
+                                                    class="form-control btn btn-primary">Update
                                                 Course
                                                 Syllabus
                                             </button>
@@ -650,7 +705,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
 
     <!-- Page level custom scripts -->
 
-    <?php require('js/communicationsBadge.php');?>
+    <?php require('js/communicationsBadge.php'); ?>
 
     <script>
 
@@ -681,7 +736,7 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
             $("#collaboratorLiveSearchResult").hide();
         }
     </script>
-    <?php require('rotateScreen.php');?>
+    <?php require('rotateScreen.php'); ?>
     </body>
 
     </html>

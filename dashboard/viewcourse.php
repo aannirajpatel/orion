@@ -44,11 +44,11 @@ if (isThisUsersCourse($con, $cid)) {
     $back = "trainer.php";
 }
 
-$courseCostQuery = "SELECT cost FROM course WHERE cid=$cid";
+$courseCostQuery = "SELECT cost,cimg FROM course WHERE cid=$cid";
 $courseCostResult = mysqli_query($con, $courseCostQuery) or die($con);
 $courseCostData = mysqli_fetch_array($courseCostResult);
 $courseCost = $courseCostData['cost'];
-
+$cimg = $courseCostData['cimg'];
 $courseRatingQuery = "SELECT avg(rating) AS avgrating,count(*) as reviews FROM creviews WHERE cid=$cid";
 $courseRatingResult = mysqli_query($con, $courseRatingQuery) or die(mysqli_error($con));
 $courseRatingData = mysqli_fetch_array($courseRatingResult);
@@ -419,24 +419,32 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
 
             </nav>
             <!-- End of Topbar -->
-            <?php if (!isThisStudentsCourse($con, $cid)) { ?>
-                <div class="card shadow-sm" id="enrollButton">
-
-                    <div class="card-body"><a class="btn btn-primary" href="enroll.php?cid=<?php echo $cid; ?>">Unlock Certificate
-                            for ₹ <?php echo $courseCost; ?></a></div>
-                </div>
-            <?php } ?>
             <!-- Begin Page Content -->
             <div class="container-fluid">
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">
-                        <?php echo $courseName; ?>
-                        <a href="<?php echo $back; ?>" class="btn btn-info">Back</a>
-                        <?php if(!isAuditing($con, $cid, $uid)){?>
-                        <a href="auditCourse.php?cid=<?php echo $cid;?>" class="btn btn-success"><span class="fas fa-plus"></span> Add Course to Audit List</a>
-                        <?php } ?>
-                    </h1>
+                        <div class="container">
+                            <div class="card shadow-sm">
+                                <div class="card-header">
+                                    <h1 class="h3 mb-0 text-primary bold">
+                                        <?php echo $courseName; ?>
+                                        <a href="<?php echo $back; ?>" class="btn btn-info">Back</a>
+                                        <?php if(!isAuditing($con, $cid, $uid) && !isThisStudentsCourse($con, $cid)){?>
+                                            <a href="auditCourse.php?cid=<?php echo $cid;?>" class="btn btn-success"><span class="fas fa-plus"></span> Add Course to Audit List</a>
+                                        <?php } ?>
+                                        <?php if (!isThisStudentsCourse($con, $cid)) { ?>
+                                            &nbsp;&nbsp;
+                                            <a class="btn btn-primary" href="enroll.php?cid=<?php echo $cid; ?>">Unlock Certificate
+                                                for ₹ <?php echo $courseCost; ?></a>
+                                        <?php } ?>
+                                    </h1>
+                                </div>
+                                <div class="card-body">
+
+                                        <img src="<?php echo $cimg;?>" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
                     <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
                 </div>

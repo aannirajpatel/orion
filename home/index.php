@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('../includes/db.php');
 $courseQuery = "SELECT course.cid AS courseid, category, cname, cdesc, cost, cimg, count(cstudents.uid) AS enrolls FROM course INNER JOIN cstudents ON cstudents.cid=course.cid GROUP BY course.cid ORDER BY count(cstudents.uid) DESC LIMIT 6";
 $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
@@ -76,7 +77,7 @@ $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
                     $cid = $courseData['courseid'];
                     $cname = $courseData['cname'];
                     $cost = $courseData['cost'];
-                    $cimg = $courseData['cimg'];
+                    $cimg = "../dashboard/".$courseData['cimg'];
                     $cdesc = $courseData['cdesc'];
                     $enrolls = $courseData['enrolls'];
                     $category = $courseData['category'];
@@ -151,7 +152,7 @@ $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
                     <a href="#0" class="grid_item">
                         <figure class="block-reveal">
                             <div class="block-horizzontal"></div>
-                            <img src="http://via.placeholder.com/800x533/ccc/fff/course_1.jpg" class="img-fluid" alt="">
+                            <img src="img/business.jpg" class="img-fluid" alt="">
                             <div class="info">
                                 <small><i class="ti-layers"></i>15 Courses</small>
                                 <h3>Business</h3>
@@ -164,7 +165,7 @@ $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
                     <a href="#0" class="grid_item">
                         <figure class="block-reveal">
                             <div class="block-horizzontal"></div>
-                            <img src="http://via.placeholder.com/800x533/ccc/fff/course_2.jpg" class="img-fluid" alt="">
+                            <img src="img/engineering.jpg" class="img-fluid" alt="">
                             <div class="info">
                                 <small><i class="ti-layers"></i>23 Courses</small>
                                 <h3>Engineering</h3>
@@ -177,7 +178,7 @@ $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
                     <a href="#0" class="grid_item">
                         <figure class="block-reveal">
                             <div class="block-horizzontal"></div>
-                            <img src="http://via.placeholder.com/800x533/ccc/fff/course_3.jpg" class="img-fluid" alt="">
+                            <img src="img/programming.jpg" class="img-fluid" alt="">
                             <div class="info">
                                 <small><i class="ti-layers"></i>23 Courses</small>
                                 <h3>Programming</h3>

@@ -71,10 +71,10 @@ if (isset($_POST['password'])) {
 </head>
 
 <body class="login-bg">
-<div id="page">
-    <?php require 'homeNav.php'; ?>
+<div id="page" class="bg-transparent">
+    <?php require '../home/homeNav.php'; ?>
     <br><br>
-    <main class="login-bg">
+    <main class="bg-transparent">
         <div class="container">
             <?php if ($userAlreadyExists == 1) {
                 ?>
@@ -153,7 +153,7 @@ if (isset($_POST['password'])) {
 
         </div>
     </main>
-    <?php require 'homeFooter.php';?>
+    <?php require '../home/homeFooter.php'; ?>
 </div>
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>

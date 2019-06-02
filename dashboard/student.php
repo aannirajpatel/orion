@@ -5,6 +5,7 @@
 require('../includes/auth.php');
 require('../includes/db.php');
 require('../includes/files.php');
+require('../includes/courseownershipauth.php');
 require('../includes/resconfig.php');
 
 $email = $_SESSION['email'];
@@ -218,68 +219,75 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
                         $totalNewComms = 0;
                         $courseListQuery = "SELECT cid FROM audit WHERE uid=$uid ORDER BY cid desc";
                         $courseListResult = mysqli_query($con, $courseListQuery) or die(mysqli_error($con));
+                        $auditsNotEnrolled = 0;
                         while($courseListQueryData = mysqli_fetch_array($courseListResult)) {
                             $cid = $courseListQueryData['cid'];
+                            if(!isThisStudentsCourse($con, $cid)) {
+                                $auditsNotEnrolled++;
 
-                            $lastViewedTimeQuery = "SELECT * FROM lastviewedqna WHERE cid=$cid and uid=$uid";
-                            $lastViewedTimeResult = mysqli_query($con, $lastViewedTimeQuery) or die(mysqli_error($con));
-                            if(mysqli_num_rows($lastViewedTimeResult) == 1){
-                                $lastViewedTimeData = mysqli_fetch_array($lastViewedTimeResult);
-                                $lastViewedTime = $lastViewedTimeData['lastviewed'];
-                            } else{
-                                $lastViewedTime = "0000-00-00 00:00:00";
-                            }
-
-                            $newQuestionsQuery = "SELECT questionid FROM question, user WHERE(user.uid=$uid AND question.cid=$cid AND question.dateofquestion>'$lastViewedTime')";
-                            $newQuestionsResult = mysqli_query($con, $newQuestionsQuery) or die(mysqli_error($con));
-                            $totalNewComms += mysqli_num_rows($newQuestionsResult);
-
-                            $newAnswersQuery = "SELECT answerid FROM answer, user, question WHERE(answer.questionid = question.questionid AND question.cid=$cid AND user.uid = $uid AND answer.dateofanswer > '$lastViewedTime')";
-                            $newAnswersResult = mysqli_query($con, $newAnswersQuery) or die(mysqli_error($con));
-                            $totalNewComms += mysqli_num_rows($newAnswersResult);
-
-                            $courseQuery = "SELECT * FROM course WHERE cid=$cid";
-                            $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
-                            $courseData = mysqli_fetch_array($courseResult) or die(mysqli_error($con));
-                            $courseTitle = $courseData['cname'];
-                            $courseDesc = $courseData['cdesc'];
-                            $courseAuthorsQuery = "SELECT uid FROM ctrainers WHERE cid=$cid";
-                            $courseAuthorsResult = mysqli_query($con, $courseAuthorsQuery) or die(mysqli_error($con));
-
-                            $courseAuthors = "";
-                            $totalAuthors = mysqli_num_rows($courseAuthorsResult);
-                            while ($courseAuthorsData = mysqli_fetch_array($courseAuthorsResult)) {
-                                $courseAuthorNameQuery = "SELECT fname, lname FROM user WHERE uid=" . $courseAuthorsData['uid'];
-                                $courseAuthorNameResult = mysqli_query($con, $courseAuthorNameQuery) or die(mysqli_error($con));
-                                $courseAuthorNameData = mysqli_fetch_array($courseAuthorNameResult);
-                                $courseAuthors .= "<a href='viewprofile.php?uid=" . $courseAuthorsData['uid'] . "'>" . $courseAuthorNameData['fname'] . " " . $courseAuthorNameData['lname'] . "</a>";
-                                $totalAuthors--;
-                                if ($totalAuthors > 0) {
-                                    $courseAuthors .= ", ";
+                                $lastViewedTimeQuery = "SELECT * FROM lastviewedqna WHERE cid=$cid and uid=$uid";
+                                $lastViewedTimeResult = mysqli_query($con, $lastViewedTimeQuery) or die(mysqli_error($con));
+                                if (mysqli_num_rows($lastViewedTimeResult) == 1) {
+                                    $lastViewedTimeData = mysqli_fetch_array($lastViewedTimeResult);
+                                    $lastViewedTime = $lastViewedTimeData['lastviewed'];
+                                } else {
+                                    $lastViewedTime = "0000-00-00 00:00:00";
                                 }
+
+                                $newQuestionsQuery = "SELECT questionid FROM question, user WHERE(user.uid=$uid AND question.cid=$cid AND question.dateofquestion>'$lastViewedTime')";
+                                $newQuestionsResult = mysqli_query($con, $newQuestionsQuery) or die(mysqli_error($con));
+                                $totalNewComms += mysqli_num_rows($newQuestionsResult);
+
+                                $newAnswersQuery = "SELECT answerid FROM answer, user, question WHERE(answer.questionid = question.questionid AND question.cid=$cid AND user.uid = $uid AND answer.dateofanswer > '$lastViewedTime')";
+                                $newAnswersResult = mysqli_query($con, $newAnswersQuery) or die(mysqli_error($con));
+                                $totalNewComms += mysqli_num_rows($newAnswersResult);
+
+                                $courseQuery = "SELECT * FROM course WHERE cid=$cid";
+                                $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
+                                $courseData = mysqli_fetch_array($courseResult) or die(mysqli_error($con));
+                                $courseTitle = $courseData['cname'];
+                                $courseDesc = $courseData['cdesc'];
+                                $courseAuthorsQuery = "SELECT uid FROM ctrainers WHERE cid=$cid";
+                                $courseAuthorsResult = mysqli_query($con, $courseAuthorsQuery) or die(mysqli_error($con));
+
+                                $courseAuthors = "";
+                                $totalAuthors = mysqli_num_rows($courseAuthorsResult);
+                                while ($courseAuthorsData = mysqli_fetch_array($courseAuthorsResult)) {
+                                    $courseAuthorNameQuery = "SELECT fname, lname FROM user WHERE uid=" . $courseAuthorsData['uid'];
+                                    $courseAuthorNameResult = mysqli_query($con, $courseAuthorNameQuery) or die(mysqli_error($con));
+                                    $courseAuthorNameData = mysqli_fetch_array($courseAuthorNameResult);
+                                    $courseAuthors .= "<a href='viewprofile.php?uid=" . $courseAuthorsData['uid'] . "'>" . $courseAuthorNameData['fname'] . " " . $courseAuthorNameData['lname'] . "</a>";
+                                    $totalAuthors--;
+                                    if ($totalAuthors > 0) {
+                                        $courseAuthors .= ", ";
+                                    }
+                                }
+                                $completionBadge = "";
+                                if (isCourseCompleted($con, $cid, $_SESSION['uid'])) {
+                                    $completionBadge = "<span class=\"badge badge-danger\">Completed</span>";
+                                }
+                                $viewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary'>View</a>";
+                                ?>
+                                <div class="card shadow-sm">
+                                    <div class="card-header">
+                                        <?php echo $courseTitle; ?>
+                                        <?php echo $completionBadge; ?>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>
+                                            <?php echo $courseDesc; ?>
+                                        </p>
+                                        By:&nbsp;<?php echo $courseAuthors; ?>
+                                    </div>
+                                    <div class="card-footer">
+                                        <?php echo $viewLink; ?>
+                                    </div>
+                                </div>
+                                <?php
                             }
-                            $completionBadge = "";
-                            if(isCourseCompleted($con, $cid, $_SESSION['uid'])){
-                                $completionBadge = "<span class=\"badge badge-danger\">Completed</span>";
-                            }
-                            $viewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary'>View</a>";
-                            ?>
-                            <div class="card shadow-sm">
-                                <div class="card-header">
-                                    <?php echo $courseTitle; ?>
-                                    <?php echo $completionBadge;?>
-                                </div>
-                                <div class="card-body">
-                                    <p>
-                                        <?php echo $courseDesc; ?>
-                                    </p>
-                                    By:&nbsp;<?php echo $courseAuthors; ?>
-                                </div>
-                                <div class="card-footer">
-                                    <?php echo $viewLink; ?>
-                                </div>
-                            </div>
-                            <?php
+                        }
+                        if($auditsNotEnrolled==0){
+                            echo "<div class='container'>No courses audited.</div>";
                         }
                         ?>
 

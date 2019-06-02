@@ -65,7 +65,7 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Forgot Password</title>
+    <title>Forgot Password | Orion E-Learning</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -73,7 +73,7 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
           rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/orion.css" rel="stylesheet">
     <link href="../favicon.ico" rel="icon">
 
@@ -87,10 +87,10 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
 </head>
 
 <body class="login-bg">
-<div id="page">
-    <?php require 'homeNav.php'; ?>
+<div id="page" class="bg-transparent">
+    <?php require '../home/homeNav.php'; ?>
     <br><br>
-    <main class="login-bg">
+    <main class="bg-transparent">
         <div class="container">
 
             <!-- Outer Row -->
@@ -139,7 +139,7 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
 
         </div>
     </main>
-    <?php require 'homeFooter.php'; ?>
+    <?php require '../home/homeFooter.php'; ?>
 </div>
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>

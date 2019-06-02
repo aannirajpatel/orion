@@ -25,7 +25,6 @@ echo "<footer>
                     <h5>Useful links</h5>
                     <ul class=\"links\">
                         <li><a href=\"index.php\">Home</a></li>
-                        <li><a href=\"courses.php\">Courses</a></li>
                         <li><a href=\"about.php\">About</a></li>
                         <li><a href=\"contact.php\">Contact Us</a></li>
                         <li><a href=\"../login\">Login</a></li>
