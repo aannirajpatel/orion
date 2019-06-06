@@ -1,80 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="Finish login integrate with home&#10;Start quiz module">
-      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/10.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/11.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/img/business.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/img/engineering.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/img/programming.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/img/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/img/logo - Copy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/img/logo copy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/img/password_bgimage.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/img/signup_bgimage.jpg" afterDir="false" />
+    <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="Get rotate.svg from fontawesome">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/404.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/addResourceFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/addResourceFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/addResourceLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/addResourceLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/addResourceNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/addResourceNote.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/addResourceVideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/addResourceVideo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/addResourceYoutubeLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/addResourceYoutubeLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/blank.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/buttons.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/buttons.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/cards.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/charts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/coursedit.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/coursedit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/createLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/createNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createNote.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/createYoutubeLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createYoutubeLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/createresource.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createresource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/createsection.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createsection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/creview.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/creview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/deleteResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/deleteResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/deletesection.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/deletesection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editFileHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editFileHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editLinkHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editLinkHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editNote.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editNoteHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editNoteHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editSection.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editSection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editVideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editVideo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editVideoHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editVideoHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editYoutubeLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editYoutubeLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editYoutubeLinkHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editYoutubeLinkHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/enroll.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/enroll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/img/orionLogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/img/orionLogo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/publishcourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/publishcourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/tables.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/tables.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/trainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/trainer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/updateCategoryAndImg.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/updateCategoryAndImg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/uploadFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/uploadFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/uploadvideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/uploadvideo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/utilities-animation.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/utilities-animation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/utilities-border.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/utilities-border.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/utilities-color.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/utilities-color.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/utilities-other.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/utilities-other.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/viewCertificate.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewCertificate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewNote.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewVideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewVideo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewYoutubeLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewYoutubeLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/viewcourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewcourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/withdrawcourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/withdrawcourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/homeFooter.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/homeFooter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/resconfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/resconfig.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/css/orion.css" beforeDir="false" afterPath="$PROJECT_DIR$/login/css/orion.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orion.sql" beforeDir="false" afterPath="$PROJECT_DIR$/orion.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -182,8 +111,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dashboard/viewCertificate.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="164" column="86" selection-start-line="164" selection-start-column="86" selection-end-line="164" selection-end-column="86" />
+            <state relative-caret-position="121">
+              <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -231,8 +160,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>db.php</find>
-      <find>quizName</find>
       <find>&lt;selec</find>
       <find>ONES</find>
       <find>quiz name</find>
@@ -261,6 +188,8 @@
       <find>via</find>
       <find>$scoreMessage</find>
       <find>cost</find>
+      <find>&lt;Sty</find>
+      <find>bac</find>
     </findStrings>
     <replaceStrings>
       <replace>resource</replace>
@@ -497,7 +426,7 @@
       <workItem from="1559219339358" duration="14057000" />
       <workItem from="1559292537696" duration="13744000" />
       <workItem from="1559367635173" duration="4959000" />
-      <workItem from="1559385071768" duration="38644000" />
+      <workItem from="1559385071768" duration="40193000" />
     </task>
     <task id="LOCAL-00001" summary="Updating course editor to bootstrap4&#10;Coursepreview is done&#10;Trainer dashboard courses page is done&#10;Profile viewer is still a work in progress&#10;Trainer pair-up pending&#10;Student side remaining&#10;Purchases">
       <created>1558502400930</created>
@@ -702,11 +631,32 @@
       <option name="project" value="LOCAL" />
       <updated>1559454715029</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Finish quiz module&#10;Finish certificate with grades feature">
+      <created>1559820452071</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1559820452071</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Update certificate viewer to force rotate on mobile devices and show QR code.">
+      <created>1559821662995</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1559821662996</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Get rotate.svg from fontawesome">
+      <created>1559821684925</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1559821684925</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="428609000" />
+    <option name="totallyTimeSpent" value="430158000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -721,7 +671,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.19985358" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.2065053" />
       <window_info id="Structure" order="1" sideWeight="0.502439" side_tool="true" weight="0.1913767" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="0" weight="0.3289689" />
@@ -733,9 +683,9 @@
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" sideWeight="0.49924356" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.328594" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32569557" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.25204584" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.328594" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.3289689" />
       <window_info anchor="right" id="Database" order="0" weight="0.32980332" />
@@ -790,9 +740,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Updated course editor to bootstrap4" />
-    <MESSAGE value="Course viewer in progress." />
-    <MESSAGE value="Course viewer in progress.&#10;Course viewing done.&#10;To add: Disquis Commenting for each resource type." />
     <MESSAGE value="Course viewer review custom cards made.&#10;TODO: Backend integration for course reviews.&#10;TODO: Course QnA For Enrolled Students&#10;TODO: Student dashboard" />
     <MESSAGE value="Course viewer review custom cards made.&#10;DONE: Backend integration for course reviews.&#10;TODO: Course QnA For Enrolled Students&#10;TODO: Student dashboard" />
     <MESSAGE value="Add nav and sidebar for resource viewers&#10;Make resource comment table&#10;Make resource comment reply table" />
@@ -815,7 +762,10 @@
     <MESSAGE value="Add front end nav, footer" />
     <MESSAGE value="Finish home&#10;Start course image feature to course creator&#10;Start course image feature to course editor&#10;Start course category feature to course creator&#10;Start course category feature to course editor" />
     <MESSAGE value="Finish login integrate with home&#10;Start quiz module" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish login integrate with home&#10;Start quiz module" />
+    <MESSAGE value="Finish quiz module&#10;Finish certificate with grades feature" />
+    <MESSAGE value="Update certificate viewer to force rotate on mobile devices and show QR code." />
+    <MESSAGE value="Get rotate.svg from fontawesome" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get rotate.svg from fontawesome" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/login - Copy/register.php" />
@@ -1159,8 +1109,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/viewCertificate.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="164" column="86" selection-start-line="164" selection-start-column="86" selection-end-line="164" selection-end-column="86" />
+        <state relative-caret-position="121">
+          <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
