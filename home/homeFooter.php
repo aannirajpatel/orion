@@ -34,8 +34,9 @@ echo "<footer>
                 <div class=\"col-lg-3 col-md-6\">
                     <h5>Contact Us</h5>
                     <ul class=\"contacts\">
-                        <li><a href=\"tel://61280932400\"><i class=\"ti-mobile\"></i> +91 1234567890</a></li>
-                        <li><a href=\"mailto:info@orionpublication.com\"><i class=\"ti-email\"></i> info@orionpublication.com</a></li>
+                        <li><a href=\"tel://61280932400\"><i class=\"ti-mobile\"></i> +91 7202998877</a></li>
+                        <li><a href=\"mailto:info@orionpublication.com\"><i class=\"ti-email\"></i>info@orionpublication.com</a></li>
+                        <li></li>
                     </ul>
                 </div>
             </div>

@@ -10,7 +10,7 @@ require('../includes/resconfig.php');
 if (isset($_POST['title'])) {
     $cid = $_POST['cid'];
     if(!isThisUsersCourse($con,$cid)) {
-        header("location:404.html");
+        header("location:404.php");
     }
     $sectionNumber = $_POST['section'];
     $title = $_POST['title'];

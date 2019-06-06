@@ -16,7 +16,7 @@ if(isset($_POST['uid']) && isThisStudentsCourse($con, $_POST['cid'])){
     header("location: viewcourse.php?cid=".$cid);
 }
 else{
-    header("location:404.html");
+    header("location:404.php");
 }
 
 ?>

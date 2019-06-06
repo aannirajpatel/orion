@@ -245,7 +245,7 @@ if (getUserType($con, $uid) == 1) {
                                 echo "(Sorry, but there is no file.)";
                             }
                         } else {
-                            header("location:404.html");
+                            header("location:404.php");
                         }
                         ?>
                     </div>

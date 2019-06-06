@@ -11,10 +11,10 @@ if (isset($_GET['cid']) && isset($_GET['section'])) {
     $cid = $_GET['cid'];
     $sectionNumber = $_GET['section'];
     if(!isThisUsersCourse($con, $cid)){
-        header("location:404.html");
+        header("location:404.php");
     }
 } else {
-    header("location:404.html");
+    header("location:404.php");
 }
 $uid = $_SESSION['uid'];
 $email = $_SESSION['email'];
@@ -222,6 +222,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                class="list-group-item list-group-item-action">Add Note</a>
                             <a href="addResourceVideo.php?rtype=1&cid=<?php echo $cid; ?>&section=<?php echo $sectionNumber; ?>"
                                class="list-group-item list-group-item-action">Add Video</a>
+                            <a href="addQuiz.php?rtype=5&cid=<?php echo $cid; ?>&section=<?php echo $sectionNumber; ?>"
+                               class="list-group-item list-group-item-action">Add Quiz</a>
                             <a href="addResourceFile.php?rtype=2&cid=<?php echo $cid; ?>&section=<?php echo $sectionNumber; ?>"
                                class="list-group-item list-group-item-action">Add Other File</a>
                             <a href="addResourceYoutubeLink.php?rtype=3&cid=<?php echo $cid; ?>&section=<?php echo $sectionNumber; ?>"

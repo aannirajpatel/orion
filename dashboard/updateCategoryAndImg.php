@@ -49,6 +49,6 @@ if (isset($_POST['cid'])) {
     }
     header("location:coursedit.php?cid=$cid");
 } else{
-    header("location:404.html");
+    header("location:404.php");
 }
 ?>

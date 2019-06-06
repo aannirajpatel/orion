@@ -10,9 +10,9 @@ require('../includes/resconfig.php');
 
 if (isset($_GET['rid'])){
     $rid = $_GET['rid'];
-    echo "hi";
+
     if (!authToEditResource($con, $rid)) {
-        header("location:404.html");
+        header("location:404.php");
     }
 
     $resToDeleteQuery = "SELECT * FROM cresources WHERE rid=$rid";
@@ -44,17 +44,19 @@ if (isset($_GET['rid'])){
             case RES_LINK:
                 $deleteExecuteQuery = mysqli_query($con, "DELETE FROM cresources WHERE rid=$rid") or die(mysqli_error($con));
                 break;
+            case RES_QUIZ:
+                $deleteExecuteQuery = mysqli_query($con, "DELETE FROM cresources WHERE rid=$rid") or die(mysqli_error($con));
+                break;
             default:
                 die("Error: Undefined resource type in database where rid is $rid. Please contact an admin");
                 break;
         }
-
         $cid = $resToDeleteData['cid'];
         header("location:coursedit.php?cid=$cid");
     } else{
-        header("location:404.html");
+        header("location:404.php");
     }
 } else {
-    header('location:404.html');
+    header('location:404.php');
 }
 ?>

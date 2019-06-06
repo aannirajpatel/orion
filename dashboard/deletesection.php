@@ -12,7 +12,7 @@ if (isset($_GET['cid']) && isset($_GET['section']) && isset($_GET['numsections']
     $cid = $_GET['cid'];
 
     if(!isThisUsersCourse($con, $cid)){
-        header("location:404.html");
+        header("location:404.php");
     }
 
     $sectionNumber = $_GET['section'];
@@ -59,6 +59,6 @@ if (isset($_GET['cid']) && isset($_GET['section']) && isset($_GET['numsections']
     header("location:coursedit.php?cid=$cid");
 }
 else{
-    header('location:404.html');
+    header('location:404.php');
 }
 ?>

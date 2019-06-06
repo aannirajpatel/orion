@@ -360,7 +360,7 @@ if (getUserType($con, $uid) == 1) {
                             echo "(This note is empty.)";
                         }
                     } else {
-                        header("location:404.html");
+                        header("location:404.php");
                     }
                     ?>
                 </div>

@@ -1,34 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dashboard/updateCategoryAndImg.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/img/contactus.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/img/courses.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/img/slides/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/contactEmail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/favicon.ico" afterDir="false" />
+    <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="Finish login integrate with home&#10;Start quiz module">
+      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/10.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/11.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/3.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/4.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/res/courseImgs/9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/img/business.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/img/engineering.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/img/programming.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login/img/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login/img/logo - Copy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login/img/logo copy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login/img/password_bgimage.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login/img/signup_bgimage.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/404.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/addResourceFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/addResourceFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/addResourceLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/addResourceLink.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/addResourceNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/addResourceNote.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/addResourceVideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/addResourceVideo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/addResourceYoutubeLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/addResourceYoutubeLink.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/blank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/buttons.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/buttons.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/cards.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/charts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/coursedit.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/coursedit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/searchcourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/searchcourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/student.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/createLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createLink.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/createNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createNote.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/createYoutubeLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createYoutubeLink.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/createresource.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createresource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/createsection.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/createsection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/creview.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/creview.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/deleteResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/deleteResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/deletesection.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/deletesection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/editFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/editFileHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editFileHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/editLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editLink.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/editLinkHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editLinkHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/editNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editNote.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/editNoteHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editNoteHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/editSection.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editSection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/editVideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editVideo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/editVideoHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editVideoHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/editYoutubeLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editYoutubeLink.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/editYoutubeLinkHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editYoutubeLinkHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/enroll.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/enroll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/img/orionLogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/img/orionLogo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/publishcourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/publishcourse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/tables.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/tables.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/trainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/trainer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/updateCategoryAndImg.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/updateCategoryAndImg.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/uploadFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/uploadFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/uploadvideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/uploadvideo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/utilities-animation.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/utilities-animation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/utilities-border.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/utilities-border.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/utilities-color.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/utilities-color.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/utilities-other.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/utilities-other.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/viewCertificate.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewCertificate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/viewFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/viewLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewLink.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/viewNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewNote.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/viewVideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewVideo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/viewYoutubeLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewYoutubeLink.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/viewcourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/viewcourse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/withdrawcourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/withdrawcourse.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/home/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/homeFooter.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/homeFooter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/homeNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/homeNav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/resconfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/resconfig.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/css/orion.css" beforeDir="false" afterPath="$PROJECT_DIR$/login/css/orion.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/forgot-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/forgot-password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/homeFooter.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/homeNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/oauth2callback.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/oauth2callback.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/resetPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/resetPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orion.sql" beforeDir="false" afterPath="$PROJECT_DIR$/orion.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -62,94 +108,121 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/index.php">
+        <entry file="file://$PROJECT_DIR$/dashboard/addQuiz.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="154" column="54" selection-start-line="154" selection-start-column="54" selection-end-line="154" selection-end-column="54" />
+            <state relative-caret-position="255">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/css/orion.css">
+        <entry file="file://$PROJECT_DIR$/dashboard/editQuiz.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="138" column="36" selection-start-line="138" selection-start-column="36" selection-end-line="138" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/resetPassword.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="54" column="41" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/register.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="73" column="36" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/login/forgot-password.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="89" column="36" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
+            <state relative-caret-position="212">
+              <caret line="270" column="106" selection-start-line="270" selection-start-column="106" selection-end-line="270" selection-end-column="106" />
               <folding>
-                <element signature="e#7#41#0#PHP" expanded="true" />
+                <element signature="n#script#5;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/searchcourse.php">
+        <entry file="file://$PROJECT_DIR$/dashboard/viewQuiz.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="64" column="29" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+            <state relative-caret-position="204">
+              <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+              <folding>
+                <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/homeNav.php">
+        <entry file="file://$PROJECT_DIR$/dashboard/viewcourse.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="158" column="20" lean-forward="true" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
+            <state relative-caret-position="119">
+              <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/css/style.css">
+        <entry file="file://$PROJECT_DIR$/dashboard/viewNote.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="1142" column="2" selection-start-line="1142" selection-start-column="2" selection-end-line="1143" selection-end-column="44" />
+            <state relative-caret-position="816">
+              <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+              <folding>
+                <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/contact.php">
+        <entry file="file://$PROJECT_DIR$/dashboard/viewResult.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="146" column="16" lean-forward="true" selection-start-line="146" selection-start-column="16" selection-end-line="146" selection-end-column="16" />
+            <state relative-caret-position="378">
+              <caret line="66" column="70" lean-forward="true" selection-start-line="66" selection-start-column="70" selection-end-line="66" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/resconfig.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="106">
+              <caret line="110" column="55" lean-forward="true" selection-start-line="110" selection-start-column="55" selection-end-line="110" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dashboard/viewCertificate.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="164" column="86" selection-start-line="164" selection-start-column="86" selection-end-line="164" selection-end-column="86" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#6;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#8;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#9;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#10;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashboard/css/orion.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="26" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/courseownershipauth.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="19" selection-start-line="19" selection-end-line="41" selection-end-column="1" />
+              <folding>
+                <element signature="n#isThisStudentsCourse#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,39 +231,38 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>contact.</find>
-      <find>contact.php</find>
-      <find>viewcourse</find>
-      <find>courses.</find>
-      <find>courses.php</find>
-      <find>$fw</find>
-      <find>dashboar</find>
-      <find>enroll</find>
-      <find>bootstrap.min</find>
-      <find>courses</find>
-      <find>isthis</find>
-      <find>$totalAu</find>
-      <find>$totalAud</find>
-      <find>auditsN</find>
-      <find>cimg</find>
-      <find>audit</find>
-      <find>img-fl</find>
-      <find>$cimg</find>
-      <find>courseName</find>
-      <find>2.6</find>
-      <find>#hero_in.contacts</find>
-      <find>&lt;form</find>
-      <find>form</find>
-      <find>&lt;form`</find>
-      <find>phone_cont</find>
-      <find>jquery</find>
-      <find>2.3</find>
-      <find>Courses list</find>
-      <find>1067</find>
-      <find>engineering</find>
+      <find>db.php</find>
+      <find>quizName</find>
+      <find>&lt;selec</find>
+      <find>ONES</find>
+      <find>quiz name</find>
+      <find>Question</find>
+      <find>input type=&quot;text&quot; name=&quot;q&lt;</find>
+      <find>Quiz Name</find>
+      <find>card</find>
+      <find>submit</find>
+      <find>$maxAttemptsQuery</find>
+      <find>header</find>
+      <find>doa</find>
+      <find>attempts</find>
+      <find>best</find>
+      <find>best score</find>
+      <find>completion</find>
+      <find>&lt;sele</find>
+      <find>&lt;select</find>
+      <find>Add a qui</find>
+      <find>&lt;titl</find>
+      <find>quiz bui</find>
+      <find>type</find>
+      <find>completionModal</find>
+      <find>isCourse</find>
+      <find>INSERT INTO coml</find>
+      <find>grade</find>
+      <find>via</find>
+      <find>$scoreMessage</find>
+      <find>cost</find>
     </findStrings>
     <replaceStrings>
-      <replace>`</replace>
       <replace>resource</replace>
       <replace>resreviews</replace>
       <replace>commtitle</replace>
@@ -220,6 +292,7 @@
       <replace>View course</replace>
       <replace>Courses</replace>
       <replace>$cimg</replace>
+      <replace>$attemptsQuery</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -228,20 +301,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dashboard/displayMessage.php" />
-        <option value="$PROJECT_DIR$/dashboard/editFile.php" />
-        <option value="$PROJECT_DIR$/dashboard/editLink.php" />
-        <option value="$PROJECT_DIR$/dashboard/editNote.php" />
-        <option value="$PROJECT_DIR$/dashboard/editProfile.php" />
-        <option value="$PROJECT_DIR$/dashboard/editSection.php" />
-        <option value="$PROJECT_DIR$/dashboard/editVideo.php" />
-        <option value="$PROJECT_DIR$/dashboard/editYoutubeLink.php" />
-        <option value="$PROJECT_DIR$/dashboard/enroll.php" />
-        <option value="$PROJECT_DIR$/dashboard/register.php" />
         <option value="$PROJECT_DIR$/dashboard/student-achievements.php" />
         <option value="$PROJECT_DIR$/dashboard/student-help.php" />
         <option value="$PROJECT_DIR$/dashboard/student-purchases.php" />
-        <option value="$PROJECT_DIR$/dashboard/trainer.php" />
         <option value="$PROJECT_DIR$/dashboard/viewFile.php" />
         <option value="$PROJECT_DIR$/dashboard/viewLink.php" />
         <option value="$PROJECT_DIR$/dashboard/viewNote.php" />
@@ -258,27 +320,38 @@
         <option value="$PROJECT_DIR$/login - Copy/homeNav.php" />
         <option value="$PROJECT_DIR$/login/homeNav.php" />
         <option value="$PROJECT_DIR$/dashboard/updateCategoryAndImg.php" />
-        <option value="$PROJECT_DIR$/dashboard/coursedit.php" />
         <option value="$PROJECT_DIR$/home/courses.php" />
         <option value="$PROJECT_DIR$/dashboard2/404.html" />
         <option value="$PROJECT_DIR$/nav.php" />
         <option value="$PROJECT_DIR$/login/nav.php" />
-        <option value="$PROJECT_DIR$/home/homeFooter.php" />
         <option value="$PROJECT_DIR$/dashboard/searchcourse.php" />
         <option value="$PROJECT_DIR$/includes/auth.php" />
         <option value="$PROJECT_DIR$/login/oauth2callback.php" />
         <option value="$PROJECT_DIR$/dashboard/student.php" />
         <option value="$PROJECT_DIR$/login/contactEmail.php" />
-        <option value="$PROJECT_DIR$/home/contact.php" />
         <option value="$PROJECT_DIR$/home/homeNav.php" />
-        <option value="$PROJECT_DIR$/dashboard/viewcourse.php" />
         <option value="$PROJECT_DIR$/home/index.php" />
         <option value="$PROJECT_DIR$/home/css/style.css" />
-        <option value="$PROJECT_DIR$/login/css/orion.css" />
         <option value="$PROJECT_DIR$/login/index.php" />
         <option value="$PROJECT_DIR$/login/resetPassword.php" />
         <option value="$PROJECT_DIR$/login/register.php" />
         <option value="$PROJECT_DIR$/login/forgot-password.php" />
+        <option value="$PROJECT_DIR$/home/contact.php" />
+        <option value="$PROJECT_DIR$/home/homeFooter.php" />
+        <option value="$PROJECT_DIR$/dashboard/trainer.php" />
+        <option value="$PROJECT_DIR$/login/css/orion.css" />
+        <option value="$PROJECT_DIR$/dashboard/createresource.php" />
+        <option value="$PROJECT_DIR$/dashboard/addResourceLink.php" />
+        <option value="$PROJECT_DIR$/dashboard/createQuiz.php" />
+        <option value="$PROJECT_DIR$/dashboard/deleteResource.php" />
+        <option value="$PROJECT_DIR$/dashboard/coursedit.php" />
+        <option value="$PROJECT_DIR$/dashboard/addQuiz.php" />
+        <option value="$PROJECT_DIR$/dashboard/editQuiz.php" />
+        <option value="$PROJECT_DIR$/dashboard/viewQuiz.php" />
+        <option value="$PROJECT_DIR$/dashboard/viewcourse.php" />
+        <option value="$PROJECT_DIR$/dashboard/viewResult.php" />
+        <option value="$PROJECT_DIR$/includes/resconfig.php" />
+        <option value="$PROJECT_DIR$/dashboard/viewCertificate.php" />
       </list>
     </option>
   </component>
@@ -347,7 +420,18 @@
             <path>
               <item name="orion" type="b2602c69:ProjectViewProjectNode" />
               <item name="orion" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="orion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="orion" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="orion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="orion" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -413,7 +497,7 @@
       <workItem from="1559219339358" duration="14057000" />
       <workItem from="1559292537696" duration="13744000" />
       <workItem from="1559367635173" duration="4959000" />
-      <workItem from="1559385071768" duration="11096000" />
+      <workItem from="1559385071768" duration="38644000" />
     </task>
     <task id="LOCAL-00001" summary="Updating course editor to bootstrap4&#10;Coursepreview is done&#10;Trainer dashboard courses page is done&#10;Profile viewer is still a work in progress&#10;Trainer pair-up pending&#10;Student side remaining&#10;Purchases">
       <created>1558502400930</created>
@@ -611,11 +695,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559301648601</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Finish login integrate with home&#10;Start quiz module">
+      <created>1559454715029</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1559454715029</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="401061000" />
+    <option name="totallyTimeSpent" value="428609000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -636,13 +727,13 @@
       <window_info anchor="bottom" id="Database Changes" order="0" weight="0.3289689" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="2" />
-      <window_info anchor="bottom" id="Find" order="3" weight="0.3289689" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.328594" />
       <window_info anchor="bottom" id="Run" order="4" />
       <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.49924356" weight="0.3633388" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" sideWeight="0.49924356" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.328594" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.328594" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.25204584" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
@@ -699,7 +790,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Updating course editor to bootstrap4&#10;Coursepreview is done&#10;Trainer dashboard courses page is done&#10;Profile viewer is still a work in progress&#10;Trainer pair-up pending&#10;Student side remaining&#10;Purchases" />
     <MESSAGE value="Updated course editor to bootstrap4" />
     <MESSAGE value="Course viewer in progress." />
     <MESSAGE value="Course viewer in progress.&#10;Course viewing done.&#10;To add: Disquis Commenting for each resource type." />
@@ -724,113 +814,10 @@
     <MESSAGE value="QnA and Course viewer hide searchbar in teacher mode" />
     <MESSAGE value="Add front end nav, footer" />
     <MESSAGE value="Finish home&#10;Start course image feature to course creator&#10;Start course image feature to course editor&#10;Start course category feature to course creator&#10;Start course category feature to course editor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish home&#10;Start course image feature to course creator&#10;Start course image feature to course editor&#10;Start course category feature to course creator&#10;Start course category feature to course editor" />
+    <MESSAGE value="Finish login integrate with home&#10;Start quiz module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish login integrate with home&#10;Start quiz module" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dashboard/viewFile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="454" column="36" selection-start-line="454" selection-start-column="36" selection-end-line="454" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/trainer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="398" selection-start-line="398" selection-end-line="398" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/viewLink.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="575" column="36" selection-start-line="575" selection-start-column="36" selection-end-line="575" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/viewNote.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="575" column="36" selection-start-line="575" selection-start-column="36" selection-end-line="575" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/viewprofile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="387" column="36" selection-start-line="387" selection-start-column="36" selection-end-line="387" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/viewVideo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="465" column="36" selection-start-line="465" selection-start-column="36" selection-end-line="465" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/viewYoutubeLink.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="459" column="36" selection-start-line="459" selection-start-column="36" selection-end-line="459" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/addAnswer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="28" column="2" lean-forward="true" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/help.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/rotateScreen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/qna.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-539">
-          <caret line="121" column="16" lean-forward="true" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/displayMessage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="102" column="35" lean-forward="true" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/css/vendors.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/assets/contact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login - Copy/index.php" />
     <entry file="file://$PROJECT_DIR$/login - Copy/register.php" />
     <entry file="file://$PROJECT_DIR$/login - Copy/homeNav.php" />
     <entry file="file://$PROJECT_DIR$/login - Copy/forgot-password.php" />
@@ -865,20 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/coursedit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4760">
-          <caret line="388" column="28" selection-start-line="388" selection-start-column="28" selection-end-line="388" selection-end-column="28" />
-          <folding>
-            <element signature="n#printType#0;n#!!top" />
-            <element signature="n#printSectionDescription#0;n#!!top" />
-            <element signature="n#loadSectionTable#0;n#!!top" />
-            <element signature="n#loadSectionName#0;n#!!top" />
-            <element signature="n#newComms#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -931,16 +904,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/nav.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/homeFooter.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/courses.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
@@ -976,17 +939,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/viewcourse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="435" column="56" selection-start-line="435" selection-start-column="56" selection-end-line="435" selection-end-column="56" />
-          <folding>
-            <element signature="e#17732#17738#0#HTML" expanded="true" />
-            <element signature="e#17738#17744#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/auth.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1015,24 +967,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/contact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="146" column="16" lean-forward="true" selection-start-line="146" selection-start-column="16" selection-end-line="146" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="154" column="54" selection-start-line="154" selection-start-column="54" selection-end-line="154" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/css/orion.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1057,12 +995,189 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/home/contact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="163" column="7" lean-forward="true" selection-start-line="163" selection-start-column="7" selection-end-line="163" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/homeFooter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/trainer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="238" lean-forward="true" selection-start-line="238" selection-end-line="238" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/css/certificateStyle.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/css/orion.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/login/forgot-password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="89" column="36" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
+        <state relative-caret-position="-323">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
           <folding>
             <element signature="e#7#41#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/createLink.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-116">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/addResourceLink.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="325" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/createresource.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="225" column="53" selection-start-line="225" selection-start-column="53" selection-end-line="225" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/deleteResource.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/coursedit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1105">
+          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+          <folding>
+            <element signature="n#printSectionDescription#0;n#!!top" />
+            <element signature="n#loadSectionName#0;n#!!top" />
+            <element signature="n#newComms#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/viewNote.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/addQuiz.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/editQuiz.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="270" column="106" selection-start-line="270" selection-start-column="106" selection-end-line="270" selection-end-column="106" />
+          <folding>
+            <element signature="n#script#5;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/viewResult.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="66" column="70" lean-forward="true" selection-start-line="66" selection-start-column="70" selection-end-line="66" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/viewQuiz.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/resconfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="110" column="55" lean-forward="true" selection-start-line="110" selection-start-column="55" selection-end-line="110" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/viewcourse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/courseownershipauth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="19" selection-start-line="19" selection-end-line="41" selection-end-column="1" />
+          <folding>
+            <element signature="n#isThisStudentsCourse#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/css/orion.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="26" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/viewCertificate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="164" column="86" selection-start-line="164" selection-start-column="86" selection-end-line="164" selection-end-column="86" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#6;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#8;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#9;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#10;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

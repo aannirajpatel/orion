@@ -15,7 +15,7 @@ require_once('../includes/config_paytm.php');
 require_once('../includes/encdec_paytm.php');
 
 if(!isset($_GET['cid'])){
-    header("location:404.html");
+    header("location:404.php");
 }
 
 $email = $_SESSION['email'];

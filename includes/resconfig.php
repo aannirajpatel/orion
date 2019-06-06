@@ -7,6 +7,7 @@ define("RES_VIDEO", 1);
 define("RES_FILE", 2);
 define("RES_YOUTUBE", 3);
 define("RES_LINK", 4);
+define("RES_QUIZ",5);
 
 function resViewFile($rtype)
 {
@@ -21,6 +22,8 @@ function resViewFile($rtype)
             return "viewYoutubeLink.php";
         case RES_LINK:
             return "viewLink.php";
+        case RES_QUIZ:
+            return "viewQuiz.php";
     }
 }
 
@@ -37,6 +40,8 @@ function resEditFile($rtype)
             return "editYoutubeLink.php";
         case RES_LINK:
             return "editLink.php";
+        case RES_QUIZ:
+            return "editQuiz.php";
     }
 }
 
@@ -101,8 +106,29 @@ function resHasBeenViewed($con, $rid, $uid)
 
 function makeEntryInCompletedCourses($con, $cid, $uid)
 {
-    $completionEntryQuery = "INSERT INTO completedcourses(cid, uid) VALUES($cid, $uid) ON DUPLICATE KEY UPDATE cid=$cid;";
-    $completionEntryResult = mysqli_query($con, $completionEntryQuery) or die(mysqli_error($con));
+    $quizRtype = RES_QUIZ;
+    $numQuizQuery = "SELECT count(*) AS numquiz FROM cresources WHERE cid=$cid AND rtype=$quizRtype";
+    $numQuizResult = mysqli_query($con, $numQuizQuery);
+    $numQuiz= mysqli_num_rows($numQuizResult);
+    if($numQuiz==0){
+        $completionEntryQuery = "INSERT INTO completedcourses(cid, uid,score) VALUES($cid, $uid,-1) ON DUPLICATE KEY UPDATE cid=$cid;";
+        $completionEntryResult = mysqli_query($con, $completionEntryQuery) or die(mysqli_error($con));
+    } else{
+        $quizQuery = "SELECT rid FROM cresources WHERE cid=$cid AND rtype=$quizRtype";
+        $quizResult = mysqli_query($con, $quizQuery) or die(mysqli_query($con));
+        $score = 0;
+        while($quizData = mysqli_fetch_array($quizResult)){
+            $quizRid = $quizData['rid'];
+            $scoreQuery = "SELECT max(score) AS bestscore FROM quizattempts WHERE uid=$uid AND quizid=$quizRid";
+            $scoreResult = mysqli_query($con, $scoreQuery) or die(mysqli_error($con));
+            $scoreData = mysqli_fetch_array($scoreResult);
+            $score+= $scoreData['bestscore'];
+        }
+        $score = $score/$numQuiz;
+        $completionEntryQuery = "INSERT INTO completedcourses(cid, uid,score) VALUES($cid, $uid, $score) ON DUPLICATE KEY UPDATE cid=$cid;";
+        $completionEntryResult = mysqli_query($con, $completionEntryQuery) or die(mysqli_error($con));
+    }
+
 }
 
 function isEntryInCompletedCourses($con, $cid, $uid)

@@ -27,9 +27,9 @@
 }
 
 .login-bg{
-    background-color: #632c8d;
-    background-color: rgba(102, 45, 145, 0.8);
-    /*background-image: linear-gradient(to right top, #662d91, #a52d88, #d13d79, #ef5d68, #ff855a);*/
+    /*background-color: #632c8d;
+    background-color: rgba(102, 45, 145, 0.8);*/
+    background-image: linear-gradient(to right top, #662d91, #a52d88, #d13d79, #ef5d68, #ff855a);
 }
 
 .bg-login-image .bg-register-image{

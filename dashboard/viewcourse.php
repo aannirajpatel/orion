@@ -75,6 +75,8 @@ function printType($rtype)
             return "YouTube Video";
         case RES_LINK:
             return "Link";
+        case RES_QUIZ:
+            return "Quiz";
     }
 }
 
@@ -91,6 +93,8 @@ function printGlyph($rtype)
             return "fab fa-youtube";
         case RES_LINK:
             return "fas fa-link";
+        case RES_QUIZ:
+            return "fas fa-scroll";
     }
 }
 
@@ -656,7 +660,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
                                     </div>
                                 </div>
                                 <br>
-                                <?php if (isThisStudentsCourse($con, $cid)) { ?>
+                                <?php if (isThisStudentsCourse($con, $cid)||isAuditing($con, $cid, $uid)) { ?>
                                     <div class="container">
                                         <form method="post" action="creview.php">
                                             <legend><?php if ($beTheFirstToReview == 1) {

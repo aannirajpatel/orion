@@ -28,6 +28,8 @@ function printType($rtype)
             return "YouTube Video";
         case RES_LINK:
             return "Link";
+        case RES_QUIZ:
+            return "Quiz";
     }
 }
 
@@ -44,6 +46,8 @@ function printGlyph($rtype)
             return "fab fa-youtube";
         case RES_LINK:
             return "fas fa-link";
+        case RES_QUIZ:
+            return "fas fa-scroll";
     }
 }
 
@@ -745,6 +749,6 @@ if (isset($_GET['cid']) && isThisUsersCourse($con, $_GET['cid'])) {
     <?php
 }
 if (!isset($_GET['cid'])) {
-    header('404.html');
+    header('404.php');
 }
 ?>

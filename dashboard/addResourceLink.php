@@ -24,7 +24,7 @@ if (isset($_GET['cid']) && isset($_GET['section']) && isset($_GET['rtype'])) {
     $rtype = $_GET['rtype'];
 
     if (!isThisUsersCourse($con, $cid)) {
-        header("location:404.html");
+        header("location:404.php");
     }
     ?>
     <!DOCTYPE html>
@@ -321,6 +321,6 @@ if (isset($_GET['cid']) && isset($_GET['section']) && isset($_GET['rtype'])) {
     <?php
 }
 if (!isset($_GET['rtype']) && !isset($_POST['vname'])) {
-    header("location:404.html");
+    header("location:404.php");
 }
 ?>

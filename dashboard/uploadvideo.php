@@ -9,7 +9,7 @@ require('../includes/courseownershipauth.php');
 if (isset($_POST['vname'])) {
     $cid = $_POST['cid'];
     if(!isThisUsersCourse($con,$cid)) {
-        header("location:404.html");
+        header("location:404.php");
     }
     $sectionNumber = $_POST['section'];
     $rtype = $_POST['rtype'];

@@ -10,7 +10,7 @@ require('../includes/courseownershipauth.php');
 require('../includes/resconfig.php');
 
 if (!isset($_GET['cid'])) {
-    header("location:404.html");
+    header("location:404.php");
 } elseif (!isThisUsersCourse($con, $_GET['cid'])) {
     die("Error withdrawing course. Unauthorized access attempt detected. Please contact admin if you think this should not be so.");
 }

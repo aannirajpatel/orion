@@ -11,7 +11,7 @@ if (isset($_POST['title'])) {
     $rid = $_POST['rid'];
 
     if(!authToEditResource($con,$rid) || !isResource($con, $rid, RES_LINK)){
-        header("location:404.html");
+        header("location:404.php");
     }
 
     $title = $_POST['title'];

@@ -239,87 +239,90 @@ while ($courseListQueryData = mysqli_fetch_array($courseListResult)) {
 
                 <!-- Content Row -->
                 <div class="row">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <td>Course Name</td>
-                                        <td>Status</td>
-                                        <td>Course Cost</td>
-                                        <td>Enrolls</td>
-                                        <td>Avg. Rating</td>
-                                        <td>Sections</td>
-                                        <td>Resources</td>
-                                        <td>Options</td>
-
-                                    </tr>
-                                    </thead>
-                                    <?php
-                                    $courseListQuery = "SELECT cid FROM ctrainers WHERE uid=$uid";
-                                    $courseListResult = mysqli_query($con, $courseListQuery) or die(mysqli_error($con));
-                                    while ($courseListQueryData = mysqli_fetch_array($courseListResult)) {
-                                        $cid = $courseListQueryData['cid'];
-
-                                        $courseQuery = "SELECT * FROM course WHERE cid=$cid";
-                                        $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
-                                        $courseData = mysqli_fetch_array($courseResult) or die(mysqli_error($con));
-                                        $courseTitle = $courseData['cname'];
-                                        $courseCost = $courseData['cost'];
-                                        $coursePublished = $courseData['published'];
-                                        $enrollsQuery = "SELECT count(*) AS enrolls FROM cstudents WHERE cid=$cid";
-                                        $enrollsResult = mysqli_query($con, $enrollsQuery) or die(mysqli_error($con));
-                                        $enrollsData = mysqli_fetch_array($enrollsResult);
-                                        $enrolls = $enrollsData['enrolls'];
-
-                                        $courseRatingExistsQuery = "SELECT count(crid) AS crating FROM creviews WHERE cid=$cid";
-                                        $courseRatingExistsResult = mysqli_query($con, $courseRatingExistsQuery) or die(mysqli_error($con));
-                                        $courseRatingExistsData = mysqli_fetch_array($courseRatingExistsResult);
-                                        $avgCourseRating = 0;
-                                        if ($courseRatingExistsData['crating'] > 0) {
-                                            $avgCourseRatingQuery = "SELECT (sum(rating)/count(crid)) AS avgcourserating FROM creviews WHERE cid=$cid";
-                                            $avgCourseRatingResult = mysqli_query($con, $avgCourseRatingQuery) or die(mysqli_error($con));
-                                            $avgCourseRatingData = mysqli_fetch_array($avgCourseRatingResult);
-                                            $avgCourseRating = $avgCourseRatingData['avgcourserating'];
-                                        }
-
-                                        $numSectionsQuery = "SELECT COUNT(section) AS numsections FROM csections WHERE cid=$cid";
-                                        $numSectionsResult = mysqli_query($con, $numSectionsQuery) or die(mysqli_error($con));
-                                        $numSectionsData = mysqli_fetch_array($numSectionsResult);
-                                        $numSections = $numSectionsData['numsections'];
-
-                                        $totalResourcesQuery = "SELECT count(*) AS totalresources FROM cresources WHERE cid=$cid";
-                                        $totalResourcesResult = mysqli_query($con, $totalResourcesQuery) or die(mysqli_error($con));
-                                        $totalResourcesData = mysqli_fetch_array($totalResourcesResult);
-                                        $totalResources = $totalResourcesData['totalresources'];
-                                        if ($coursePublished == 0) {
-                                            $publishLink = "<a class='btn btn-danger text-white' href='publishcourse.php?cid=$cid' data-toggle='tooltip' title='View'><span class='far fa-paper-plane'></span></a>";
-                                            $publishData = "Unpublished";
-                                            $previewLink = "<a href='coursepreview.php?cid=$cid' class='btn btn-primary' data-toggle='tooltip' title='Preview'><span class='far fa-eye'></span></a>";
-                                        } else {
-                                            $publishLink = "<a class='btn btn-danger text-white' href='withdrawcourse.php?cid=$cid' data-toggle='tooltip' title='Withdraw'><span class='fas fa-minus-circle'></span></a>";
-                                            $publishData = "Published";
-                                            $previewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary' data-toggle='tooltip' title='View'><span class='far fa-eye'></span></a>";
-                                        }
-
-                                        $editLink = "<a href='coursedit.php?cid=$cid' class='btn btn-success' data-toggle='tooltip' title='Edit'><span class='fas fa-pen'></span></a>";
-                                        ?>
+                    <div class="container">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
                                         <tr>
-                                            <td><?php echo $courseTitle; ?></td>
-                                            <td><?php echo $publishData; ?></td>
-                                            <td>₹ <?php echo $courseCost; ?></td>
-                                            <td><?php echo $enrolls; ?></td>
-                                            <td><?php echo $avgCourseRating; ?>%</td>
-                                            <td><?php echo $numSections; ?></td>
-                                            <td><?php echo $totalResources; ?></td>
-                                            <td><?php echo $previewLink; ?>&nbsp;<?php echo $editLink; ?>&nbsp;<?php echo $publishLink; ?></td>
-                                        </tr>
-                                        <?php
-                                    }
-                                    ?>
+                                            <td>Course Name</td>
+                                            <td>Status</td>
+                                            <td>Course Cost</td>
+                                            <td>Enrolls</td>
+                                            <td>Avg. Rating</td>
+                                            <td>Sections</td>
+                                            <td>Resources</td>
+                                            <td>Options</td>
 
-                                </table>
+                                        </tr>
+                                        </thead>
+                                        <?php
+                                        $courseListQuery = "SELECT cid FROM ctrainers WHERE uid=$uid";
+                                        $courseListResult = mysqli_query($con, $courseListQuery) or die(mysqli_error($con));
+                                        while ($courseListQueryData = mysqli_fetch_array($courseListResult)) {
+                                            $cid = $courseListQueryData['cid'];
+
+                                            $courseQuery = "SELECT * FROM course WHERE cid=$cid";
+                                            $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
+                                            $courseData = mysqli_fetch_array($courseResult) or die(mysqli_error($con));
+                                            $courseTitle = $courseData['cname'];
+                                            $courseCost = $courseData['cost'];
+                                            $coursePublished = $courseData['published'];
+                                            $enrollsQuery = "SELECT count(*) AS enrolls FROM cstudents WHERE cid=$cid";
+                                            $enrollsResult = mysqli_query($con, $enrollsQuery) or die(mysqli_error($con));
+                                            $enrollsData = mysqli_fetch_array($enrollsResult);
+                                            $enrolls = $enrollsData['enrolls'];
+
+                                            $courseRatingExistsQuery = "SELECT count(crid) AS crating FROM creviews WHERE cid=$cid";
+                                            $courseRatingExistsResult = mysqli_query($con, $courseRatingExistsQuery) or die(mysqli_error($con));
+                                            $courseRatingExistsData = mysqli_fetch_array($courseRatingExistsResult);
+                                            $avgCourseRating = 0;
+                                            if ($courseRatingExistsData['crating'] > 0) {
+                                                $avgCourseRatingQuery = "SELECT (sum(rating)/count(crid)) AS avgcourserating FROM creviews WHERE cid=$cid";
+                                                $avgCourseRatingResult = mysqli_query($con, $avgCourseRatingQuery) or die(mysqli_error($con));
+                                                $avgCourseRatingData = mysqli_fetch_array($avgCourseRatingResult);
+                                                $avgCourseRating = $avgCourseRatingData['avgcourserating'];
+                                            }
+
+                                            $numSectionsQuery = "SELECT COUNT(section) AS numsections FROM csections WHERE cid=$cid";
+                                            $numSectionsResult = mysqli_query($con, $numSectionsQuery) or die(mysqli_error($con));
+                                            $numSectionsData = mysqli_fetch_array($numSectionsResult);
+                                            $numSections = $numSectionsData['numsections'];
+
+                                            $totalResourcesQuery = "SELECT count(*) AS totalresources FROM cresources WHERE cid=$cid";
+                                            $totalResourcesResult = mysqli_query($con, $totalResourcesQuery) or die(mysqli_error($con));
+                                            $totalResourcesData = mysqli_fetch_array($totalResourcesResult);
+                                            $totalResources = $totalResourcesData['totalresources'];
+                                            if ($coursePublished == 0) {
+                                                $publishLink = "<a class='btn btn-danger text-white' href='publishcourse.php?cid=$cid' data-toggle='tooltip' title='View'><span class='far fa-paper-plane'></span></a>";
+                                                $publishData = "Unpublished";
+                                                $previewLink = "<a href='coursepreview.php?cid=$cid' class='btn btn-primary' data-toggle='tooltip' title='Preview'><span class='far fa-eye'></span></a>";
+                                            } else {
+                                                $publishLink = "<a class='btn btn-danger text-white' href='withdrawcourse.php?cid=$cid' data-toggle='tooltip' title='Withdraw'><span class='fas fa-minus-circle'></span></a>";
+                                                $publishData = "Published";
+                                                $previewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary' data-toggle='tooltip' title='View'><span class='far fa-eye'></span></a>";
+                                            }
+
+                                            $editLink = "<a href='coursedit.php?cid=$cid' class='btn btn-success' data-toggle='tooltip' title='Edit'><span class='fas fa-pen'></span></a>";
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $courseTitle; ?></td>
+                                                <td><?php echo $publishData; ?></td>
+                                                <td>₹ <?php echo $courseCost; ?></td>
+                                                <td><?php echo $enrolls; ?></td>
+                                                <td><?php echo $avgCourseRating; ?>%</td>
+                                                <td><?php echo $numSections; ?></td>
+                                                <td><?php echo $totalResources; ?></td>
+                                                <td><?php echo $previewLink; ?>&nbsp;<?php echo $editLink; ?>
+                                                    &nbsp;<?php echo $publishLink; ?></td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
+
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -396,7 +399,7 @@ while ($courseListQueryData = mysqli_fetch_array($courseListResult)) {
 </script>
 
 <script src="vendor/chart.js/Chart.min.js"></script>
-<?php require('rotateScreen.php');?>
+<?php require('rotateScreen.php'); ?>
 <?php require('js/communicationsBadge.php'); ?>
 </body>
 </html>

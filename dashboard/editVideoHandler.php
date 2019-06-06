@@ -15,7 +15,7 @@ if (isset($_POST['rid'])) {
     $rtype = RES_VIDEO;
     $vaddr = getRaddrFromRid($con, $rid);
     if (!isThisUsersCourse($con, $cid) || !isResource($con, $rid, $rtype)) {
-        header("location:404.html");
+        header("location:404.php");
     }
     if ($_FILES['vupload']['error']!=4) {
 

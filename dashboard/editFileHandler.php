@@ -15,7 +15,7 @@ if (isset($_POST['rid'])) {
     $rtype = RES_FILE;
     $faddr = getRaddrFromRid($con, $rid);
     if (!isThisUsersCourse($con, $cid) || !isResource($con, $rid, $rtype)) {
-        header("location:404.html");
+        header("location:404.php");
     }
     if ($_FILES['fupload']['error'] != 4) {
 

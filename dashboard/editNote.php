@@ -267,10 +267,10 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
                                                 </form>
                                                 <?php
                                             } else {
-                                                header("location:404.html");
+                                                header("location:404.php");
                                             }
                                         } else {
-                                            header("location:404.html");
+                                            header("location:404.php");
                                         }
                                         ?>
                                     </div>
@@ -347,6 +347,6 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 
 <?php
 if (!isset($_GET['rid'])) {
-    header("location:404.html");
+    header("location:404.php");
 }
 ?>

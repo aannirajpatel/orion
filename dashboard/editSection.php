@@ -28,14 +28,14 @@ if (isset($_POST['section']) && isset($_POST['cid'])) {
 }
 
 if (!isset($_GET['cid']) && !isset($_POST['sname'])) {
-    header('404.html');
+    header('404.php');
 }
 
 if (isset($_GET['cid']) && isset($_GET['section'])) {
     $cid = $_GET['cid'];
     $sectionNumber = $_GET['section'];
     if (!isThisUsersCourse($con, $cid)) {
-        header("location:404.html");
+        header("location:404.php");
     }
     $getSectionNameQuery = "SELECT sname,sdesc FROM csections WHERE section=$sectionNumber AND cid=$cid";
     $getSectionNameResult = mysqli_query($con, $getSectionNameQuery) or die(mysqli_error($con));

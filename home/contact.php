@@ -51,7 +51,7 @@
                     <li>
                         <i class="pe-7s-map-marker"></i>
                         <h4>Address</h4>
-                        <span>Orion E-Learning, Sayajigunj<br>Vadodara, Gujarat, India</span>
+                        <span>Orion Publication, C-505, Manubhai Towers, Sayajigunj<br>Vadodara, Gujarat, India</span>
                     </li>
                     <li>
                         <i class="pe-7s-mail-open-file"></i>

@@ -81,7 +81,7 @@ if(isset($_POST['sname'])&&isset($_POST['sdesc'])&&isset($_POST['cid'])){
     echo "Section created.";
     header("location:coursedit.php?cid=$cid");
 } if(!isset($_GET['cid'])&&!isset($_POST['sname'])) {
-    header('404.html');
+    header('404.php');
 }
 
 ?>
