@@ -96,14 +96,18 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
     <link rel="stylesheet" href="./css/certificateStyle.css" type="text/css" charset="utf-8"/>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <style>
         #warning-message {
+            background-color: dodgerblue;
+            color:white;
             display: none;
         }
 
         @media only screen and (orientation: portrait) {
             #wrapper {
+                display: none;
+            }
+            #printBtn{
                 display: none;
             }
 
@@ -162,8 +166,8 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
         </div>
     </div>
 </div>
-<div id="warning-message">Rotate your device for proper viewing<br><span id="rotateBtn" class="fas fa-sync"></span></div>
 <a href="" id="printBtn" onclick="printCertificate();">Save as PDF</a>
+<div id="warning-message">Rotate your device for proper viewing<span id="rotateIcon"></span></div>
 </body>
 <script>
     $(document).ready(function () {
