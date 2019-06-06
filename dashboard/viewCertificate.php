@@ -98,8 +98,6 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
     <link rel="stylesheet" href="./css/certificateStyle.css" type="text/css" charset="utf-8"/>
     <style>
         #warning-message {
-            background-color: dodgerblue;
-            color:white;
             display: none;
         }
 
@@ -167,7 +165,7 @@ while ($authorData = mysqli_fetch_array($authorResult)) {
     </div>
 </div>
 <a href="" id="printBtn" onclick="printCertificate();">Save as PDF</a>
-<div id="warning-message">Rotate your device for proper viewing<span id="rotateIcon"></span></div>
+<div id="warning-message">Rotate your device for proper viewing<img src="img/rotate.svg"></span></div>
 </body>
 <script>
     $(document).ready(function () {
