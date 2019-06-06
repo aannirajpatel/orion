@@ -247,6 +247,7 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
                                 $courseData = mysqli_fetch_array($courseResult) or die(mysqli_error($con));
                                 $courseTitle = $courseData['cname'];
                                 $courseDesc = $courseData['cdesc'];
+                                $cimg = $courseData['cimg'];
                                 $courseAuthorsQuery = "SELECT uid FROM ctrainers WHERE cid=$cid";
                                 $courseAuthorsResult = mysqli_query($con, $courseAuthorsQuery) or die(mysqli_error($con));
 
@@ -268,19 +269,20 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
                                 }
                                 $viewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary'>View</a>";
                                 ?>
-                                <div class="card shadow-sm">
+                                <div class="card shadow-sm" style="max-width: 25rem;">
                                     <div class="card-header">
-                                        <?php echo $courseTitle; ?>
-                                        <?php echo $completionBadge; ?>
+                                        <img src="<?php echo $cimg;?>" class="img-fluid">
                                     </div>
                                     <div class="card-body">
+                                        <h3><?php echo $courseTitle; ?></h3>
+                                        <hr>
                                         <p>
                                             <?php echo $courseDesc; ?>
                                         </p>
                                         By:&nbsp;<?php echo $courseAuthors; ?>
                                     </div>
                                     <div class="card-footer">
-                                        <?php echo $viewLink; ?>
+                                        <?php echo $viewLink; ?>&nbsp;<?php echo $completionBadge; ?>
                                     </div>
                                 </div>
                                 <?php
@@ -340,6 +342,7 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
                             $courseData = mysqli_fetch_array($courseResult) or die(mysqli_error($con));
                             $courseTitle = $courseData['cname'];
                             $courseDesc = $courseData['cdesc'];
+                            $cimg = $courseData['cimg'];
                             $courseAuthorsQuery = "SELECT uid FROM ctrainers WHERE cid=$cid";
                             $courseAuthorsResult = mysqli_query($con, $courseAuthorsQuery) or die(mysqli_error($con));
 
@@ -361,19 +364,19 @@ $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
                             }
                             $viewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary'>View</a>";
                             ?>
-                            <div class="card shadow-sm">
+                            <div class="card shadow-sm" style="max-width: 25rem;">
                                 <div class="card-header">
-                                    <?php echo $courseTitle; ?>
-                                    <?php echo $completionBadge;?>
+                                    <img src="<?php echo $cimg;?>" class="img-fluid">
                                 </div>
                                 <div class="card-body">
+                                    <h3><?php echo $courseTitle; ?></h3>
                                     <p>
                                         <?php echo $courseDesc; ?>
                                     </p>
                                     By:&nbsp;<?php echo $courseAuthors; ?>
                                 </div>
                                 <div class="card-footer">
-                                    <?php echo $viewLink; ?>
+                                    <?php echo $viewLink; ?>&nbsp;<?php echo $completionBadge;?>
                                 </div>
                             </div>
                             <?php
