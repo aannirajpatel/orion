@@ -14,6 +14,10 @@ $profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
 $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
 $message = "ERROR LOADING MESSAGE";
+if(isset($_SESSION['message'])){
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']);
+}
 if (isset($_GET['message'])) {
     $message = $_GET['message'];
 }

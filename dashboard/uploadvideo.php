@@ -47,35 +47,19 @@ if (isset($_POST['vname'])) {
     $insertVideoQuery = "INSERT INTO cresources(cid,`section`,rtype,rtext,raddr) VALUES ($cid,$sectionNumber,$rtype,'$vname','$vaddr')";
     $insertVideoResult = mysqli_query($con, $insertVideoQuery) or die(mysqli_error($con));
     $commitExecuteQuery = mysqli_query($con, "COMMIT") or die(mysqli_error($con));
-    ?>
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Upload Video</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-    <br>
-    <br>
-    <div class="container">
-        <h3>Video Successfully Added!</h3>
+    $message="
+    <h3>Video Successfully Added!</h3>
         <hr>
-        <a class="btn btn-success" href='coursedit.php?<?php echo "cid=$cid";?>'>Go back to course editor</a>
+        <a class=\"btn btn-success\" href='coursedit.php?cid=$cid'>Go back to course editor</a>
         <br>
-        <a class="btn btn-success" href='createresource.php?<?php echo "cid=$cid&section=$sectionNumber&rtype=$rtype";?>'>Add another resource to
+        <a class=\"btn btn-success\" href='createresource.php?cid=$cid&section=$sectionNumber&rtype=$rtype'>Add another resource to
         selected section.</a>
         <br>
-        <a class="btn btn-success" href='addResourceVideo.php?<?php echo "cid=$cid&section=$sectionNumber&rtype=$rtype";?>'>Add another video to
+        <a class=\"btn btn-success\" href='addResourceVideo.php?cid=$cid&section=$sectionNumber&rtype=$rtype'>Add another video to
         selected section.</a>
-    </div>
-    </body>
-    </html>
-    <?php
+    ";
+    $_SESSION['message']=$message;
+    header("location:displayMessage.php");
 } else {
     die("not ok");
 }
