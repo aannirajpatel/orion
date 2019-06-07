@@ -62,7 +62,7 @@
                     <li>
                         <i class="pe-7s-phone"></i>
                         <h4>Contacts info</h4>
-                        <span>+ 91 1234567890<br><small>Monday to Friday 9am - 7pm</small></span>
+                        <span>+ 91 7202998877<br><small>Monday to Friday 9am - 7pm</small></span>
                     </li>
                 </ul>
             </div>
@@ -74,6 +74,7 @@
                 <div class="row justify-content-between">
                     <div class="col-lg-5">
                         <div class="map_contact">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.1922921474347!2d73.18407024989033!3d22.308566248161636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcf8817c97477%3A0xb4269cecb92f8584!2sGlobal+BizConnect!5e0!3m2!1sen!2sin!4v1550908310980" width="750" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe>
                         </div>
                         <!-- /map -->
                     </div>
@@ -158,7 +159,6 @@
 <script src="assets/validate.js"></script>
 
 <!-- SPECIFIC SCRIPTS -->
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
 <script type="text/javascript" src="js/mapmarker.jquery.js"></script>
 <script type="text/javascript" src="js/mapmarker_func.jquery.js"></script>
 </body>
