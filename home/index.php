@@ -147,14 +147,28 @@ $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
                 <h2>Course Categories</h2>
                 <p>Pick your passion.</p>
             </div>
+            <?php
+            $countQuery = "SELECT count(*) AS numBusiness FROM course WHERE category='Business'";
+            $countResult = mysqli_query($con, $countQuery) or die(mysqli_error($con));
+            $countData = mysqli_fetch_array($countResult);
+            $businessCount = $countData['numBusiness'];
+            $countQuery = "SELECT count(*) AS numEngg FROM course WHERE category='Engineering'";
+            $countResult = mysqli_query($con, $countQuery) or die(mysqli_error($con));
+            $countData = mysqli_fetch_array($countResult);
+            $enggCount = $countData['numEngg'];
+            $countQuery = "SELECT count(*) AS numProg FROM course WHERE category='Programming'";
+            $countResult = mysqli_query($con, $countQuery) or die(mysqli_error($con));
+            $countData = mysqli_fetch_array($countResult);
+            $progCount = $countData['numProg'];
+            ?>
             <div class="row">
                 <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-                    <a href="#0" class="grid_item">
+                    <a href="courses.php?category='Business'" class="grid_item">
                         <figure class="block-reveal">
                             <div class="block-horizzontal"></div>
                             <img src="img/business.jpg" class="img-fluid" alt="">
                             <div class="info">
-                                <small><i class="ti-layers"></i>15 Courses</small>
+                                <small><i class="ti-layers"></i><?php echo $businessCount;?> Courses</small>
                                 <h3>Business</h3>
                             </div>
                         </figure>
@@ -162,12 +176,12 @@ $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
                 </div>
                 <!-- /grid_item -->
                 <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-                    <a href="#0" class="grid_item">
+                    <a href="courses.php?category=Engineering" class="grid_item">
                         <figure class="block-reveal">
                             <div class="block-horizzontal"></div>
                             <img src="img/engineering.jpg" class="img-fluid" alt="">
                             <div class="info">
-                                <small><i class="ti-layers"></i>23 Courses</small>
+                                <small><i class="ti-layers"></i><?php echo $enggCount;?> Courses</small>
                                 <h3>Engineering</h3>
                             </div>
                         </figure>
@@ -175,12 +189,12 @@ $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
                 </div>
                 <!-- /grid_item -->
                 <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-                    <a href="#0" class="grid_item">
+                    <a href="courses.php?category=Programming" class="grid_item">
                         <figure class="block-reveal">
                             <div class="block-horizzontal"></div>
                             <img src="img/programming.jpg" class="img-fluid" alt="">
                             <div class="info">
-                                <small><i class="ti-layers"></i>23 Courses</small>
+                                <small><i class="ti-layers"></i><?php echo $progCount;?> Courses</small>
                                 <h3>Programming</h3>
                             </div>
                         </figure>

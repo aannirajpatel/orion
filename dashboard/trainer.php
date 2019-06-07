@@ -88,7 +88,7 @@ while ($courseListQueryData = mysqli_fetch_array($courseListResult)) {
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
             <div class="sidebar-brand-icon">
-                <i class="fas fa-atom"></i>
+                <img class="img-fluid" style="max-width: 2rem;" src="img/orionMiniLogo.png">
             </div>
             <div class="sidebar-brand-text mx-3">Orion</div>
         </a>
@@ -311,7 +311,7 @@ while ($courseListQueryData = mysqli_fetch_array($courseListResult)) {
                                                 <td><?php echo $publishData; ?></td>
                                                 <td>₹ <?php echo $courseCost; ?></td>
                                                 <td><?php echo $enrolls; ?></td>
-                                                <td><?php echo $avgCourseRating; ?>%</td>
+                                                <td><?php echo round($avgCourseRating,1); ?> <span class="far fa-star"></span></td>
                                                 <td><?php echo $numSections; ?></td>
                                                 <td><?php echo $totalResources; ?></td>
                                                 <td><?php echo $previewLink; ?>&nbsp;<?php echo $editLink; ?>

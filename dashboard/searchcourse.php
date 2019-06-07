@@ -13,32 +13,41 @@ $profileImageFileNameResult = mysqli_query($con, $profileImageFileNameQuery) or 
 $profileImageFileNameData = mysqli_fetch_array($profileImageFileNameResult);
 $profileImageFileName = $profileImageFileNameData['profileImageFileName'];
 $profileImageFileAddress = $userProfileImageFolder . $profileImageFileName;
-if(!isset($_GET['q'])){
-    header("location:student.php");
-}
-$searchText = mysqli_real_escape_string($con, $_GET['q']);
-$searchText = strtolower($searchText);
-$searchText = preg_replace('/[^a-z0-9 -]+/', '', $searchText);
-$searchText = str_replace(' ', '-', $searchText);
-$searchText = trim($searchText, '-');
-$searchText = explode("-",$searchText);
-$searchTextWordCount = count($searchText);
-$searchQuery = "";
-if($searchTextWordCount<1){
-    echo "<div class='alert alert-dismissible alert-warning'>Invalid Search Query</div>";
-}
-else {
-    $searchQuery = "SELECT * FROM course INNER JOIN csyllabus ON (course.cid=csyllabus.cid AND published=1) WHERE ";
-    foreach ($searchText as $searchWord) {
-        $searchQuery .= "LOWER(cname) LIKE ('%$searchWord%') OR LOWER(cdesc) LIKE('%$searchWord%') OR LOWER(csyllabus) LIKE('%$searchWord%')";
-        $searchTextWordCount--;
-        if ($searchTextWordCount > 0) {
-            $searchQuery .= " OR ";
-        }
+if(isset($_GET['q'])){
+    $searchText = mysqli_real_escape_string($con, $_GET['q']);
+    $searchText = strtolower($searchText);
+    $searchText = preg_replace('/[^a-z0-9 -]+/', '', $searchText);
+    $searchText = str_replace(' ', '-', $searchText);
+    $searchText = trim($searchText, '-');
+    $searchText = explode("-",$searchText);
+    $searchTextWordCount = count($searchText);
+    $searchQuery = "";
+    if($searchTextWordCount<1){
+        echo "<div class='alert alert-dismissible alert-warning'>Invalid Search Query</div>";
     }
+    else {
+        $searchQuery = "SELECT * FROM course INNER JOIN csyllabus ON (course.cid=csyllabus.cid AND published=1) WHERE ";
+        foreach ($searchText as $searchWord) {
+            $searchQuery .= "LOWER(cname) LIKE ('%$searchWord%') OR LOWER(cdesc) LIKE('%$searchWord%') OR LOWER(csyllabus) LIKE('%$searchWord%') OR LOWER(category) LIKE('%$searchWord%')";
+            $searchTextWordCount--;
+            if ($searchTextWordCount > 0) {
+                $searchQuery .= " OR ";
+            }
+        }
+        if(isset($_GET['category'])){
+            $searchQuery.= " AND category='".mysqli_real_escape_string($con,$_GET['category'])."'";
+        }
+        $searchQueryResult = mysqli_query($con, $searchQuery) or die($con);
+        //Uncomment the line below for DEBUG Purposes
+        //echo $searchQuery;
+    }
+} else{
+    $searchQuery = "SELECT course.cid AS courseid, category, cname, cdesc, cost, cimg, count(cstudents.uid) AS enrolls FROM course INNER JOIN cstudents ON cstudents.cid=course.cid";
+    if(isset($_GET['category'])){
+        $searchQuery .= " AND category='".mysqli_real_escape_string($con,$_GET['category']);
+    }
+    $searchQuery.= " GROUP BY course.cid ORDER BY count(cstudents.uid) DESC";
     $searchQueryResult = mysqli_query($con, $searchQuery) or die($con);
-    //Uncomment the line below for DEBUG Purposes
-    //echo $searchQuery;
 }
 ?>
 
@@ -116,6 +125,10 @@ else {
                 <i class="fas fa-fw fa-question"></i>
                 <span>Help</span></a>
         </li>
+
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
 
     </ul>
     <!-- End of Sidebar -->
@@ -235,14 +248,18 @@ else {
                     <div class="card-columns">
                         <?php
                         while ($courseListQueryData = mysqli_fetch_array($searchQueryResult)) {
-                            $cid = $courseListQueryData['cid'];
+                            if(isset($courseListQueryData['cid'])){
+                                $cid = $courseListQueryData['cid'];
+                            } else{
+                                $cid = $courseListQueryData['courseid'];
+                            }
 
                             $courseQuery = "SELECT * FROM course WHERE cid=$cid";
                             $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
                             $courseData = mysqli_fetch_array($courseResult) or die(mysqli_error($con));
                             $courseTitle = $courseData['cname'];
                             $courseDesc = $courseData['cdesc'];
-
+                            $cimg = $courseData['cimg'];
                             $courseRatingsExistQuery = "SELECT count(*) AS reviews FROM creviews WHERE cid=$cid";
                             $courseRatingsExistResult = mysqli_query($con, $courseRatingsExistQuery) or die(mysqli_error($con));
                             $courseRatingsExistData = mysqli_fetch_array($courseRatingsExistResult);
@@ -273,20 +290,20 @@ else {
 
                             $viewLink = "<a href='viewcourse.php?cid=$cid' class='btn btn-primary'>View</a>";
                             ?>
-                            <div class="card shadow-sm">
+                            <div class="card shadow-sm" style="max-width: 25rem;">
                                 <div class="card-header">
-                                    <?php echo $courseTitle; ?>
-                                    <span class="far fa-star"></span>
-                                    <?php echo round($avgCourseRating,1);?>/5
+                                    <img class="img-fluid" src="<?php echo $cimg;?>">
                                 </div>
                                 <div class="card-body">
+                                    <h3><?php echo $courseTitle; ?></h3>
                                     <p>
                                         <?php echo $courseDesc; ?>
                                     </p>
                                     By:&nbsp;<?php echo $courseAuthors; ?>
                                 </div>
                                 <div class="card-footer">
-                                    <?php echo $viewLink; ?>
+                                    <?php echo $viewLink; ?>&nbsp;<span class="far fa-star"></span>
+                                    <?php echo round($avgCourseRating,1);?>/5
                                 </div>
                             </div>
                             <?php
