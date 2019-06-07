@@ -134,7 +134,7 @@ $courseResult = mysqli_query($con, $courseQuery) or die(mysqli_error($con));
             </div>
             <!-- /carousel -->
             <div class="container">
-                <p class="btn_home_align"><a href="courses-grid.html" class="btn_1 rounded">View all courses</a></p>
+                <p class="btn_home_align"><a href="courses.php" class="btn_1 rounded">View all courses</a></p>
             </div>
             <!-- /container -->
             <hr>

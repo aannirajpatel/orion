@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1b5f800e-3b03-4bbc-a76c-4bb749259054" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/displayMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/displayMessage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editFileHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editFileHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editLinkHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editLinkHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editNoteHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editNoteHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editVideoHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editVideoHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/editYoutubeLinkHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/editYoutubeLinkHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/uploadvideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/uploadvideo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/index.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,21 +36,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/trainer.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/home/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="138">
-              <caret line="90" column="16" selection-start-line="90" selection-start-column="16" selection-end-line="90" selection-end-column="92" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+              <caret line="136" column="62" selection-start-line="136" selection-start-column="62" selection-end-line="136" selection-end-column="62" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/404.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -104,11 +90,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/editSection.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
               <caret line="348" lean-forward="true" selection-start-line="348" selection-end-line="348" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home/contact.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="64" column="45" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
+              <folding>
+                <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,10 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>completionModal</find>
-      <find>isCourse</find>
-      <find>INSERT INTO coml</find>
-      <find>grade</find>
       <find>via</find>
       <find>$scoreMessage</find>
       <find>cost</find>
@@ -165,6 +159,10 @@
       <find>business</find>
       <find>atom</find>
       <find>active</find>
+      <find>map</find>
+      <find>Contacts info</find>
+      <find>gr</find>
+      <find>view all</find>
     </findStrings>
     <replaceStrings>
       <replace>resource</replace>
@@ -226,7 +224,6 @@
         <option value="$PROJECT_DIR$/login/resetPassword.php" />
         <option value="$PROJECT_DIR$/login/register.php" />
         <option value="$PROJECT_DIR$/login/forgot-password.php" />
-        <option value="$PROJECT_DIR$/home/contact.php" />
         <option value="$PROJECT_DIR$/home/homeFooter.php" />
         <option value="$PROJECT_DIR$/login/css/orion.css" />
         <option value="$PROJECT_DIR$/dashboard/createresource.php" />
@@ -246,7 +243,6 @@
         <option value="$PROJECT_DIR$/dashboard/addResourceLink.php" />
         <option value="$PROJECT_DIR$/dashboard/searchcourse.php" />
         <option value="$PROJECT_DIR$/home/courses.php" />
-        <option value="$PROJECT_DIR$/home/index.php" />
         <option value="$PROJECT_DIR$/dashboard/trainer.php" />
         <option value="$PROJECT_DIR$/dashboard/404.php" />
         <option value="$PROJECT_DIR$/dashboard/displayMessage.php" />
@@ -256,6 +252,8 @@
         <option value="$PROJECT_DIR$/dashboard/editNoteHandler.php" />
         <option value="$PROJECT_DIR$/dashboard/editLinkHandler.php" />
         <option value="$PROJECT_DIR$/dashboard/editFileHandler.php" />
+        <option value="$PROJECT_DIR$/home/contact.php" />
+        <option value="$PROJECT_DIR$/home/index.php" />
       </list>
     </option>
   </component>
@@ -395,7 +393,7 @@
       <workItem from="1559219339358" duration="14057000" />
       <workItem from="1559292537696" duration="13744000" />
       <workItem from="1559367635173" duration="4959000" />
-      <workItem from="1559385071768" duration="52087000" />
+      <workItem from="1559385071768" duration="54070000" />
     </task>
     <task id="LOCAL-00001" summary="Updating course editor to bootstrap4&#10;Coursepreview is done&#10;Trainer dashboard courses page is done&#10;Profile viewer is still a work in progress&#10;Trainer pair-up pending&#10;Student side remaining&#10;Purchases">
       <created>1558502400930</created>
@@ -656,11 +654,39 @@
       <option name="project" value="LOCAL" />
       <updated>1559892988184</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Prepare for publishing">
+      <created>1559896074857</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1559896074857</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Prepare for publishing">
+      <created>1559896193683</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1559896193683</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Prepare for publishing">
+      <created>1559896201282</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1559896201282</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Prepare for publishing">
+      <created>1559896925964</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1559896925964</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="442052000" />
+    <option name="totallyTimeSpent" value="444035000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -673,8 +699,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.2065053" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.2065053" />
       <window_info id="Structure" order="1" sideWeight="0.502439" side_tool="true" weight="0.1913767" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="0" weight="0.3289689" />
@@ -686,7 +713,7 @@
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" sideWeight="0.49924356" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32569557" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32569557" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.25204584" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.328594" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
@@ -838,13 +865,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="73" column="36" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/contact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="163" column="7" lean-forward="true" selection-start-line="163" selection-start-column="7" selection-end-line="163" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1087,13 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/trainer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -1160,6 +1173,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="348" lean-forward="true" selection-start-line="348" selection-end-line="348" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/contact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="64" column="45" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="136" column="62" selection-start-line="136" selection-start-column="62" selection-end-line="136" selection-end-column="62" />
         </state>
       </provider>
     </entry>
