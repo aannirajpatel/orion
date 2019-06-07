@@ -15,11 +15,14 @@ if(isset($_GET['q'])){
     else {
         $searchQuery = "SELECT * FROM course INNER JOIN csyllabus ON (course.cid=csyllabus.cid AND published=1) WHERE ";
         foreach ($searchText as $searchWord) {
-            $searchQuery .= "LOWER(cname) LIKE ('%$searchWord%') OR LOWER(cdesc) LIKE('%$searchWord%') OR LOWER(csyllabus) LIKE('%$searchWord%')";
+            $searchQuery .= "LOWER(cname) LIKE ('%$searchWord%') OR LOWER(cdesc) LIKE('%$searchWord%') OR LOWER(csyllabus) LIKE('%$searchWord%') OR LOWER(category) LIKE('%$searchWord%')";
             $searchTextWordCount--;
             if ($searchTextWordCount > 0) {
                 $searchQuery .= " OR ";
             }
+        }
+        if(isset($_GET['category'])){
+            $searchQuery.= " AND category='".mysqli_real_escape_string($con,$_GET['category'])."'";
         }
         $searchQueryResult = mysqli_query($con, $searchQuery) or die($con);
         //Uncomment the line below for DEBUG Purposes
@@ -56,12 +59,12 @@ if(isset($_GET['q'])){
 </head>
 
 <body>
-	
+
 	<div id="page">
-		
+
 	<?php require 'homeNav.php'; ?>
 	<!-- /header -->
-	
+
 	<main>
 		<section id="hero_in" class="courses">
 			<div class="wrapper">
@@ -70,6 +73,9 @@ if(isset($_GET['q'])){
                     <?php
                     if(isset($_GET['q'])){
                         echo "<h1 class='fadeInUp'>RELATED TO <br>'".$_GET['q']."'</h1>";
+                    }
+                    if(isset($_GET['category'])){
+                        echo "<h1 class='fadeInUp'> CATEGORY: ".$_GET['category']."</h1>";
                     }
                     ?>
 				</div>
@@ -93,11 +99,15 @@ if(isset($_GET['q'])){
                         $enrollsData = mysqli_fetch_array($enrollsResult);
                         $enrolls = $enrollsData['enrolls'];
                     }
+
                     $cname = $courseData['cname'];
                     $cost = $courseData['cost'];
                     $cimg = "../dashboard/".$courseData['cimg'];
                     $cdesc = $courseData['cdesc'];
                     $category = $courseData['category'];
+                    if(isset($_GET['category']) && $category!=mysqli_real_escape_string($con,$_GET['category'])){
+                        continue;
+                    }
                     $totalReviewsQuery = "SELECT count(*) as totalreviews, avg(rating) AS avgrating FROM creviews WHERE cid=$cid";
                     $totalReviewsResult = mysqli_query($con, $totalReviewsQuery) or die(mysqli_error($con));
                     $totalReviewsData = mysqli_fetch_array($totalReviewsResult);
@@ -107,8 +117,7 @@ if(isset($_GET['q'])){
                     <div class="courseCard col-xl-4 col-lg-6 col-md-6">
                         <div class="box_grid wow">
                             <figure class="block-reveal">
-                                <div class="block-horizzontal"></div>
-                                <a href="#0" class="wish_bt"></a>
+                                <div class="block-horizontal"></div>
                                 <a href="../dashboard/viewcourse.php?cid=<?php echo $cid;?>"><img src="<?php echo $cimg; ?>" class="img-fluid"
                                                                   alt=""></a>
                                 <div class="price">₹<?php echo $cost;?></div>
@@ -186,12 +195,12 @@ if(isset($_GET['q'])){
 		<!-- /bg_color_1 -->
 	</main>
 	<!--/main-->
-	
+
 	<?php require 'homeFooter.php';?>
 	<!--/footer-->
 	</div>
 	<!-- page -->
-	
+
 	<!-- COMMON SCRIPTS -->
     <script src="js/jquery-2.2.4.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
