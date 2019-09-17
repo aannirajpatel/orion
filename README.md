@@ -1,5 +1,5 @@
 # orion
-An E-learning website I made during internship at Global BizConnect, Vadodara
+An E-learning website I made during my internship at Global BizConnect, Vadodara
 
 # Copyrights and Licensing
 This is a project that I have made while interning at Global BizConnect, Vadodara, India.\
