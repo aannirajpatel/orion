@@ -1,5 +1,6 @@
 # orion
-An E-learning website I made during my internship at Global BizConnect, Vadodara
+An E-learning website I made during my internship at Global BizConnect, Vadodara.
+I have used HTML, CSS, JavaScript, AJAX, Bootstrap, PHP, MySQL, Google Auth API and a lot more while creating it.
 
 # Copyrights and Licensing
 This is a project that I have made while interning at Global BizConnect, Vadodara, India.\
